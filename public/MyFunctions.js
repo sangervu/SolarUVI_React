@@ -1,7 +1,7 @@
 function myFunctions() {
 
     // tämä funktio käynnistää ohjelman (html pääsivulla on onload="myFunctions()" event handler
-    
+
     document.querySelector('#find-me').addEventListener('click', getLocation);
     document.querySelector('#new-location').addEventListener('click', newLocation);
     document.querySelector('#get-date').addEventListener('click', newDate);
@@ -41,5 +41,34 @@ function myFunctions() {
     document.getElementById("demo21").innerHTML = "sun rize nautical = " + timeHour(pos.solarPositionLocal.timeRizeNautical) + ":" + timeMinute(pos.solarPositionLocal.timeRizeNautical);
     document.getElementById("demo22").innerHTML = "sun rize astronomical = " + timeHour(pos.solarPositionLocal.timeRizeAstronomical) + ":" + timeMinute(pos.solarPositionLocal.timeRizeAstronomical);
     document.getElementById("demo23").innerHTML = "latitude of polar night (north) = " + pos.solarPositionLocal.latitudePolarNight;
-    document.getElementById("demo24").innerHTML = "length of day = " + timeHour(pos.solarPositionLocal.dayLength)  + " hours " + timeMinute(pos.solarPositionLocal.dayLength) + " minutes";
+    document.getElementById("demo24").innerHTML = "length of day = " + timeHour(pos.solarPositionLocal.dayLength) + " hours " + timeMinute(pos.solarPositionLocal.dayLength) + " minutes";
+
+    const myResults = {
+        currentSunElevation: pos.solarPositionLocal.currentSunElevation,
+        maxSunElevation: pos.solarPositionLocal.maxSunElevation,
+        currentSunAzimuth: pos.solarPositionLocal.currentSunAzimuth,
+        azimuthNSEW: NorthSouthEastWest(pos.solarPositionLocal.currentSunAzimuth),
+        uvIndex: sol.solarCalculations.uvIndex,
+        uvIndexMax: sol.solarCalculations.uvIndexMax,
+        uvIndexOverThree: sol.solarCalculations.uvIndexOverThree,
+        uvIndexEnd: sol.solarCalculations.uvIndexEnd,
+        uvIndexMaxAnnual: sol.solarCalculations.uvIndexMaxAnnual,
+        uviWarning: UviWarning(sol.solarCalculations.uvIndex),
+        solarPower: sol.solarCalculations.solarPower,
+        solarPowerMax: sol.solarCalculations.solarPowerMax,
+        solarPowerMaxAnnual: sol.solarCalculations.solarPowerMaxAnnual,
+        solarPowerAquired: sol.solarCalculations.solarPowerMaxAnnual,
+        timeRize: pos.solarPositionLocal.timeRize,
+        timeSunSouth: pos.solarPositionLocal.timeSunSouth,
+        timeSet: pos.solarPositionLocal.timeSet,
+        timeSetCivil: pos.solarPositionLocal.timeSetCivil,
+        timeSetNautical: pos.solarPositionLocal.timeSetNautical,
+        timeSetAstronomical: pos.solarPositionLocal.timeSetAstronomical,
+        timeRizeCivil: pos.solarPositionLocal.timeRizeCivil,
+        timeRizeNautical: pos.solarPositionLocal.timeRizeNautical,
+        timeRizeAstronomical: pos.solarPositionLocal.timeRizeAstronomical,
+        latitudePolarNight: pos.solarPositionLocal.latitudePolarNight,
+        dayLength: pos.solarPositionLocal.dayLength
+    }
+    this.myResults = myResults;
 }
