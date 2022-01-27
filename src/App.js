@@ -1,27 +1,33 @@
+import { useState } from "react";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
-import '../public/myFunctions.js';
 
 function Item(props) {
   return <div className="item">
-  <b>{props.name}</b> <br />
-  <b>Degrees:</b> {props.value}
+    <b>{props.name}</b> <br />
+    <b>Degrees:</b> {props.value}
   </div>;
 }
 
-// document.getElementById("demo1").innerHTML = "" + pos.solarPositionLocal.currentSunElevation;
-// document.getElementById("demo2").innerHTML = "" + pos.solarPositionLocal.maxSunElevation;
-// document.getElementById("demo3").innerHTML = "" + pos.solarPositionLocal.currentSunAzimuth;
-// document.getElementById("demo4").innerHTML = "" + NorthSouthEastWest(pos.solarPositionLocal.currentSunAzimuth);
-var cse = 
-
 function App() {
+  const [app, setApp] = useState({
+    cse: "0.0",
+    mse: "0.0",
+    csa: "0.0",
+    CSA: "0.0"
+  });
+  const updateSolarCalculations = () => {
+    setApp(previousState => {
+      return { ...previousState, cse: "1.0" }
+    });
+  }
+
   return <div>
-    <Item name="current sun elevation:" value="0.00" />
-    <Item name="max sun elevation (true):" value="0.00" />
-    <Item name="current sun azimuth:" value="0.00" />
-    <Item name="current sun azimuth:" value="0.00" />
+    <Item name="current sun elevation:" value={app.cse} />
+    <Item name="max sun elevation (true):" value={app.mse} />
+    <Item name="current sun azimuth:" value={app.csa} />
+    <Item name="current sun azimuth:" value={app.CSA} />
   </div>;
 }
 
