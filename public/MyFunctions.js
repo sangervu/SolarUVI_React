@@ -1,10 +1,18 @@
+// import './common/calendar.js';
+// import './common/common.js';
+// import './common/location.js';
+// import './common/northSouthEastWest.js';
+// import './common/uviWarnings.js';
+// import './calculations/solarCalculations.js';
+// import './calculations/solarPositions.js';
+
 function myFunctions() {
 
     // tämä funktio käynnistää ohjelman (html pääsivulla on onload="myFunctions()" event handler
 
-    document.querySelector('#find-me').addEventListener('click', getLocation);
-    document.querySelector('#new-location').addEventListener('click', newLocation);
-    document.querySelector('#get-date').addEventListener('click', newDate);
+    // document.querySelector('#find-me').addEventListener('click', getLocation);
+    // document.querySelector('#new-location').addEventListener('click', newLocation);
+    // document.querySelector('#get-date').addEventListener('click', newDate);
 
     setDate();
     let pos = new positions();
@@ -71,4 +79,4 @@ function myFunctions() {
         dayLength: pos.solarPositionLocal.dayLength
     }
     this.myResults = myResults;
-}
+};
