@@ -2,6 +2,7 @@ import { useState } from "react";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
+import myFunctions from './myFunctions';
 
 function App() {
   const [app, setApp] = useState({
@@ -25,6 +26,12 @@ function App() {
   </div>;
 
   function updateSolarCalculations() {
+
+    let solarResults = new myFunctions();
+    let exampleResult = solarResults.uvIndex;
+    let exampleResult2 = solarResults.currentSunElevation;
+
+
     setApp(previousState => {
       return { ...previousState, cse: "1.0", mse: "2.0", csa: "3.0", CSA: "4.0" }
     });
