@@ -9,7 +9,7 @@ function App() {
     cse: "0.0",
     mse: "0.0",
     csa: "0.0",
-    CSA: "0.0"
+    CSA: "--"
   });
   function Item(props) {
     return <div className="item">
@@ -21,7 +21,7 @@ function App() {
     <Item name="current sun elevation:" value={app.cse} />
     <Item name="max sun elevation (true):" value={app.mse} />
     <Item name="current sun azimuth:" value={app.csa} />
-    <Item name="current sun azimuth:" value={app.CSA} />
+    <Item name="current sun azimuth NSEW:" value={app.CSA} />
     <button onClick={updateSolarCalculations}>Update Solar Calculations</button>
   </div>;
 
@@ -34,7 +34,7 @@ function App() {
     let CSA = solarResults.azimuthNSEW;
 
     setApp(previousState => {
-      return { ...previousState, cse: "1.0", mse: "2.0", csa: "3.0", CSA: "4.0" }
+      return { ...previousState, cse: {cse}, mse: {mse}, csa: {csa}, CSA: {CSA} }
     });
   }
 }
