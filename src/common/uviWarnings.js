@@ -1,5 +1,5 @@
 
-UviWarning = uvIndex => {
+uviWarning = uvIndex => {
     // varoitustekstit UVI säteilyn intensiteetin mukaan
     if (uvIndex >= 10) {
         SetUviWarnings("PYSY POIS AURINGOSTA!", "rgb(153,140,255)", "Black");

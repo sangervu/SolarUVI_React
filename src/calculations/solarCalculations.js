@@ -1,30 +1,35 @@
+// import locations from '../common/locations';
+// import calendar from '../common/calendar';
+// import utils from './common/utils';
 
-function calculations(pos) {
+function solarCalculations(pos) {
+
+    const latitude = MathNew.deg2rad(60.20);
     
-    //double uvIndexOverTwoRad = Math.toRadians(90.0 - 55.0); //degrees in Sun elevation, UV
+    //double uvIndexOverTwoRad = MathNew.deg2rad(90.0 - 55.0); //degrees in Sun elevation, UV
     const a = 2.696056;
     const b = 5.474571;
     const c = -0.09888;
     const d = 0.040392;
-    let currentSunElevation = toRadians(pos.solarPositionLocal.currentSunElevation);
-    let maxSunElevation = toRadians(pos.solarPositionLocal.maxSunElevation);
+    let currentSunElevation = MathNew.deg2rad(pos.solarPositionLocal.currentSunElevation);
+    let maxSunElevation = MathNew.deg2rad(pos.solarPositionLocal.maxSunElevation);
     let maxSunElevationAnnual;
-    let epsilon = toDegrees(pos.solarPositionTrue.epsilon);
+    let epsilon = MathNew.rad2deg(pos.solarPositionTrue.epsilon);
 
-    if (locations.latitude < epsilon && locations.latitude > -epsilon) {
-        maxSunElevationAnnual = toRadians(90.);
-    } else if (locations.latitude > epsilon) {
-        maxSunElevationAnnual = toRadians(90. - locations.latitude + epsilon);
+    if (MathNew.rad2deg(latitude) < epsilon && MathNew.rad2deg(latitude) > -epsilon) {
+        maxSunElevationAnnual = MathNew.deg2rad(90.);
+    } else if (MathNew.rad2deg.latitude > epsilon) {
+        maxSunElevationAnnual = MathNew.deg2rad(90. - MathNew.rad2deg(latitude) + epsilon);
     } else {
-        maxSunElevationAnnual = toRadians(90. + locations.latitude + epsilon);
+        maxSunElevationAnnual = MathNew.deg2rad(90. + MathNew.rad2deg(latitude) + epsilon);
     }
     let m = 1. / (Math.cos(Math.asin(6371. / 6393. * Math.sin((Math.PI / 2 - currentSunElevation)))));
-    let uvIndexLimit = toRadians(90.0 - 48.0); //degrees in Sun elevation, UVI > 3
+    let uvIndexLimit = MathNew.deg2rad(90.0 - 48.0); //degrees in Sun elevation, UVI > 3
     let mMax = 1. / Math.cos(Math.asin(6371. / 6393. * Math.sin((Math.PI / 2 - maxSunElevation))));
     let mMaxAnnual = 1. / Math.cos(Math.asin(6371. / 6393. * Math.sin((Math.PI / 2 - maxSunElevationAnnual))));
 
-    let latitude = toRadians(locations.latitude);
-    let delta = toRadians(pos.solarPositionDeg.delta);
+    // let latitude = MathNew.deg2rad(locations.latitude);
+    let delta = MathNew.deg2rad(pos.solarPositionDeg.delta);
 
     /******** Solar UVI calculation**********/
 
@@ -77,5 +82,55 @@ function calculations(pos) {
         solarPowerMax: solarPowerMax,
         solarPowerMaxAnnual: solarPowerMaxAnnual
     }
-    this.solarCalculations = solarCalculations;
+    this.solarCalculations = solarCalculations; 
 }
+const MathNew = {
+    deg2rad: (deg) => deg * (Math.PI) / 180,
+    rad2deg: (rad) => rad * 180 / (Math.PI),
+    minHour: (hour) => {
+        while (hour >= 24) {
+            hour = hour - 24;
+        }
+        while (hour < 0) {
+            hour = hour + 24;
+        }
+        return hour;
+    },
+    minDegree: (min) => {
+        while (min >= 360.) {
+            min = min - 360.;
+        }
+        while (min < 0.) {
+            min = min + 360.;
+        }
+        return min;
+    },
+    trueTan: (y, x) => {
+        var alfa = y / x;
+        alfa = Math.atan(alfa) * 180 / (Math.PI);
+        //if (y >= 0 & x > 0)
+        //alfa = y/x;
+        if (y >= 0 & x < 0)
+            alfa = alfa + 180;
+        if (y < 0 & x > 0)
+            alfa = alfa + 360;
+        if (y < 0 & x < 0)
+            alfa = alfa + 180;
+        return alfa;
+    },
+    roundDesimal_1: (rnd) => {
+        rnd = rnd * 10;
+        rnd = Math.round(rnd);
+        rnd = rnd / 10;
+        return rnd;
+    },
+    trueElevation: (trueDeg) => {
+        while (trueDeg > 90)
+            trueDeg = 180 - trueDeg;
+        while (trueDeg < -90)
+            trueDeg = 180 + trueDeg;
+        return trueDeg;
+    }
+};
+
+export default solarCalculations;

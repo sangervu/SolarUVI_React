@@ -1,5 +1,5 @@
 // Metodi deg => ESNW, eli atsimuutti asteet muutetaan "selkokielelle"
-NorthSouthEastWest = (atsimuutti) => {
+northSouthEastWest = (atsimuutti) => {
     suunta = " ";
     if ((atsimuutti >= (180. - 11.25)) && (atsimuutti < (180. + 11.25))) {
         suunta = suunta + "S";
