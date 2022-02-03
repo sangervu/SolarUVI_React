@@ -12,4 +12,6 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-myFunctions();
+let solarResults = new myFunctions();
+let exampleResult = solarResults.uvIndex;
+let exampleResult2 = solarResults.currentSunElevation;

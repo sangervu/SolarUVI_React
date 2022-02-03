@@ -37,7 +37,7 @@ function myFunctions() {
         latitudePolarNight: pos.solarPositionLocal.latitudePolarNight,
         dayLength: pos.solarPositionLocal.dayLength
     };
-    this.myResults = myResults;
+    return myResults;
 
     function northSouthEastWest(atsimuutti) {
         let suunta = " ";
@@ -95,49 +95,47 @@ function myFunctions() {
     function uviWarning(uvIndex) {
         // varoitustekstit UVI säteilyn intensiteetin mukaan
         if (uvIndex >= 10) {
-            setUviWarning("PYSY POIS AURINGOSTA!", "rgb(153,140,255)", "Black");
+            return setUviWarning("PYSY POIS AURINGOSTA!", "rgb(153,140,255)", "Black");
         }
         if (uvIndex < 10 && uvIndex >= 9.0) {
-            setUviWarning("PYSY POIS AURINGOSTA!", "rgb(181,76,255)", "Black");
+            return setUviWarning("PYSY POIS AURINGOSTA!", "rgb(181,76,255)", "Black");
         }
         if (uvIndex >= 8.0 && uvIndex < 9.0) {
-            setUviWarning("PYSY POIS AURINGOSTA!", "rgb(255,0,153)", "Black");
+            return setUviWarning("PYSY POIS AURINGOSTA!", "rgb(255,0,153)", "Black");
         }
         if (uvIndex >= 7.0 && uvIndex < 8.0) {
-            setUviWarning("MAX 5 min AURINGOSSA!", "rgb(216,0,29)", "Red");
+            return setUviWarning("MAX 5 min AURINGOSSA!", "rgb(216,0,29)", "Red");
         }
         if (uvIndex >= 6.0 && uvIndex < 7.0) {
-            setUviWarning("MAX 15 min AURINGOSSA!", "rgb(232,44,14)", "Red");
+            return setUviWarning("MAX 15 min AURINGOSSA!", "rgb(232,44,14)", "Red");
         }
         if (uvIndex >= 5.0 && uvIndex < 6.0) {
-            setUviWarning("Varo UV säteilyä!", "rgb(248,89,0)", "Black");
+            return setUviWarning("Varo UV säteilyä!", "rgb(248,89,0)", "Black");
         }
         if (uvIndex >= 4.0 & uvIndex < 5.0) {
-            setUviWarning("Suuri riski UV säteilystä", "rgb(248,135,0)", "Brown");
+            return setUviWarning("Suuri riski UV säteilystä", "rgb(248,135,0)", "Brown");
         }
         if (uvIndex >= 3.0 && uvIndex < 4.0) {
-            setUviWarning("Riski UV säteilystä", "rgb(248,182,0)", "Black");
+            return setUviWarning("Riski UV säteilystä", "rgb(248,182,0)", "Black");
         }
         if (uvIndex >= 2.0 && uvIndex < 3.0) {
-            setUviWarning("Pieni riski UV säteilystä", "rgb(160,206,0)", "Gold");
+            return setUviWarning("Pieni riski UV säteilystä", "rgb(160,206,0)", "Gold");
         }
         if (uvIndex >= 1.0 && uvIndex < 2.0) {
-            setUviWarning("Vähäinen riski UV säteilystä", "rgb(78,180,0)", "Cyan");
+            return setUviWarning("Vähäinen riski UV säteilystä", "rgb(78,180,0)", "Cyan");
         }
         if (uvIndex >= 0 && uvIndex < 1.0) {
-            setUviWarning("Ei vaaraa UV säteilystä", "rgb(190,190,190)", "Blue");
-        
+            return setUviWarning("Ei vaaraa UV säteilystä", "rgb(190,190,190)", "Blue");
         }
-        return uviWarning;
     }
 
     function setUviWarning(text, color, fontColor) {
-        const uviWarning = {
+        const warning = {
             backgroundColor: color,
             value: text,
             color: fontColor
         }
-        return uviWarning;
+        return warning;
     };
 };
 
