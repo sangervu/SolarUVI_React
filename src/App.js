@@ -28,9 +28,10 @@ function App() {
   function updateSolarCalculations() {
 
     let solarResults = new myFunctions();
-    let exampleResult = solarResults.uvIndex;
-    let exampleResult2 = solarResults.currentSunElevation;
-
+    let mse = solarResults.maxSunElevation;
+    let cse = solarResults.currentSunElevation;
+    let csa = solarResults.currentSunAzimuth;
+    let CSA = solarResults.azimuthNSEW;
 
     setApp(previousState => {
       return { ...previousState, cse: "1.0", mse: "2.0", csa: "3.0", CSA: "4.0" }
