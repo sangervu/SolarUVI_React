@@ -34,7 +34,7 @@ function App() {
     let CSA = solarResults.azimuthNSEW;
 
     setApp(previousState => {
-      return { ...previousState, cse: {cse}, mse: {mse}, csa: {csa}, CSA: {CSA} }
+      return { ...previousState, cse: cse, mse: mse, csa: csa, CSA: CSA }
     });
   }
 }
