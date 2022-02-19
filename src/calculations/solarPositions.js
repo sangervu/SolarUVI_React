@@ -7,7 +7,7 @@
 
 function solarPositions(loc) {
 
-    const longitude = loc.lon;
+    const longitude = Number(loc.lon);
     const latitude = MathNew.deg2rad(loc.lat);
 
     const date = new Date()

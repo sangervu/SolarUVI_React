@@ -9,7 +9,7 @@ import InputLocation from './InputLocation';
 function myFunctions(myLocation) {
 
     let pos = new solarPositions(myLocation);
-    let sol = new solarCalculations(pos);
+    let sol = new solarCalculations(pos, myLocation);
 
     const myResults = {
         currentSunElevation: pos.solarPositionLocal.currentSunElevation,
