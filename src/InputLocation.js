@@ -5,26 +5,49 @@ import './style.css';
 import myFunctions from './myFunctions';
 
 function InputLocation() {
-  const [lat, setLat] = useState("60.20");
-  const [lon, setLon] = useState("24.90");
+  const [inputs, setInputs] = useState({
+    lat: '60.20',
+    lon: '24.90'
+  });
+
+  const pos = new myFunctions(inputs);
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs(values => ({ ...values, [name]: value }))
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert(`The latitude you entered was: ${inputs.lat}
+    The longitude you entered was: ${inputs.lon}`);
+
+  }
+
   return (
-    <form>
-      <label>Latitude:
+    <form onSubmit={handleSubmit}>
+      <label>Enter your name:
         <input
-          type="text" 
-          value={lat}
-          onChange={(e) => setLat(e.target.value)}
+          type="number"
+          name="lat"
+          value={inputs.lat || ""}
+          onChange={handleChange}
         />
       </label>
       <br></br>
       <br></br>
-      <label>Longitude:
+      <label>Enter your age:
         <input
-          type="text" 
-          value={lon}
-          onChange={(e) => setLon(e.target.value)}
+          type="number"
+          name="lon"
+          value={inputs.lon || ""}
+          onChange={handleChange}
         />
       </label>
+      <br></br>
+      <br></br>
+      <input type="submit" />
     </form>
   )
 }

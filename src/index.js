@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 ReactDOM.render(
   <React.StrictMode>
     <InputLocation />
-    <App2 />
+    {/* <App2 /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

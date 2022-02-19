@@ -5,10 +5,10 @@
 // import utils from '../common/utils';
 
 
-function solarPositions() {
+function solarPositions(loc) {
 
-    const longitude = 24.90;
-    const latitude = MathNew.deg2rad(60.20);
+    const longitude = loc.lon;
+    const latitude = MathNew.deg2rad(loc.lat);
 
     const date = new Date()
 

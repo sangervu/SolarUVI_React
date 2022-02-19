@@ -3,11 +3,12 @@ import uviWarning from './common/uviWarning';
 import northSouthEastWest from './common/northSouthEastWest';
 import solarCalculations from './calculations/solarCalculations';
 import solarPositions from './calculations/solarPositions';
+import InputLocation from './InputLocation';
 // import calendar from './common/calendar';
 
-function myFunctions() {
+function myFunctions(myLocation) {
 
-    let pos = new solarPositions();
+    let pos = new solarPositions(myLocation);
     let sol = new solarCalculations(pos);
 
     const myResults = {

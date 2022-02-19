@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
@@ -8,6 +8,7 @@ function App2() {
     const [app, setApp] = useState(
         myFunctions
     );
+
     return (
         <>
             <h1>Solar calculations</h1>
