@@ -2,7 +2,7 @@ import { useState } from "react";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
-import myFunctions from './myFunctions';
+import proxyFolder from './proxyFolder';
 
 function InputLocation() {
   const [inputs, setInputs] = useState({
@@ -10,7 +10,7 @@ function InputLocation() {
     lon: '24.90'
   });
 
-  const pos = new myFunctions(inputs);
+  const pos = new proxyFolder(inputs);
 
   const handleChange = (event) => {
     const name = event.target.name;
