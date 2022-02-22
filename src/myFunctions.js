@@ -5,8 +5,6 @@ import solarCalculations from './calculations/solarCalculations';
 import solarPositions from './calculations/solarPositions';
 // import calendar from './common/calendar';
 
-// var loc = new proxyFolder();
-// var latitude = loc.longitude; 
 
 function myFunctions() {
 

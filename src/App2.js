@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
+import './App.css';
 import myFunctions from './myFunctions';
 
 function App2() {
@@ -10,36 +11,36 @@ function App2() {
     );
 
     return (
-        <>
-            <h1>Solar calculations</h1>
-            <p>{"currentSunElevation: "} {app.currentSunElevation}</p>
-            <p>{"azimuthNSEW: "} {app.azimuthNSEW}</p>
-            <p>{"currentSunAzimuth: "} {app.currentSunAzimuth}</p>
-            <p>{"dayLength: "} {app.dayLength}</p>
-            <p>{"latitudePolarNight: "} {app.latitudePolarNight}</p>
-            <p>{"maxSunElevation: "} {app.maxSunElevation}</p>
-            <p>{"solarPower: "} {app.solarPower}</p>
-            <p>{"solarPowerAquired: "} {app.solarPowerAquired}</p>
-            <p>{"solarPowerMax: "} {app.solarPowerMax}</p>
-            <p>{"solarPowerMaxAnnual: "} {app.solarPowerMaxAnnual}</p>
-            <p>{"timeRize: "} {app.timeRize}</p>
-            <p>{"timeRizeAstronomical: "} {app.timeRizeAstronomical}</p>
-            <p>{"timeRizeCivil: "} {app.timeRizeCivil}</p>
-            <p>{"timeSetNautical: "} {app.timeSetNautical}</p>
-            <p>{"timeSet: "} {app.timeSet}</p>
-            <p>{"timeSetAstronomical: "} {app.timeSetAstronomical}</p>
-            <p>{"timeSetCivil: "} {app.timeSetCivil}</p>
-            <p>{"timeSetNautical: "} {app.timeSetNautical}</p>
-            <p>{"timeSunSouth: "} {app.timeSunSouth}</p>
-            <p>{"uvIndex: "} {app.uvIndex}</p>
-            <p>{"uvIndexEnd: "} {app.uvIndexEnd}</p>
-            <p>{"uvIndexMax: "} {app.uvIndexMax}</p>
-            <p>{"uvIndexMaxAnnual: "} {app.uvIndexMaxAnnual}</p>
-            <p>{"uvIndexOverThree: "} {app.uvIndexOverThree}</p>
-            <p>{"uvIndexWarning.backgroundColor: "} {app.uvIndexWarning.backgroundColor}</p>
-            <p>{"uvIndexWarning.color: "} {app.uvIndexWarning.color}</p>
-            <p>{"uvIndexWarning.value: "} {app.uvIndexWarning.value}</p>
-        </>
+        <div>
+            <h1 className="App-header">Solar calculations</h1>
+            <p className="item">{"currentSunElevation: "} {app.currentSunElevation}</p>
+            <p className="item">{"azimuthNSEW: "} {app.azimuthNSEW}</p>
+            <p className="item">{"currentSunAzimuth: "} {app.currentSunAzimuth}</p>
+            <p className="item">{"dayLength: "} {app.dayLength}</p>
+            <p className="item">{"latitudePolarNight: "} {app.latitudePolarNight}</p>
+            <p className="item">{"maxSunElevation: "} {app.maxSunElevation}</p>
+            <p className="item">{"solarPower: "} {app.solarPower}</p>
+            <p className="item">{"solarPowerAquired: "} {app.solarPowerAquired}</p>
+            <p className="item">{"solarPowerMax: "} {app.solarPowerMax}</p>
+            <p className="item">{"solarPowerMaxAnnual: "} {app.solarPowerMaxAnnual}</p>
+            <p className="item">{"timeRize: "} {app.timeRize}</p>
+            <p className="item">{"timeRizeAstronomical: "} {app.timeRizeAstronomical}</p>
+            <p className="item">{"timeRizeCivil: "} {app.timeRizeCivil}</p>
+            <p className="item">{"timeSetNautical: "} {app.timeSetNautical}</p>
+            <p className="item">{"timeSet: "} {app.timeSet}</p>
+            <p className="item">{"timeSetAstronomical: "} {app.timeSetAstronomical}</p>
+            <p className="item">{"timeSetCivil: "} {app.timeSetCivil}</p>
+            <p className="item">{"timeSetNautical: "} {app.timeSetNautical}</p>
+            <p className="item">{"timeSunSouth: "} {app.timeSunSouth}</p>
+            <p className="item">{"uvIndex: "} {app.uvIndex}</p>
+            <p className="item">{"uvIndexEnd: "} {app.uvIndexEnd}</p>
+            <p className="item">{"uvIndexMax: "} {app.uvIndexMax}</p>
+            <p className="item">{"uvIndexMaxAnnual: "} {app.uvIndexMaxAnnual}</p>
+            <p className="item">{"uvIndexOverThree: "} {app.uvIndexOverThree}</p>
+            <p className="item">{"uvIndexWarning.backgroundColor: "} {app.uvIndexWarning.backgroundColor}</p>
+            <p className="item">{"uvIndexWarning.color: "} {app.uvIndexWarning.color}</p>
+            <p className="item">{"uvIndexWarning.value: "} {app.uvIndexWarning.value}</p>
+        </div>
     )
 }
 export default App2;

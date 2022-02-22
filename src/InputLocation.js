@@ -2,8 +2,6 @@ import { useState } from "react";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
-import solarCalculations from "./calculations/solarCalculations";
-import solarPositions from "./calculations/solarPositions";
 import App2 from './App2';
 
 function InputLocation() {
