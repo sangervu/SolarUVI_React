@@ -5,7 +5,9 @@ import './style.css';
 import './App.css';
 import myFunctions from './myFunctions';
 
-function App2() {
+function App2(props) {
+    let lat = props.latitude;
+    let lon = props.longitude;
     const [app, setApp] = useState(
         myFunctions
     );

@@ -48,7 +48,7 @@ function InputLocation() {
         <br></br>
         <input type="submit" />
       </form>
-      <App2 />
+      <App2 longitude={inputs.lon} latitude={inputs.lat} />
     </>
   )
 }
