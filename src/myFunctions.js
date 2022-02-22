@@ -3,8 +3,11 @@ import uviWarning from './common/uviWarning';
 import northSouthEastWest from './common/northSouthEastWest';
 import solarCalculations from './calculations/solarCalculations';
 import solarPositions from './calculations/solarPositions';
-import InputLocation from './InputLocation';
+import proxyFolder from './proxyFolder';
 // import calendar from './common/calendar';
+
+// var loc = new proxyFolder();
+// var latitude = loc.longitude; 
 
 function myFunctions() {
 

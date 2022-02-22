@@ -3,14 +3,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
 import proxyFolder from './proxyFolder';
+import solarCalculations from "./calculations/solarCalculations";
+import solarPositions from "./calculations/solarPositions";
 
 function InputLocation() {
   const [inputs, setInputs] = useState({
     lat: '60.20',
     lon: '24.90'
   });
-
-  const pos = new proxyFolder(inputs);
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -27,7 +27,7 @@ function InputLocation() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>Enter your name:
+      <label className="item">Enter latitude:
         <input
           type="number"
           name="lat"
@@ -37,10 +37,10 @@ function InputLocation() {
       </label>
       <br></br>
       <br></br>
-      <label>Enter your age:
+      <label className="item">Enter your longitude:
         <input
           type="number"
-          name="lon"
+          name="lon" 
           value={inputs.lon || ""}
           onChange={handleChange}
         />
