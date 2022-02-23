@@ -1,6 +1,6 @@
 // import calendar from '../common/calendar';
 // import utils from './common/utils';
-import location from '../common/location';
+import location from '../common/currentLocation';
 
 function solarCalculations(pos, location) {
 

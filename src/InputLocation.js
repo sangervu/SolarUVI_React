@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
 import SolarResults from "./SolarResults";
-import Location from "./common/location"
+import currentLocation from "./common/currentLocation"
 
 function InputLocation() {
   const [inputs, setInputs] = useState({
@@ -25,9 +25,21 @@ function InputLocation() {
     })
   }
 
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+
+    }
+  };
+  const showPosition = position => {
+    // location.setLatitude(position.coords.latitude);
+    // location.setLongitude(position.coords.longitude);
+  };
+
   return (
     <>
-      <location longitude={inputs.lon} latitude={inputs.lat} />
+      {/* <location longitude={inputs.lon} latitude={inputs.lat} /> */}
       <form onSubmit={handleSubmit}>
         <label className="item">Enter latitude:
           <input

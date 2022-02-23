@@ -12,9 +12,6 @@ function SolarResults(props) {
         myFunctions(props)
     );
 
-    // useEffect(() => {
-    //     setApp(myFunctions)
-    //   },[prop,state]);
     function update() {
         setApp(myFunctions(props))
     }
