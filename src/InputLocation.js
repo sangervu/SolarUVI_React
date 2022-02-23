@@ -41,7 +41,6 @@ function InputLocation() {
 
   return (
     <>
-      {/* <location longitude={inputs.lon} latitude={inputs.lat} /> */}
       <form onSubmit={handleSubmit}>
         <label className="item">Enter latitude:
           <input
