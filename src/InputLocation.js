@@ -19,10 +19,11 @@ function InputLocation() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setInputs({
-      lat: '60.20',
-      lon: '24.90'
-    })
+    // setInputs({
+    //   lat: '60.20',
+    //   lon: '24.90'
+    // })
+    getLocation();
   }
 
   const getLocation = () => {
@@ -42,7 +43,7 @@ function InputLocation() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label className="item">Enter latitude:
+        <label className="item">Enter your latitude:
           <input
             type="number"
             name="lat"
