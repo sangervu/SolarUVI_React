@@ -33,8 +33,10 @@ function InputLocation() {
     }
   };
   const showPosition = position => {
-    // location.setLatitude(position.coords.latitude);
-    // location.setLongitude(position.coords.longitude);
+    setInputs({
+      lat: position.coords.latitude,
+      lon: position.coords.longitude
+    })
   };
 
   return (
