@@ -11,6 +11,11 @@ function SolarResults(props) {
     const [app, setApp] = useState(
         myFunctions(props)
     );
+
+    useEffect(() => {
+        setApp(myFunctions)
+      },[prop,state]);
+
     return (
         <div>
             <h1 className="App-header">Solar calculations</h1>

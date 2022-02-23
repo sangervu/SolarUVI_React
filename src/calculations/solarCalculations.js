@@ -2,9 +2,9 @@
 // import utils from './common/utils';
 import location from '../common/location';
 
-function solarCalculations(pos, loc) {
+function solarCalculations(pos, location) {
 
-    const latitude = MathNew.deg2rad(loc.latitude);
+    const latitude = MathNew.deg2rad(location.latitude);
     
     //double uvIndexOverTwoRad = MathNew.deg2rad(90.0 - 55.0); //degrees in Sun elevation, UV
     const a = 2.696056;

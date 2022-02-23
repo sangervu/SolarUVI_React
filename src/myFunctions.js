@@ -20,8 +20,8 @@ function myFunctions(props) {
         }
     }
 
-    let pos = new solarPositions(location);
-    let sol = new solarCalculations(pos, location);
+    let pos = new solarPositions(props);
+    let sol = new solarCalculations(pos, props);
 
     const myResults = {
         currentSunElevation: pos.solarPositionLocal.currentSunElevation,
