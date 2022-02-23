@@ -19,13 +19,15 @@ function InputLocation() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(`The latitude you entered was: ${inputs.lat}
-    The longitude you entered was: ${inputs.lon}`);
+    setInputs({
+      lat: '60.20',
+      lon: '24.90'
+    })
   }
 
   return (
     <>
-      <location longitude={inputs.lon} latitude={inputs.lat}/>
+      <location longitude={inputs.lon} latitude={inputs.lat} />
       <form onSubmit={handleSubmit}>
         <label className="item">Enter latitude:
           <input
@@ -47,7 +49,7 @@ function InputLocation() {
         </label>
         <br></br>
         <br></br>
-        <input type="submit" />
+        <button onClick={handleSubmit}>Set local coordinate</button>
       </form>
       <SolarResults longitude={inputs.lon} latitude={inputs.lat} />
     </>

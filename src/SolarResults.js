@@ -12,12 +12,18 @@ function SolarResults(props) {
         myFunctions(props)
     );
 
-    useEffect(() => {
-        setApp(myFunctions)
-      },[prop,state]);
+    // useEffect(() => {
+    //     setApp(myFunctions)
+    //   },[prop,state]);
+    function update() {
+        setApp(myFunctions(props))
+    }
 
     return (
         <div>
+            <div>
+                <button onClick={update}>Calculate solar calculations</button>
+            </div>
             <h1 className="App-header">Solar calculations</h1>
             <p className="item">{"currentSunElevation: "} {app.currentSunElevation}</p>
             <p className="item">{"azimuthNSEW: "} {app.azimuthNSEW}</p>
