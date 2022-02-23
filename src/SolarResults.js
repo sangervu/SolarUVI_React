@@ -5,13 +5,12 @@ import './style.css';
 import './App.css';
 import myFunctions from './myFunctions';
 
-function App2(props) {
+function SolarResults(props) {
     let lat = props.latitude;
     let lon = props.longitude;
     const [app, setApp] = useState(
-        myFunctions
+        myFunctions(props)
     );
-
     return (
         <div>
             <h1 className="App-header">Solar calculations</h1>
@@ -45,4 +44,4 @@ function App2(props) {
         </div>
     )
 }
-export default App2;
+export default SolarResults;

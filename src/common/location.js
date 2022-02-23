@@ -1,14 +1,14 @@
-function locations() {
+function location() {
 
   let location = {
     longitude: 24.90,
     latitude: 60.20,
 
     setLongitude(lon) {
-      this.longitude = lon;
+      this.longitude = Number(lon);
     },
     setLatitude(lat) {
-      this.latitude = lat;
+      this.latitude = Number(lat);
     }
   }
 
@@ -49,4 +49,4 @@ function locations() {
   // };
 }
 
-export default locations;
+export default location;

@@ -2,7 +2,8 @@ import { useState } from "react";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
-import App2 from './App2';
+import SolarResults from "./SolarResults";
+import Location from "./common/location"
 
 function InputLocation() {
   const [inputs, setInputs] = useState({
@@ -20,11 +21,11 @@ function InputLocation() {
     event.preventDefault();
     alert(`The latitude you entered was: ${inputs.lat}
     The longitude you entered was: ${inputs.lon}`);
-
   }
 
   return (
     <>
+      <location longitude={inputs.lon} latitude={inputs.lat}/>
       <form onSubmit={handleSubmit}>
         <label className="item">Enter latitude:
           <input
@@ -48,7 +49,7 @@ function InputLocation() {
         <br></br>
         <input type="submit" />
       </form>
-      <App2 longitude={inputs.lon} latitude={inputs.lat} />
+      <SolarResults longitude={inputs.lon} latitude={inputs.lat} />
     </>
   )
 }

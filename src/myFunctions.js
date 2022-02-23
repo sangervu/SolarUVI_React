@@ -6,10 +6,22 @@ import solarPositions from './calculations/solarPositions';
 // import calendar from './common/calendar';
 
 
-function myFunctions() {
+function myFunctions(props) {
 
-    let pos = new solarPositions();
-    let sol = new solarCalculations(pos);
+    const location = {
+        longitude: 24.90,
+        latitude: 60.20,
+    
+        setLongitude(lon) {
+          this.longitude = Number(lon);
+        },
+        setLatitude(lat) {
+          this.latitude = Number(lat);
+        }
+    }
+
+    let pos = new solarPositions(location);
+    let sol = new solarCalculations(pos, location);
 
     const myResults = {
         currentSunElevation: pos.solarPositionLocal.currentSunElevation,
