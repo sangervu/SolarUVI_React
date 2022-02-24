@@ -3,8 +3,6 @@ import uviWarning from './common/uviWarning';
 import northSouthEastWest from './common/northSouthEastWest';
 import solarCalculations from './calculations/solarCalculations';
 import solarPositions from './calculations/solarPositions';
-// import calendar from './common/calendar';
-
 
 function myFunctions(loc) {
   

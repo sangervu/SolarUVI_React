@@ -1,43 +1,17 @@
-//alustetaan solaarinen aika-objekti pituuspiirin mukaan (asteet)
-
-// import locations from '../common/locations';
-// import calendar from '../common/calendar';
 // import utils from '../common/utils';
-
 
 function solarPositions(location) {
 
     const longitude = Number(location.longitude);
     const latitude = MathNew.deg2rad(location.latitude);
-    //let year = Date.getFullYear(location.date);
-
-    const date = new Date()
 
     let stellarCalendar = {
-        year: date.getFullYear(),
-        month: date.getMonth() + 1,
-        date: date.getDate(),
-        hour: date.getHours(),
-        minute: date.getMinutes(),
-        timeZone: date.getTimezoneOffset() / 60, // in hours
-        setYear(year) {
-            this.year = year;
-        },
-        setMonth(month) {
-            this.month = month;
-        },
-        setDate(date) {
-            this.date = date;
-        },
-        setHour(hour) {
-            this.hour = hour;
-        },
-        setMinute(minute) {
-            this.minute = minute;
-        },
-        setTimeZone(tz) {
-            this.timeZone = tz;
-        },
+        year: location.date.date.getFullYear(),
+        month: location.date.date.getMonth() + 1,
+        date: location.date.date.getDate(),
+        hour: location.date.date.getHours(),
+        minute: location.date.date.getMinutes(),
+        timeZone: location.date.date.getTimezoneOffset() / 60, // in hours
         get julian() {
             return 367 * this.year - (7 * (this.year + (this.month + 9) / 12)) / 4 - (3 * ((this.year + (this.month - 9) / 7) / 100 + 1)) / 4 + 275 * this.month / 9 + this.date + 1721029;
         },
