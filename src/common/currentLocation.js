@@ -48,5 +48,3 @@ function currentLocation() {
     mapLink.textContent = `Latitude: ${location.latitude} °, Longitude: ${location.longitude} °`;
   };
 }
-
-export default currentLocation;

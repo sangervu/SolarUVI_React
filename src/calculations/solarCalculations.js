@@ -18,11 +18,12 @@ function solarCalculations(pos, location) {
 
     if (MathNew.rad2deg(latitude) < epsilon && MathNew.rad2deg(latitude) > -epsilon) {
         maxSunElevationAnnual = MathNew.deg2rad(90.);
-    } else if (MathNew.rad2deg.latitude > epsilon) {
+    } else if (MathNew.rad2deg(latitude) > epsilon) {
         maxSunElevationAnnual = MathNew.deg2rad(90. - MathNew.rad2deg(latitude) + epsilon);
     } else {
         maxSunElevationAnnual = MathNew.deg2rad(90. + MathNew.rad2deg(latitude) + epsilon);
     }
+
     let m = 1. / (Math.cos(Math.asin(6371. / 6393. * Math.sin((Math.PI / 2 - currentSunElevation)))));
     let uvIndexLimit = MathNew.deg2rad(90.0 - 48.0); //degrees in Sun elevation, UVI > 3
     let mMax = 1. / Math.cos(Math.asin(6371. / 6393. * Math.sin((Math.PI / 2 - maxSunElevation))));

@@ -19,10 +19,10 @@ function InputLocation() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // setInputs({
-    //   lat: '60.20',
-    //   lon: '24.90'
-    // })
+    setInputs({
+      lat: '60.20',
+      lon: '24.90'
+    })
     getLocation();
   }
 

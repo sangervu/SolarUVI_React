@@ -63,5 +63,3 @@ function calendar() {
     // }
     this.stellarCalendar = stellarCalendar;
 }
-
-export default calendar;
