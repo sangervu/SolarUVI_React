@@ -2,10 +2,10 @@ import { useState } from "react";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
-import SolarResults from "./SolarResults";
-import currentLocation from "./common/currentLocation"
+import SolarResults from './SolarResults';
+import AppCalendar from './AppCalendar';
 
-function InputLocation() {
+function InputLocation(props) {
   const [inputs, setInputs] = useState({
     lat: '60.20',
     lon: '24.90'
@@ -65,7 +65,7 @@ function InputLocation() {
         <br></br>
         <button onClick={handleSubmit}>Set local coordinate</button>
       </form>
-      <SolarResults longitude={inputs.lon} latitude={inputs.lat} />
+      <SolarResults longitude={inputs.lon} latitude={inputs.lat} date={props}/>
     </>
   )
 }

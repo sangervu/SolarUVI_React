@@ -9,6 +9,7 @@ function solarPositions(location) {
 
     const longitude = Number(location.longitude);
     const latitude = MathNew.deg2rad(location.latitude);
+    //let year = Date.getFullYear(location.date);
 
     const date = new Date()
 

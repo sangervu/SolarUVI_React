@@ -6,8 +6,8 @@ import './App.css';
 import myFunctions from './myFunctions';
 
 function SolarResults(props) {
-    let lat = props.latitude;
-    let lon = props.longitude;
+
+    
     const [app, setApp] = useState(
         myFunctions(props)
     );
