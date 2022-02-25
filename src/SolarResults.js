@@ -6,7 +6,6 @@ import myFunctions from './myFunctions';
 
 function SolarResults(props) {
 
-    
     const [app, setApp] = useState(
         myFunctions(props)
     );
@@ -14,6 +13,28 @@ function SolarResults(props) {
     function update() {
         setApp(myFunctions(props))
     }
+
+    const backgroundColor = String(app.uvIndexWarning.backgroundColor);
+    const color = String(app.uvIndexWarning.color);
+
+    const myStyle1 = {
+        color: color,
+        backgroundColor: backgroundColor,
+        padding: "10px",
+        fontFamily: "Sans-Serif",
+        borderRadius: "8px",
+        margin: "10px"
+      };
+      const myStyle2 = {
+        color: color,
+        backgroundColor: "#bcb3e3",
+        padding: "10px",
+        fontFamily: "Sans-Serif",
+        fontSize: "30px",
+        font: "Bold",
+        borderRadius: "8px",
+        margin: "10px"
+      };
 
     return (
         <div>
@@ -45,9 +66,9 @@ function SolarResults(props) {
             <p className="item">{"uvIndexMax: "} {app.uvIndexMax}</p>
             <p className="item">{"uvIndexMaxAnnual: "} {app.uvIndexMaxAnnual}</p>
             <p className="item">{"uvIndexOverThree: "} {app.uvIndexOverThree}</p>
-            <p className="item">{"uvIndexWarning.backgroundColor: "} {app.uvIndexWarning.backgroundColor}</p>
+            <p style={myStyle1}>{"uvIndexWarning.backgroundColor: "} {app.uvIndexWarning.backgroundColor}</p>
             <p className="item">{"uvIndexWarning.color: "} {app.uvIndexWarning.color}</p>
-            <p className="item">{"uvIndexWarning.value: "} {app.uvIndexWarning.value}</p>
+            <p style={myStyle2}>{"uvIndexWarning.value: "} {app.uvIndexWarning.value}</p>
         </div>
     )
 }
