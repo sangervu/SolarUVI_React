@@ -1,23 +1,27 @@
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import React from "react";
+import ReactDOM from "react-dom";
+import SimpleMap from "./Map";
+import { BrowserRouter, Link, Route } from "react-router-dom";
+import "./App.css";
+const locations = require("./locations.json");
 
-const render = (status: Status) => {
-    return <h1>{status}</h1>;
-  };
+function MapMaker() {
+  return (
+    <div className="App">
+      <SimpleMap locations={locations} />
+    </div>
+  );
+}
 
-<Wrapper apiKey={"YOUR_API_KEY"} render={render}>
-  <YourComponent/>
-</Wrapper>
+const rootElement = document.getElementById("root");
+ReactDOM.render(
+  <BrowserRouter>
+    <MapMaker />
+  </BrowserRouter>,
+  rootElement
+);
 
-const Map: React.FC<{}> = () => {};
+export default MapMaker
 
-const ref = React.useRef<HTMLDivElement>(null);
-const [map, setMap] = React.useState<google.maps.Map>();
-
-
-React.useEffect(() => {
-  if (ref.current && !map) {
-    setMap(new window.google.maps.Map(ref.current, {}));
-  }
-}, [ref, map]);
 
 //https://developers.google.com/maps/documentation/javascript/react-map
