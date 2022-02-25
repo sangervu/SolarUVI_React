@@ -30,7 +30,7 @@ class SimpleMap extends React.Component {
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
-          {this.props.locations.map(item => {
+          {/* {this.props.locations.map(item => {
             if (item.address.length !== 0) {
               return item.address.map(i => {
                 return (
@@ -40,7 +40,7 @@ class SimpleMap extends React.Component {
                 );
               });
             }
-          })}
+          })} */}
         </GoogleMapReact>
       </div>
     );
