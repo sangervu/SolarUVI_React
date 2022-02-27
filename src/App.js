@@ -6,7 +6,6 @@ function App() {
     return <div>
       <MapMaker/>
       <AppCalendar/>
-     
     </div>;
   }
 export default App;
