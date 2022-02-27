@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@googlemaps/react-wrapper": "^1.1.25",
+    "@react-google-maps/api": "^2.7.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -40,5 +41,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/google.maps": "^3.48.1",
+    "typescript": "^4.5.5"
   }
 }

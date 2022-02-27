@@ -4,8 +4,9 @@ import MapMaker from './MapMaker';
 
 function App() {
     return <div>
-      {/* <AppCalendar/> */}
       <MapMaker/>
+      <AppCalendar/>
+     
     </div>;
   }
 export default App;
