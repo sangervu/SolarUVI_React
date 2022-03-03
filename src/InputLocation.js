@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React from 'react';
-import './style.css';
+import './styles/style.css';
 import SolarResults from './SolarResults';
 
 function InputLocation(props) {

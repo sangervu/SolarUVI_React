@@ -1,5 +1,5 @@
 import React from 'react'
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, useJsApiLoader} from '@react-google-maps/api';
 
 const containerStyle = {
   width: '400px',
@@ -22,7 +22,10 @@ function MapMaker() {
         zoom={10}
       >
         { /* Child components, such as markers, info windows, etc. */ }
-        <></>
+        {/* <Marker
+          onClick={this.onMarkerClick}
+          name={'This is test name'}
+        /> */}
       </GoogleMap>
     </LoadScript>
   )

@@ -1,7 +1,7 @@
 import { useState} from "react";
 import React from 'react';
-import './style.css';
-import './App.css';
+import './styles/style.css';
+import './styles/App.css';
 import myFunctions from './myFunctions';
 
 function SolarResults(props) {
