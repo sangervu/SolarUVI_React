@@ -21,7 +21,7 @@ function MapMaker() {
         center={center}
         zoom={10}
       >
-        {PanningComponent}
+        {}
 
       </GoogleMap>
     </LoadScript>
