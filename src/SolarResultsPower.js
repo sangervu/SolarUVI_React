@@ -14,9 +14,6 @@ function SolarResultsPower(props) {
         setApp(myFunctions(props))
     }
 
-    const backgroundColor = String(app.uvIndexWarning.backgroundColor);
-    const color = String(app.uvIndexWarning.color);
-
     return (
         <div>
             <div>

@@ -3,7 +3,6 @@ import { useState } from 'react'
 import AppCalendar from './AppCalendar';
 import MapMaker from './MapMakers/MapMaker';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
 import InputLocation from './InputLocation';
 import SolarResultsUVI from './SolarResultsUVI';
 import SolarResultsPower from './SolarResultsPower';
