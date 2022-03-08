@@ -1,23 +1,29 @@
 
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
-import InputLocation from './InputLocation';
 import moment from 'moment'
 
-export default function AppCalendar() {
+export default function AppCalendar(props) {
   const [dateState, setDateState] = useState(new Date())
   const changeDate = (e) => {
     setDateState(e)
   }
+  function handleSubmit() {
+    props.handleSubmit(dateState);
+    // setPerson('');
+    //e.preventDefault();
+  }
+
   return (
     <>
-      <Calendar 
-      value={dateState}
-      onChange={changeDate}
-      />
-    <p>Current selected date is <b>{moment(dateState).format('MMMM Do YYYY')}</b></p>
-    <InputLocation date = {dateState}/>
+        <Calendar
+          value={dateState}
+          onChange={changeDate}
+        />
+        <p>Current selected date is <b>{moment(dateState).format('MMMM Do YYYY')}</b></p>
+        <br></br>
+        <button onClick={handleSubmit}>Set calendar date</button>
     </>
   )
 }

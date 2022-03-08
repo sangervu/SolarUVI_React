@@ -1,9 +1,8 @@
 import { useState } from "react";
 import React from 'react';
 import './styles/style.css';
-import SolarResults from './SolarResults';
 
-function InputLocation(props) {
+function InputLocation() {
   const [inputs, setInputs] = useState({
     lat: '60.20',
     lon: '24.90'
@@ -50,7 +49,6 @@ function InputLocation(props) {
           />
         </label>
         <br></br>
-        <br></br>
         <label className="item">Enter your longitude:
           <input
             type="number"
@@ -60,12 +58,10 @@ function InputLocation(props) {
           />
         </label>
         <br></br>
-        <br></br>
+
         <button onClick={handleSubmit}>Set local coordinate</button>
       </form>
-      <SolarResults longitude={inputs.lon} latitude={inputs.lat} date={props}/>
     </>
   )
 }
-
 export default InputLocation;

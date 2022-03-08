@@ -6,12 +6,12 @@ function solarPositions(location) {
     const latitude = MathNew.deg2rad(location.latitude);
 
     let stellarCalendar = {
-        year: location.date.date.getFullYear(),
-        month: location.date.date.getMonth() + 1,
-        date: location.date.date.getDate(),
-        hour: location.date.date.getHours(),
-        minute: location.date.date.getMinutes(),
-        timeZone: location.date.date.getTimezoneOffset() / 60, // in hours
+        year: location.date.getFullYear(),
+        month: location.date.getMonth() + 1,
+        date: location.date.getDate(),
+        hour: location.date.getHours(),
+        minute: location.date.getMinutes(),
+        timeZone: location.date.getTimezoneOffset() / 60, // in hours
         get julian() {
             return 367 * this.year - (7 * (this.year + (this.month + 9) / 12)) / 4 - (3 * ((this.year + (this.month - 9) / 7) / 100 + 1)) / 4 + 275 * this.month / 9 + this.date + 1721029;
         },
