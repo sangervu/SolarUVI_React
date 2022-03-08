@@ -11,16 +11,20 @@ import SolarResultsPosition from './SolarResultsPosition';
 
 function App() {
 
-  const [dateState, setDateState] = useState(new Date());
+  const [dateState, setDate] = useState(new Date());
 
   function changeDate(newdate) {
-    setDateState([...dateState, newdate]);
+    setDate([...dateState, newdate]);
   }
 
-  const [inputs, setInputs] = useState({
+  const [locState, setLocation] = useState({
     lat: '60.20',
     lon: '24.90'
   });
+
+  function changeLocation(newlocation) {
+    setLocation([...locState, newlocation]);
+  }
 
   return (
     <Container className="container">
@@ -31,10 +35,10 @@ function App() {
       </Container>
       <hr/>
       <Container className="row">
-        <Container className="col"><SolarResultsUVI longitude={inputs.lon} latitude={inputs.lat} date={dateState} /></Container>
-        <Container className="col"><SolarResultsPower longitude={inputs.lon} latitude={inputs.lat} date={dateState} /></Container>
-        <Container className="col"><SolarResultsSunSet longitude={inputs.lon} latitude={inputs.lat} date={dateState} /></Container>
-        <Container className="col"><SolarResultsPosition longitude={inputs.lon} latitude={inputs.lat} date={dateState} /></Container>
+        <Container className="col"><SolarResultsUVI longitude={locState.lon} latitude={locState.lat} date={dateState} /></Container>
+        <Container className="col"><SolarResultsPower longitude={locState.lon} latitude={locState.lat} date={dateState} /></Container>
+        <Container className="col"><SolarResultsSunSet longitude={locState.lon} latitude={locState.lat} date={dateState} /></Container>
+        <Container className="col"><SolarResultsPosition longitude={locState.lon} latitude={locState.lat} date={dateState} /></Container>
       </Container>
     </Container>
   );
