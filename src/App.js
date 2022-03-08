@@ -23,7 +23,10 @@ function App() {
   });
 
   function changeLocation(newlocation) {
-    setLocation([...locState, newlocation]);
+    setLocation({
+      lat: newlocation.lat,
+      lon: newlocation.lon
+    });
   }
 
   return (
@@ -31,7 +34,7 @@ function App() {
       <Container className="row">
         <Container className="col"><AppCalendar handleSubmit={changeDate} /></Container>
         <Container className="col"><MapMaker /></Container>
-        <Container className="col"><InputLocation /></Container>
+        <Container className="col"><InputLocation handleChange={changeLocation}/></Container>
       </Container>
       <hr/>
       <Container className="row">

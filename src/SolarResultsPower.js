@@ -19,6 +19,7 @@ function SolarResultsPower(props) {
             <div>
                 <button onClick={update}>Calculate solar calculations UVI</button>
             </div>
+            <br></br>
             <h1 className="App-header">Solar Power calculations</h1>
             <p className="item">{"solarPower: "} {app.solarPower}</p>
             <p className="item">{"solarPowerMax: "} {app.solarPowerMax}</p>
