@@ -14,7 +14,7 @@ function App() {
   const [dateState, setDate] = useState(new Date());
 
   function changeDate(newdate) {
-    setDate([...dateState, newdate]);
+    setDate(newdate);
   }
 
   const [locState, setLocation] = useState({
