@@ -11,7 +11,7 @@ export default function AppCalendar(props) {
     props.handleSubmit(e);
   }
   function handleSubmit(event) {
-   setDateState(new Date());
+   changeDate(new Date());
   }
 
   return (
@@ -20,7 +20,7 @@ export default function AppCalendar(props) {
           value={dateState}
           onChange={changeDate}
         />
-        <p>Current selected date is <b>{moment(dateState).format('MMMM Do YYYY')}</b></p>
+        <p>Current selected date is <b>{moment(dateState).format('hh:mm - Do MMMM YYYY')}</b></p>
         <br></br>
         <button onClick={handleSubmit}>Set current date</button>
     </>

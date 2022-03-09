@@ -14,7 +14,17 @@ function App() {
   const [dateState, setDate] = useState(new Date());
 
   function changeDate(newdate) {
-    setDate(newdate);
+
+    const datenow = new Date();
+    newdate = new Date(newdate);
+
+    if (newdate.valueOf() == datenow.valueOf()) {
+      setDate(datenow);
+    }
+    else {
+      newdate = new Date(newdate.setHours(12));
+      setDate(newdate);
+    }
   }
 
   const [locState, setLocation] = useState({
@@ -34,9 +44,9 @@ function App() {
       <Container className="row">
         <Container className="col"><AppCalendar handleSubmit={changeDate} /></Container>
         <Container className="col"><MapMaker /></Container>
-        <Container className="col"><InputLocation handleChange={changeLocation}/></Container>
+        <Container className="col"><InputLocation handleChange={changeLocation} /></Container>
       </Container>
-      <hr/>
+      <hr />
       <Container className="row">
         <Container className="col"><SolarResultsUVI longitude={locState.lon} latitude={locState.lat} date={dateState} /></Container>
         <Container className="col"><SolarResultsPower longitude={locState.lon} latitude={locState.lat} date={dateState} /></Container>
