@@ -33,7 +33,8 @@ function myFunctions(loc) {
         timeRizeCivil: pos.solarPositionLocal.timeRizeCivil,
         timeRizeNautical: pos.solarPositionLocal.timeRizeNautical,
         timeRizeAstronomical: pos.solarPositionLocal.timeRizeAstronomical,
-        latitudePolarNight: pos.solarPositionLocal.latitudePolarNight,
+        latitudePolarNightNorth: pos.solarPositionLocal.latitudePolarNightNorth,
+        latitudePolarNightSouth: pos.solarPositionLocal.latitudePolarNightSouth,
         dayLength: pos.solarPositionLocal.dayLength
     };
     return myResults;

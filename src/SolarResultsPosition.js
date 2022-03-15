@@ -29,7 +29,8 @@ function SolarResultsPosition(props) {
             <p className="item">{"maximumSunElevation: "} {app.maxSunElevation}</p>
             <p className="item">{"currentSunAzimuth: "} {app.currentSunAzimuth}</p>
             <p className="item">{"azimuthNSEW: "} {app.azimuthNSEW}</p>
-            <p className="item">{"latitudePolarNight: "} {app.latitudePolarNight}</p>
+            <p className="item">{"latitudePolarNight (north): "} {app.latitudePolarNightNorth}</p>
+            <p className="item">{"latitudePolarNight (south): "} {app.latitudePolarNightSouth}</p>
         </div>
     )
 }
