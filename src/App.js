@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import AppCalendar from './AppCalendar';
 import MapMaker from './MapMakers/MapMaker';
 import Container from 'react-bootstrap/Container';
@@ -39,9 +39,12 @@ function App() {
     });
   }
 
-  // useEffect(() => {
-  //   updateLocation();
-  // }, [locState]);
+  useEffect(() => {
+    childFunc1.current()
+    childFunc2.current()
+    childFunc3.current()
+    childFunc4.current()
+  }, [locState]);
 
   const childFunc1 = useRef(null);
   const childFunc2 = useRef(null);
@@ -54,10 +57,10 @@ function App() {
         <Container className="col"><AppCalendar handleSubmit={changeDate} /></Container>
         <Container className="col"><MapMaker /></Container>
         <Container className="col"><InputLocation handleChange={changeLocation} />
-        <hr />
-        <button onClick={() => {
+          <hr />
+          {/* <button onClick={() => {
             return (childFunc1.current(), childFunc2.current(), childFunc3.current(), childFunc4.current());
-          }}>Calculate Solar Results</button>
+          }}>Calculate Solar Results</button> */}
         </Container>
       </Container>
       <hr />
