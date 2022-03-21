@@ -36,17 +36,16 @@ function InputLocation(props) {
       alert("Geolocation is not supported by this browser.");
     }
   };
-
-  useEffect(() => {
-    handlePosition()
-  }, [inputs])
-
   const showPosition = position => {
     setInputs({
       lat: position.coords.latitude,
       lon: position.coords.longitude
     })
   };
+
+  useEffect(() => {
+    handlePosition()
+  }, [inputs])
 
   return (
     <>
