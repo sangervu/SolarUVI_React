@@ -55,7 +55,7 @@ function App() {
     <Container className="container">
       <Container className="row">
         <Container className="col"><AppCalendar handleSubmit={changeDate} /></Container>
-        <Container className="col"><MapMaker /></Container>
+        <Container className="col"><MapMaker handleMap={changeLocation} /></Container>
         <Container className="col"><InputLocation handleChange={changeLocation} />
           <hr />
           {/* <button onClick={() => {
