@@ -8,6 +8,16 @@ function InputLocation(props) {
     lon: '24.90'
   });
 
+  const [map, setMap] = useState({});
+
+  useEffect(() => {
+    setInputs({
+      lat: props.latitude,
+      lon: props.longitude
+    })
+  }, [props.latitude, props.longitude])
+
+
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;

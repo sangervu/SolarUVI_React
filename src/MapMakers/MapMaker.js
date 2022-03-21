@@ -58,18 +58,18 @@ function MapMaker(props) {
   });
 
   // const [selected, setSelected] = useState({});
-
   // const onSelect = item => {
   //   setSelected(item);
   // }
 
-  function handleChange(){
+
+  function handleChange() {
     props.handleMap(inputs);
   }
 
   useEffect(() => {
     handleChange()
-  },[inputs])
+  }, [inputs])
 
 
   return (
