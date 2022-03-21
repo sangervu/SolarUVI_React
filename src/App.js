@@ -56,7 +56,7 @@ function App() {
       <Container className="row">
         <Container className="col"><AppCalendar handleSubmit={changeDate} /></Container>
         <Container className="col"><MapMaker handleMap={changeLocation} /></Container>
-        <Container className="col"><InputLocation handleChange={changeLocation} />
+        <Container className="col"><InputLocation longitude={locState.lon} latitude={locState.lat} handleChange={changeLocation} />
           <hr />
           {/* <button onClick={() => {
             return (childFunc1.current(), childFunc2.current(), childFunc3.current(), childFunc4.current());

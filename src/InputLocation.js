@@ -39,7 +39,7 @@ function InputLocation(props) {
 
   useEffect(() => {
     handlePosition()
-  },[inputs])
+  }, [inputs])
 
   const showPosition = position => {
     setInputs({
@@ -71,7 +71,7 @@ function InputLocation(props) {
         <br></br>
 
         <button onClick={handleSubmit}>Set local coordinate</button>
-        <hr/>
+        <hr />
         {/* <button onClick={handlePosition}>Set new coordinate</button> */}
       </form>
     </>

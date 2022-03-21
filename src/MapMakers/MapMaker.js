@@ -116,10 +116,4 @@ function MapMaker(props) {
   )
 }
 
-
 export default React.memo(MapMaker)
-
-
-//https://developers.google.com/maps/documentation/javascript/react-map
-
-//https://codesandbox.io/s/n9lrxw0670?file=/src/Map.js
