@@ -1,4 +1,4 @@
-// import utils from '../common/utils';
+import {MathNew} from "../common/utils"
 
 function solarPositions(location) {
 
@@ -67,7 +67,7 @@ function solarPositions(location) {
     const solarPositionDeg = {
         //Ohessa olevilla laskukaavoilla lasketaan auringon paikka taivaalla syötetyillä parametrin arvoilla. Lasku toimii kaikkialla maapallolla.
         // "alfa" ja "delta" ilmoittavat auringon paikan taivaalla asteina 
-        alfa: MathNew.trueTan(solarPositionTrue.y, solarPositionTrue.x),
+        alfa: MathNew.trueArcTan(solarPositionTrue.y, solarPositionTrue.x),
         delta: MathNew.rad2deg(Math.asin(Math.sin(solarPositionTrue.epsilon) * Math.sin(solarPositionTrue.Lo + solarPositionTrue.C)))
     }
     this.solarPositionDeg = solarPositionDeg;
@@ -101,7 +101,7 @@ function solarPositions(location) {
     }
 
     const solarPositionLocal = {
-        currentSunAzimuth: Math.round(10 * MathNew.minDegree(MathNew.trueTan(solarPositionAzimuth.Ay, solarPositionAzimuth.Ax) + 180.)) / 10,
+        currentSunAzimuth: Math.round(10 * MathNew.minDegree(MathNew.trueArcTan(solarPositionAzimuth.Ay, solarPositionAzimuth.Ax) + 180.)) / 10,
         currentSunElevation: Math.round(10 * MathNew.rad2deg(Math.asin(Math.sin(delta) * Math.sin(latitude) + Math.cos(hourAzimuth) * Math.cos(delta) * Math.cos(latitude)))) / 10,
         maxSunElevation: Math.round(10 * MathNew.trueElevation(90.0 + MathNew.rad2deg(delta) - MathNew.rad2deg(latitude))) / 10,
         //korkeimmillaan, eli etelässä
@@ -148,54 +148,5 @@ function solarPositions(location) {
     }
     this.solarPositionLocal = solarPositionLocal;
 }
-
-const MathNew = {
-    deg2rad: (deg) => deg * (Math.PI) / 180,
-    rad2deg: (rad) => rad * 180 / (Math.PI),
-    minHour: (hour) => {
-        while (hour >= 24) {
-            hour = hour - 24;
-        }
-        while (hour < 0) {
-            hour = hour + 24;
-        }
-        return hour;
-    },
-    minDegree: (min) => {
-        while (min >= 360.) {
-            min = min - 360.;
-        }
-        while (min < 0.) {
-            min = min + 360.;
-        }
-        return min;
-    },
-    trueTan: (y, x) => {
-        var alfa = y / x;
-        alfa = Math.atan(alfa) * 180 / (Math.PI);
-        //if (y >= 0 & x > 0)
-        //alfa = y/x;
-        if (y >= 0 & x < 0)
-            alfa = alfa + 180;
-        if (y < 0 & x > 0)
-            alfa = alfa + 360;
-        if (y < 0 & x < 0)
-            alfa = alfa + 180;
-        return alfa;
-    },
-    roundDesimal_1: (rnd) => {
-        rnd = rnd * 10;
-        rnd = Math.round(rnd);
-        rnd = rnd / 10;
-        return rnd;
-    },
-    trueElevation: (trueDeg) => {
-        while (trueDeg > 90)
-            trueDeg = 180 - trueDeg;
-        while (trueDeg < -90)
-            trueDeg = 180 + trueDeg;
-        return trueDeg;
-    }
-};
 
 export default solarPositions;
