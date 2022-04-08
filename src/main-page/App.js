@@ -1,13 +1,13 @@
 import React from 'react';
 import { useState, useRef, useEffect } from 'react'
-import AppCalendar from './AppCalendar';
-import MapMaker from './MapMakers/MapMaker';
+import AppCalendar from '../input-calendar/AppCalendar';
+import MapMaker from '../map-makers/MapMaker';
 import Container from 'react-bootstrap/Container';
-import InputLocation from './InputLocation';
-import SolarResultsUVI from './SolarResultsUVI';
-import SolarResultsPower from './SolarResultsPower';
-import SolarResultsSunSet from './SolarResultsSunSet';
-import SolarResultsPosition from './SolarResultsPosition';
+import InputLocation from '../input-locations/InputLocation';
+import SolarResultsUVI from '../solar-results/SolarResultsUVI';
+import SolarResultsPower from '../solar-results/SolarResultsPower';
+import SolarResultsSunSet from '../solar-results/SolarResultsSunSet';
+import SolarResultsPosition from '../solar-results/SolarResultsPosition';
 
 function App() {
 

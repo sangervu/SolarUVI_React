@@ -1,8 +1,8 @@
 import {useState, useEffect} from "react";
 import React from 'react';
-import './styles/style.css';
-import './styles/App.css';
-import myFunctions from './calculations/myFunctions';
+import '../styles/style.css';
+import '../styles/App.css';
+import {myFunctions} from '../calculations/myFunctions';
 
 function SolarResultsSunSet(props) {
 

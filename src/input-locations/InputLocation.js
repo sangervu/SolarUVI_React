@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import React from 'react';
-import './styles/style.css';
+import '../styles/style.css';
 
 function InputLocation(props) {
   const [inputs, setInputs] = useState({
@@ -8,7 +8,7 @@ function InputLocation(props) {
     lon: '24.90'
   });
 
-  const [map, setMap] = useState({});
+  // const [map, setMap] = useState({});
 
   useEffect(() => {
     setInputs({

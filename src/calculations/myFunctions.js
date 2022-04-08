@@ -39,4 +39,4 @@ function myFunctions(loc) {
     };
     return myResults;
 };
-export default myFunctions;
+export {myFunctions};
