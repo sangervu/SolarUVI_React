@@ -58,4 +58,4 @@ function SolarResultsUVI(props) {
         </div>
     )
 }
-export default SolarResultsUVI;
+export {SolarResultsUVI};

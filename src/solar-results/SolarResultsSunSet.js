@@ -38,4 +38,4 @@ function SolarResultsSunSet(props) {
         </div>
     )
 }
-export default SolarResultsSunSet;
+export {SolarResultsSunSet};
