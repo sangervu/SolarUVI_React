@@ -4,10 +4,10 @@ import AppCalendar from '../input-calendar/AppCalendar';
 import MapMaker from '../map-makers/MapMaker';
 import Container from 'react-bootstrap/Container';
 import InputLocation from '../input-locations/InputLocation';
-import SolarResultsUVI from '../solar-results/SolarResultsUVI';
-import SolarResultsPower from '../solar-results/SolarResultsPower';
-import SolarResultsSunSet from '../solar-results/SolarResultsSunSet';
-import SolarResultsPosition from '../solar-results/SolarResultsPosition';
+import {SolarResultsUVI} from '../solar-results/SolarResultsUVI';
+import {SolarResultsPower} from '../solar-results/SolarResultsPower';
+import {SolarResultsSunSet} from '../solar-results/SolarResultsSunSet';
+import {SolarResultsPosition} from '../solar-results/SolarResultsPosition';
 import NavMenu from './NavMenu';
 
 function App() {

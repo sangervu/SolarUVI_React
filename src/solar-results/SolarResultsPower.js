@@ -32,4 +32,4 @@ function SolarResultsPower(props) {
         </div>
     )
 }
-export default SolarResultsPower;
+export {SolarResultsPower};

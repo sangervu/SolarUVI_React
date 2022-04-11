@@ -34,4 +34,4 @@ function SolarResultsPosition(props) {
         </div>
     )
 }
-export default SolarResultsPosition;
+export {SolarResultsPosition};
