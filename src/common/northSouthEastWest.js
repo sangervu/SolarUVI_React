@@ -52,4 +52,4 @@ function northSouthEastWest(atsimuutti) {
     return suunta;
 };
 
-export default northSouthEastWest;
+export {northSouthEastWest};

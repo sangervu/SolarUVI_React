@@ -1,8 +1,8 @@
 
-import uviWarning from '../common/uviWarning';
-import northSouthEastWest from '../common/northSouthEastWest';
-import solarCalculations from './solarCalculations';
-import solarPositions from './solarPositions';
+import {uviWarning} from '../common/uviWarning';
+import {northSouthEastWest} from '../common/northSouthEastWest';
+import {solarCalculations} from './solarCalculations';
+import {solarPositions} from './solarPositions';
 
 function myFunctions(loc) {
   

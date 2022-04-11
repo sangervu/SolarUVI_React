@@ -8,6 +8,7 @@ import SolarResultsUVI from '../solar-results/SolarResultsUVI';
 import SolarResultsPower from '../solar-results/SolarResultsPower';
 import SolarResultsSunSet from '../solar-results/SolarResultsSunSet';
 import SolarResultsPosition from '../solar-results/SolarResultsPosition';
+import NavMenu from './NavMenu';
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
 
   return (
     <Container className="container">
+      <NavMenu></NavMenu>
       <Container className="row">
         <Container className="col"><AppCalendar handleSubmit={changeDate} /></Container>
         <Container className="col"><MapMaker handleMap={changeLocation} /></Container>

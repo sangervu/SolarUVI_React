@@ -84,4 +84,4 @@ function solarCalculations(pos, location) {
     this.solarCalculations = solarCalculations; 
 }
 
-export default solarCalculations;
+export {solarCalculations};

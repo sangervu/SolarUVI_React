@@ -1,0 +1,136 @@
+﻿a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+.header .nav {
+    height: 5rem;
+    width: 100%;
+}
+
+.header .nav-fill .nav-item svg {
+    margin-top: 1rem;
+    height: 1.8rem;
+    width: 1.8rem;
+}
+
+.header .nav-fill .small_navItem svg {
+    margin-top: 3rem;
+    height: 1rem;
+    width: 1rem;
+}
+
+.counter {
+    border-radius: 50%;
+    width: 1.7rem;
+    height: 1.7rem;
+    background: #fff;
+    border: 0.1rem solid black;
+    color: black;
+    text-align: center;
+    font-size: 0.9rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+}
+
+.active .counter {
+    color: #0357A4;
+    border-color: #0357A4;
+}
+
+@media (max-width:1300px) {
+    .nav {
+        font-size: .75rem;
+    }
+}
+
+@media (max-width:992px) {
+    .header .nav {
+        height: 3rem;
+    }
+
+    .header .nav-fill .nav-item svg {
+        margin-top: 0.5rem;
+    }
+
+    .header .nav-fill .small_navItem svg {
+        margin-top: 0.9rem;
+    }
+
+    .counter {
+        width: 1.3rem;
+        height: 1.3rem;
+        font-size: 0.7rem;
+        top: 0.25rem;
+    }
+}
+
+@media (max-width: 38.4rem) {
+    .header .nav-divider {
+        display: none;
+    }
+
+    .header .nav {
+        height: 2rem;
+    }
+
+    .header .nav-fill .nav-item svg {
+        margin-top: 0;
+    }
+
+    .header .nav-fill .small_navItem svg {
+        margin-top: 0.3rem;
+    }
+
+    .counter {
+        display: none;
+    }
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.version_table {
+    font-size: 12px;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+    .version_table tr {
+        margin-top: 10px;
+    }
+
+    .version_table td {
+        vertical-align: top;
+        border-bottom: 0;
+    }
+
+.counterContainer {
+    position: relative;
+}
+
+.nav-item .highlight {
+    background-color: #F1E676;
+    height: 99%;
+    width: 99%;
+    margin: auto;
+}
+
+    .nav-item .highlight:hover {
+        background-color: #c6be74;
+    }
+
+.settingsLayout {
+    margin: 0.25rem 0 0.25rem 0;
+}
+
+    .settingsLayout .container {
+        padding: 0.25rem 0.75rem 0.25rem 0.75rem;
+        border-left: 1px solid #dee2e6;
+        border-right: 1px solid #dee2e6;
+        border-bottom: 1px solid #dee2e6;
+        max-width: 100%;
+    }

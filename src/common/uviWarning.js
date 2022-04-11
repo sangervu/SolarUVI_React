@@ -44,4 +44,4 @@ function setUviWarning(text, color, fontColor) {
     return warning;
 };
 
-export default uviWarning;
+export {uviWarning};

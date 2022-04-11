@@ -8,44 +8,6 @@ const containerStyle = {
   height: '400px'
 };
 
-// const locations = [
-//   {
-//     name: "Koti Lauttasaaressa",
-//     location: {
-//       lat: 60.16308,
-//       lng: 24.8869
-//     },
-//   },
-//   {
-//     name: "Rantaharju",
-//     location: {
-//       lat: 60.15812,
-//       lng: 24.75455
-//     },
-//   },
-//   {
-//     name: "Karjalohja",
-//     location: {
-//       lat: 60.280,
-//       lng: 23.8335
-//     },
-//   },
-//   {
-//     name: "Sääksjärvi",
-//     location: {
-//       lat: 61.3953,
-//       lng: 22.37154
-//     },
-//   },
-//   {
-//     name: "Lentävänniemi",
-//     location: {
-//       lat: 61.53115,
-//       lng: 23.72355
-//     },
-//   }
-// ];
-
 const center = {
   lat: 60.20,
   lng: 24.9
@@ -57,18 +19,27 @@ function MapMaker(props) {
     lon: '24.90'
   });
 
-  // const [selected, setSelected] = useState({});
-  // const onSelect = item => {
-  //   setSelected(item);
-  // }
-
+  const [tz, setTimeZone] = useState({
+    dstOffset: 0,
+    rawOffset: -28800,
+    status: "OK",
+    timeZoneId: "America/Los_Angeles",
+    timeZoneName: "Pacific Standard Time",
+  });
 
   function handleChange() {
     props.handleMap(inputs);
   }
 
   useEffect(() => {
-    handleChange()
+    handleChange();
+    setTimeZone({
+      dstOffset: 0,
+      rawOffset: -28800,
+      status: "NOK",
+      timeZoneId: "asdsd",
+      timeZoneName: "sdfa"
+    })
   }, [inputs])
 
 
@@ -80,7 +51,8 @@ function MapMaker(props) {
             lat: ev.latLng.lat(),
             lon: ev.latLng.lng()
           })
-        }}
+        }
+        }
         mapContainerStyle={containerStyle}
         center={center}
         zoom={10}

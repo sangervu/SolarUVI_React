@@ -149,4 +149,4 @@ function solarPositions(location) {
     this.solarPositionLocal = solarPositionLocal;
 }
 
-export default solarPositions;
+export {solarPositions};
