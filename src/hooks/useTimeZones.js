@@ -7,7 +7,7 @@ const useTimeZone = (url) => {
     const fetchTimeZone = async () => {
       const rsp = await fetch(url);
       const tz = await rsp.json();
-      setTimeZones(tz);
+      setTimeZone(tz);
     };
     fetchTimeZone();
   }, []);
