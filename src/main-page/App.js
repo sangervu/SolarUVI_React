@@ -9,6 +9,7 @@ import {SolarResultsPower} from '../solar-results/SolarResultsPower';
 import {SolarResultsSunSet} from '../solar-results/SolarResultsSunSet';
 import {SolarResultsPosition} from '../solar-results/SolarResultsPosition';
 import NavMenu from './NavMenu';
+import useTimeZone from '../hooks/useTimeZones';
 
 function App() {
 
@@ -39,6 +40,8 @@ function App() {
       lon: newlocation.lon
     });
   }
+
+  const timeZone = useTimeZone("https://maps.googleapis.com/maps/api/timezone/json?location=62.6034810,23.6822510&timestamp=1331161200&key=AIzaSyA16d9FJFh__vK04jU1P64vnEpPc3jenec");
 
   useEffect(() => {
     childFunc1.current()
