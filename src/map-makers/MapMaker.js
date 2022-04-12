@@ -19,27 +19,12 @@ function MapMaker(props) {
     lon: '24.90'
   });
 
-  const [tz, setTimeZone] = useState({
-    dstOffset: 0,
-    rawOffset: -28800,
-    status: "OK",
-    timeZoneId: "America/Los_Angeles",
-    timeZoneName: "Pacific Standard Time",
-  });
-
   function handleChange() {
     props.handleMap(inputs);
   }
 
   useEffect(() => {
-    handleChange();
-    setTimeZone({
-      dstOffset: 0,
-      rawOffset: -28800,
-      status: "NOK",
-      timeZoneId: "asdsd",
-      timeZoneName: "sdfa"
-    })
+    handleChange()
   }, [inputs])
 
 
