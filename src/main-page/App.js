@@ -20,12 +20,6 @@ function App() {
     const datenow = new Date();
     newdate = new Date(newdate);
 
-    // const timeZone = useTimeZone("https://maps.googleapis.com/maps/api/timezone/json?location=39.6034810%2C-119.6822510&timestamp=1331161200&key=AIzaSyC9JoYNE1TRoIwzEp-QB7-l5-eqSILgHmY");
-
-    // .toLocaleString('fi-FI', {
-    //   timeZone: 'America/Los_Angeles'
-    // })
-
     if (newdate.valueOf() === datenow.valueOf()) {
       setDate(datenow);
     }
@@ -37,13 +31,15 @@ function App() {
 
   const [locState, setLocation] = useState({
     lat: '60.20',
-    lon: '24.90'
+    lon: '24.90',
+    timezone: '2'
   });
 
   function changeLocation(newlocation) {
     setLocation({
       lat: newlocation.lat,
-      lon: newlocation.lon
+      lon: newlocation.lon,
+      timezone: '3'
     });
   }
   // const timeZone = useTimeZone("https://maps.googleapis.com/maps/api/timezone/json?location=60.6034810%2C23.6822510&timestamp=1331161200&key=AIzaSyC9JoYNE1TRoIwzEp-QB7-l5-eqSILgHmY");
@@ -76,10 +72,10 @@ function App() {
       </Container>
       <hr />
       <Container className="row">
-        <Container className="col"><SolarResultsUVI longitude={locState.lon} latitude={locState.lat} date={dateState} childFunc1={childFunc1} /></Container>
-        <Container className="col"><SolarResultsPower longitude={locState.lon} latitude={locState.lat} date={dateState} childFunc2={childFunc2} /></Container>
-        <Container className="col"><SolarResultsSunSet longitude={locState.lon} latitude={locState.lat} date={dateState} childFunc3={childFunc3} /></Container>
-        <Container className="col"><SolarResultsPosition longitude={locState.lon} latitude={locState.lat} date={dateState} childFunc4={childFunc4} /></Container>
+        <Container className="col"><SolarResultsUVI longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc1={childFunc1} /></Container>
+        <Container className="col"><SolarResultsPower longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc2={childFunc2} /></Container>
+        <Container className="col"><SolarResultsSunSet longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc3={childFunc3} /></Container>
+        <Container className="col"><SolarResultsPosition longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc4={childFunc4} /></Container>
       </Container>
     </Container>
   );

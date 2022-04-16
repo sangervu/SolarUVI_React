@@ -4,6 +4,7 @@ function solarPositions(location) {
 
     const longitude = Number(location.longitude);
     const latitude = MathNew.deg2rad(location.latitude);
+    const tz = Number(-location.timezone);
 
     let stellarCalendar = {
         year: location.date.getFullYear(),
@@ -11,7 +12,8 @@ function solarPositions(location) {
         date: location.date.getDate(),
         hour: location.date.getHours(),
         minute: location.date.getMinutes(),
-        timeZone: location.date.getTimezoneOffset() / 60, // in hours
+        // timeZone: location.date.getTimezoneOffset() / 60, // in hours
+        timeZone: tz, // in hours
         get julian() {
             return 367 * this.year - (7 * (this.year + (this.month + 9) / 12)) / 4 - (3 * ((this.year + (this.month - 9) / 7) / 100 + 1)) / 4 + 275 * this.month / 9 + this.date + 1721029;
         },
