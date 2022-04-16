@@ -4,10 +4,10 @@ import AppCalendar from '../input-calendar/AppCalendar';
 import MapMaker from '../map-makers/MapMaker';
 import Container from 'react-bootstrap/Container';
 import InputLocation from '../input-locations/InputLocation';
-import {SolarResultsUVI} from '../solar-results/SolarResultsUVI';
-import {SolarResultsPower} from '../solar-results/SolarResultsPower';
-import {SolarResultsSunSet} from '../solar-results/SolarResultsSunSet';
-import {SolarResultsPosition} from '../solar-results/SolarResultsPosition';
+import { SolarResultsUVI } from '../solar-results/SolarResultsUVI';
+import { SolarResultsPower } from '../solar-results/SolarResultsPower';
+import { SolarResultsSunSet } from '../solar-results/SolarResultsSunSet';
+import { SolarResultsPosition } from '../solar-results/SolarResultsPosition';
 import NavMenu from './NavMenu';
 import useTimeZone from '../hooks/useTimeZones';
 
@@ -19,6 +19,12 @@ function App() {
 
     const datenow = new Date();
     newdate = new Date(newdate);
+
+    // const timeZone = useTimeZone("https://maps.googleapis.com/maps/api/timezone/json?location=39.6034810%2C-119.6822510&timestamp=1331161200&key=AIzaSyC9JoYNE1TRoIwzEp-QB7-l5-eqSILgHmY");
+
+    // .toLocaleString('fi-FI', {
+    //   timeZone: 'America/Los_Angeles'
+    // })
 
     if (newdate.valueOf() === datenow.valueOf()) {
       setDate(datenow);
@@ -41,14 +47,12 @@ function App() {
     });
   }
 
-  const timeZone = useTimeZone("https://maps.googleapis.com/maps/api/timezone/json?location=39.6034810%2C-119.6822510&timestamp=1331161200&key=AIzaSyC9JoYNE1TRoIwzEp-QB7-l5-eqSILgHmY");
-
   useEffect(() => {
     childFunc1.current()
     childFunc2.current()
     childFunc3.current()
     childFunc4.current()
-  }, [locState]);
+  }, [locState] [dateState]);
 
   const childFunc1 = useRef(null);
   const childFunc2 = useRef(null);
