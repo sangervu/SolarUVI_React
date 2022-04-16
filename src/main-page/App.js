@@ -46,7 +46,9 @@ function App() {
       lon: newlocation.lon
     });
   }
-
+  const timeZone = useTimeZone("https://maps.googleapis.com/maps/api/timezone/json?location=60.6034810%2C23.6822510&timestamp=1331161200&key=AIzaSyC9JoYNE1TRoIwzEp-QB7-l5-eqSILgHmY");
+  const rawOffset = timeZone.rawOffset/60/60;
+  
   useEffect(() => {
     childFunc1.current()
     childFunc2.current()
