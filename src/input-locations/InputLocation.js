@@ -17,9 +17,9 @@ function InputLocation(props) {
     setInputs({
       lat: props.latitude,
       lon: props.longitude,
-      timezone: '3'
+      timezone: props.timezone
     })
-  }, [props.latitude, props.longitude])
+  }, [props.latitude, props.longitude, props.timezone])
 
 
   const handleChange = (event) => {

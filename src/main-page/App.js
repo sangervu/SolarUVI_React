@@ -32,14 +32,14 @@ function App() {
   const [locState, setLocation] = useState({
     lat: '60.20',
     lon: '24.90',
-    timezone: '2'
+    timezone: '3'
   });
 
   function changeLocation(newlocation) {
     setLocation({
       lat: newlocation.lat,
       lon: newlocation.lon,
-      timezone: '3'
+      timezone: newlocation.timezone
     });
   }
   // const timeZone = useTimeZone("https://maps.googleapis.com/maps/api/timezone/json?location=60.6034810%2C23.6822510&timestamp=1331161200&key=AIzaSyC9JoYNE1TRoIwzEp-QB7-l5-eqSILgHmY");
@@ -63,7 +63,7 @@ function App() {
       <Container className="row">
         <Container className="col"><AppCalendar handleSubmit={changeDate} /></Container>
         <Container className="col"><MapMaker handleMap={changeLocation} /></Container>
-        <Container className="col"><InputLocation longitude={locState.lon} latitude={locState.lat} handleChange={changeLocation} />
+        <Container className="col"><InputLocation longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} handleChange={changeLocation} />
           <hr />
           {/* <button onClick={() => {
             return (childFunc1.current(), childFunc2.current(), childFunc3.current(), childFunc4.current());
