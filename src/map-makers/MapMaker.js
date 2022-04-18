@@ -16,7 +16,8 @@ const center = {
 function MapMaker(props) {
   const [inputs, setInputs] = useState({
     lat: '60.20',
-    lon: '24.90'
+    lon: '24.90',
+    timezone: '3'
   });
 
   function handleChange() {
@@ -34,7 +35,8 @@ function MapMaker(props) {
         onClick={ev => {
           setInputs({
             lat: ev.latLng.lat(),
-            lon: ev.latLng.lng()
+            lon: ev.latLng.lng(),
+            timezone: '3'
           })
         }
         }

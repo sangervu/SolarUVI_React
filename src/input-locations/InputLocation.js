@@ -26,8 +26,12 @@ function InputLocation(props) {
     const name = event.target.name;
     const value = event.target.value;
     setInputs(values => ({ ...values, [name]: value }))
-
   }
+
+  const handleCheckChange = () => {
+    setChecked(!checked);
+  };
+
 
   function handlePosition() {
     props.handleChange(inputs);
@@ -65,6 +69,9 @@ function InputLocation(props) {
     handlePosition()
   }, [inputs])
 
+  const [checked, setChecked] = React.useState(false);
+
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -97,9 +104,17 @@ function InputLocation(props) {
         </label>
         <br></br>
 
-        <button onClick={handleSubmit}>Set local coordinate</button>
+        <button onClick={handleSubmit}>Set local coordinate and timezone</button>
         <hr />
-        {/* <button onClick={handlePosition}>Set new coordinate</button> */}
+
+        <label>
+          <input
+            type="checkbox"
+            checked={checked}
+            onChange={handleCheckChange}
+          />
+          &nbsp;&nbsp;Get time zone (for solar sunset and position)
+        </label>
       </form>
     </>
   )
