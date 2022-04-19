@@ -20,7 +20,7 @@ export default function AppCalendar(props) {
           value={dateState}
           onChange={changeDate}
         />
-        <p>Current selected date is <b>{moment(dateState).format('HH:MM - Do MMMM YYYY')}</b></p>
+        <p>Current selected date is <b>{moment(dateState).format('HH:mm - Do MMMM YYYY')}</b></p>
         <p>Current selected date is <b>{moment(dateState).format()}</b></p>
         <br></br>
         <button onClick={handleSubmit}>Set current date</button>
