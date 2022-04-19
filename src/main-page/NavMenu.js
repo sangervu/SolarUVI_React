@@ -1,10 +1,10 @@
 import React, { Fragment, useState, useContext } from 'react';
 import { Nav, Navbar, NavItem } from 'reactstrap';
 import './NavMenu.css';
-import { ReactComponent as AppsIcon } from '../images/apps.svg'
-import { ReactComponent as ConsultationIcon } from '../images/consultation.svg'
-import { ReactComponent as DashboardIcon } from '../images/dashboard.svg'
-
+import { ReactComponent as UviIcon } from '../images/uvi.svg'
+import { ReactComponent as SolarPowerIcon } from '../images/sun-power.svg'
+import { ReactComponent as SunSetIcon } from '../images/sun-set.svg'
+import { ReactComponent as SolarPositionIcon } from '../images/sun-position.svg'
 
 const NavMenu = () => {
     const [alarmOnClickTime, setAlarmOnClickTime] = useState(new Date());
@@ -33,17 +33,21 @@ const NavMenu = () => {
                 <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
                     <Nav onSelect={(selectedKey) => alert(`selected ${selectedKey}`)} fill>
                         <NavItem className="disabled">
-                            <ConsultationIcon />
-                            <label className="nav-title d-none d-lg-block">Ulkop. kons.</label>
+                            <SolarPowerIcon />
+                            <label className="nav-title d-none d-lg-block">SolarPower</label>
                         </NavItem>
                         <li className="nav-divider"></li>
                         <NavItem className="disabled">
-                            <DashboardIcon />
-                            <label className="nav-title d-none d-lg-block">Dashboard</label>
+                            <UviIcon />
+                            <label className="nav-title d-none d-lg-block">UVI</label>
                         </NavItem>
                         <NavItem className="disabled">
-                            <AppsIcon />
-                            <label className="nav-title d-none d-lg-block">Palvelut</label>
+                            <SunSetIcon />
+                            <label className="nav-title d-none d-lg-block">SunRize&Set</label>
+                        </NavItem>
+                        <NavItem className="disabled">
+                            <SolarPositionIcon />
+                            <label className="nav-title d-none d-lg-block">SolarPosition</label>
                         </NavItem>
                     </Nav>
                 </Navbar>
