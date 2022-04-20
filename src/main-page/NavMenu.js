@@ -5,6 +5,8 @@ import { ReactComponent as UviIcon } from '../images/uvi.svg'
 import { ReactComponent as SolarPowerIcon } from '../images/sun-power.svg'
 import { ReactComponent as SunSetIcon } from '../images/sun-set.svg'
 import { ReactComponent as SolarPositionIcon } from '../images/sun-position.svg'
+import { ReactComponent as CalendarIcon } from '../images/calendar.svg'
+
 
 const NavMenu = () => {
     const [alarmOnClickTime, setAlarmOnClickTime] = useState(new Date());
@@ -32,6 +34,10 @@ const NavMenu = () => {
             <header className="header">
                 <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
                     <Nav onSelect={(selectedKey) => alert(`selected ${selectedKey}`)} fill>
+                    <NavItem className="disabled">
+                            <CalendarIcon />
+                            <label className="nav-title d-none d-lg-block">Calendar</label>
+                        </NavItem>
                         <NavItem className="disabled">
                             <SolarPowerIcon />
                             <label className="nav-title d-none d-lg-block">SolarPower</label>
