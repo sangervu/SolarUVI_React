@@ -61,7 +61,7 @@ function App() {
     <Container className="container">
       <NavMenu></NavMenu>
       <Container className="row">
-        <Container className="col"><AppCalendar handleSubmit={changeDate} /></Container>
+        <Container className="col"><AppCalendar handleSubmit={changeDate} newDate={dateState}/></Container>
         <Container className="col"><MapMaker handleMap={changeLocation} /></Container>
         <Container className="col"><InputLocation longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} handleChange={changeLocation} />
           <hr />
