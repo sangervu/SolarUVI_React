@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path d="M10,12 L10,14 L18,14 L18,16 L10,16 L10,18 L8,18 L8,12 L10,12 Z M6,14 L6,16 L0,16 L0,14 L6,14 Z M6,6 L6,12 L4,12 L4,10 L0,10 L0,8 L4,8 L4,6 L6,6 Z M18,8 L18,10 L8,10 L8,8 L18,8 Z M14,0 L14,2 L18,2 L18,4 L14,4 L14,6 L12,6 L12,0 L14,0 Z M10,2 L10,4 L8.8817842e-16,4 L8.8817842e-16,2 L10,2 Z" id="tune-path-1"></path>
+    </defs>
+    <g id="tuneMain" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-786.000000, -6334.000000)" id="tune">
+            <g transform="translate(786.000000, 6334.000000)">
+                <polygon id="tune-path" points="0 0 24 0 24 24 0 24"></polygon>
+                <g id="swatch/turqoise-dark" transform="translate(3.000000, 3.000000)">
+                    <mask id="tune-mask-2" fill="white">
+                        <use xlink:href="#tune-path-1"></use>
+                    </mask>
+                    <g id="tune-mask" fill-rule="nonzero"></g>
+                    <g mask="url(#tune-mask-2)" id="Rectangle">
+                        <g transform="translate(-3.000000, -3.000000)">
+                            <rect fill="none" x="0" y="0" width="24" height="24"></rect>
+                            <rect class="small_link_image" fill="#2D2D2D" fill-rule="evenodd" x="0" y="0" width="24" height="24"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
