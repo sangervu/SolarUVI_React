@@ -12,14 +12,10 @@ import { ReactComponent as HelpIcon } from '../images/help.svg'
 import pdf from '../documents/Instructions.pdf';
 
 const NavMenu = () => {
-    const [alarmOnClickTime, setAlarmOnClickTime] = useState(new Date());
-    const [queueAlarmOnClickTime, setQueueAlarmOnClickTime] = useState(new Date());
     const [modalComponent, setModalComponent] = useState();
     const [modalWidth, setModalWidth] = useState();
     const [modalHeigth, setModalHeigth] = useState();
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [openHistory, setOpenHistory] = useState(false);
-    const [openNotificationMessage, setOpenNotificationMessage] = useState(false);
     const [error, setError] = useState();
 
     const openModal = (component, modalWidth, modalHeigth) => {
@@ -61,14 +57,14 @@ const NavMenu = () => {
                         </NavItem>
                         <NavItem className="disabled">
                             <SunSetIcon />
-                            <label className="nav-title d-none d-lg-block">SunRize&Set</label>
+                            <label className="nav-title d-none d-lg-block">SunRizeSet</label>
                         </NavItem>
                         <NavItem className="disabled">
                             <SolarPositionIcon />
                             <label className="nav-title d-none d-lg-block">SolarPosition</label>
                         </NavItem>
                         <li className="nav-divider"></li>
-                        <NavItem className="small_navItem" onClick={() => openModal(<HelpModal toggleModal={toggleModal} />, 300, '90%')}>
+                        <NavItem className="small_navItem" onClick={() => openModal(<HelpModal  />, 300, '90%')}>
                             <HelpIcon className="small_link_image" />
                         </NavItem>
                         {/* <NavItem className="small_navItem" onClick={() => openModal(<SettingsModal toggleModal={toggleModal} />, '90%', '90%')}>
