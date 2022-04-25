@@ -10,6 +10,7 @@ import { ReactComponent as TuneIcon } from '../images/tune.svg'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { ReactComponent as HelpIcon } from '../images/help.svg'
 import pdf from '../documents/Instructions.pdf';
+import AppCalendar from '../input-calendar/AppCalendar';
 
 const NavMenu = () => {
     const [modalComponent, setModalComponent] = useState();
@@ -42,10 +43,10 @@ const NavMenu = () => {
             <header className="header">
                 <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
                     <Nav onSelect={(selectedKey) => alert(`selected ${selectedKey}`)} fill>
-                        <NavItem className="disabled">
+                        <NavItem onClick={() => openModal(<AppCalendar toggleModal={toggleModal} />, 500, '90%')}>
                             <CalendarIcon />
                             <label className="nav-title d-none d-lg-block">Calendar</label>
-                        </NavItem>
+                        </NavItem> 
                         <NavItem className="disabled">
                             <SolarPowerIcon />
                             <label className="nav-title d-none d-lg-block">SolarPower</label>
@@ -64,12 +65,10 @@ const NavMenu = () => {
                             <label className="nav-title d-none d-lg-block">SolarPosition</label>
                         </NavItem>
                         <li className="nav-divider"></li>
-                        <NavItem className="small_navItem" onClick={() => openModal(<HelpModal toggleModal={toggleModal}/>, 300, '90%')}>
+                        <NavItem className="small_navItem" onClick={() => openModal(<HelpModal toggleModal={toggleModal} />, 300, '90%')}>
                             <HelpIcon className="small_link_image" />
                         </NavItem>
-                        {/* <NavItem className="small_navItem" onClick={() => openModal(<SettingsModal toggleModal={toggleModal} />, '90%', '90%')}>
-                            <TuneIcon className="small_link_image" />
-                        </NavItem> */}
+
                     </Nav>
                 </Navbar>
             </header>

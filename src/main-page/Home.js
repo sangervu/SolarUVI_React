@@ -8,7 +8,6 @@ import { SolarResultsUVI } from '../solar-results/SolarResultsUVI';
 import { SolarResultsPower } from '../solar-results/SolarResultsPower';
 import { SolarResultsSunSet } from '../solar-results/SolarResultsSunSet';
 import { SolarResultsPosition } from '../solar-results/SolarResultsPosition';
-import NavMenu from './NavMenu';
 import useTimeZone from '../hooks/useTimeZones';
 
 function Home() {
