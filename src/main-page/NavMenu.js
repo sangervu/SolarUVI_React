@@ -64,7 +64,7 @@ const NavMenu = () => {
                             <label className="nav-title d-none d-lg-block">SolarPosition</label>
                         </NavItem>
                         <li className="nav-divider"></li>
-                        <NavItem className="small_navItem" onClick={() => openModal(<HelpModal  />, 300, '90%')}>
+                        <NavItem className="small_navItem" onClick={() => openModal(<HelpModal toggleModal={toggleModal}/>, 300, '90%')}>
                             <HelpIcon className="small_link_image" />
                         </NavItem>
                         {/* <NavItem className="small_navItem" onClick={() => openModal(<SettingsModal toggleModal={toggleModal} />, '90%', '90%')}>
@@ -73,6 +73,10 @@ const NavMenu = () => {
                     </Nav>
                 </Navbar>
             </header>
+            <Modal style={{ maxWidth: modalWidth, maxHeight: modalHeigth }} isOpen={isModalOpen}>
+                {modalComponent}
+            </Modal>
+
         </Fragment>
     );
 }
@@ -86,21 +90,19 @@ const HelpModal = ({ toggleModal }) => {
 
     return (
         <>
-            <ModalHeader toggle={toggleModal}>Merlot Medi Web Office</ModalHeader>
+            <ModalHeader toggle={toggleModal}>Solar Solutions</ModalHeader>
             <ModalBody>
                 <div>
                     <table className="version_table">
                         <tbody>
                             <tr>
                                 <td style={{ width: '150px' }}>
-                                    Versio 4.0.1.0<br />
-                                    Copyright © CGI {new Date().getFullYear()}
+                                    Versio 0.1<br />
+                                    Copyright ©  {new Date().getFullYear()}
                                 </td>
                                 <td style={{ width: '150px' }}>
-                                    CGI Suomi Oy<br />
-                                    PO BOX 38<br />
-                                    Karvaamokuja 2<br />
-                                    FI-00381 HELSINKI<br />
+                                    Insinöörityö<br />
+                                    Silja Angervuori<br />
                                 </td>
                             </tr>
                         </tbody>

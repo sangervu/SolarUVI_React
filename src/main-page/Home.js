@@ -50,7 +50,7 @@ function Home() {
     childFunc2.current()
     childFunc3.current()
     childFunc4.current()
-  }, [locState] [dateState]);
+  }, [locState][dateState]);
 
   const childFunc1 = useRef(null);
   const childFunc2 = useRef(null);
@@ -58,23 +58,19 @@ function Home() {
   const childFunc4 = useRef(null);
 
   return (
-    <Container className="container">
-      <Container className="row">
-        <Container className="col"><AppCalendar handleSubmit={changeDate} newDate={dateState}/></Container>
-        <Container className="col"><MapMaker handleMap={changeLocation} /></Container>
-        <Container className="col"><InputLocation longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} handleChange={changeLocation} />
-          <hr />
-          {/* <button onClick={() => {
-            return (childFunc1.current(), childFunc2.current(), childFunc3.current(), childFunc4.current());
-          }}>Calculate Solar Results</button> */}
-        </Container>
-      </Container>
-      <hr />
+    <Container fluid>
       <Container className="row">
         <Container className="col"><SolarResultsUVI longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc1={childFunc1} /></Container>
         <Container className="col"><SolarResultsPower longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc2={childFunc2} /></Container>
         <Container className="col"><SolarResultsSunSet longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc3={childFunc3} /></Container>
         <Container className="col"><SolarResultsPosition longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc4={childFunc4} /></Container>
+
+      </Container>
+      <hr />
+      <Container fluid>
+        <Container className="col"><AppCalendar handleSubmit={changeDate} newDate={dateState} /></Container>
+        <Container className="col"><MapMaker handleMap={changeLocation} /></Container>
+        <Container className="col"><InputLocation longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} handleChange={changeLocation} /></Container>
       </Container>
     </Container>
   );
