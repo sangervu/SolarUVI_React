@@ -4,7 +4,7 @@ import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import moment from 'moment'
 
-import { Button, ModalHeader, ModalBody, ModalFooter, Col, Row, Nav, NavItem, NavLink, TabContent, TabPane, Card, CardHeader, CardBody } from 'reactstrap';
+import { Button, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 function AppCalendar(props) {
 
@@ -13,7 +13,7 @@ function AppCalendar(props) {
   const [dateState, setDateState] = useState(dateNow)
   function changeDate(e) {
     setDateState(e);
-    props.handleSubmit(e);
+    // props.handleSubmit(e);
   }
 
   function handleSubmit(event) {
@@ -32,7 +32,7 @@ function AppCalendar(props) {
         <p>Current selected date is <b>{moment(props.newDate).format()}</b></p>
       </ModalBody>
       <ModalFooter>
-        <button onClick={handleSubmit}>Set current date</button>
+        <Button onClick={handleSubmit}>Set current date</Button>
         <Button onClick={props.toggleModal}>Peruuta</Button>
       </ModalFooter>
     </>
