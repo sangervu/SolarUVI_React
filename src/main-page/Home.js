@@ -58,7 +58,7 @@ function Home() {
 
   return (
     <Container fluid>
-      <Container className="row">
+      <Container className="row" style={{flexWrap: "nowrap"}}>
         <Container className="col"><InputLocation longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} handleChange={changeLocation} /></Container>
         <Container className="col"><SolarResultsUVI longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc1={childFunc1} /></Container>
         <Container className="col"><SolarResultsPower longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc2={childFunc2} /></Container>

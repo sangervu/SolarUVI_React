@@ -5,7 +5,8 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '400px',
-  height: '400px'
+  height: '400px',
+  top: '30px'
 };
 
 const center = {
@@ -30,6 +31,7 @@ function MapMaker(props) {
 
 
   return (
+    
     <LoadScript googleMapsApiKey="AIzaSyA16d9FJFh__vK04jU1P64vnEpPc3jenec">
       <GoogleMap
         onClick={ev => {

@@ -2,8 +2,10 @@ import React, { Fragment } from 'react';
 import { Col, Row } from 'reactstrap';
 import NavMenu from './NavMenu';
 import Clock from './Clock.js';
+import { useState } from 'react'
 
 const Layout = props => {
+
     return (
         <Fragment>
             <NavMenu />
@@ -11,7 +13,7 @@ const Layout = props => {
             <div className="medi-container">
                 {props.children}
             </div>
-            
+
             <footer className="footer">
                 <Row className="justify-content-end mr-2 mt-1">
                     <Col className="col-sm-auto">
