@@ -46,15 +46,16 @@ const NavMenu = (changeDate) => {
                             <CalendarIcon />
                             <label className="nav-title d-none d-lg-block">Calendar</label>
                         </NavItem>
-                        <NavItem className="disabled">
-                            <SolarPowerIcon />
-                            <label className="nav-title d-none d-lg-block">SolarPower</label>
-                        </NavItem>
                         <li className="nav-divider"></li>
                         <NavItem className="disabled">
                             <UviIcon />
                             <label className="nav-title d-none d-lg-block">UVI</label>
                         </NavItem>
+                        <NavItem className="disabled">
+                            <SolarPowerIcon />
+                            <label className="nav-title d-none d-lg-block">SolarPower</label>
+                        </NavItem>
+                        <li className="nav-divider"></li>
                         <NavItem className="disabled">
                             <SunSetIcon />
                             <label className="nav-title d-none d-lg-block">SunRizeSet</label>
@@ -67,7 +68,6 @@ const NavMenu = (changeDate) => {
                         <NavItem className="small_navItem" onClick={() => openModal(<HelpModal toggleModal={toggleModal} />, 300, '90%')}>
                             <HelpIcon className="small_link_image" />
                         </NavItem>
-
                     </Nav>
                 </Navbar>
             </header>
