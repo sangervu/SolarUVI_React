@@ -20,9 +20,6 @@ function SolarResultsPosition(props) {
 
     return (
         <div>
-            {/* <div>
-                <button onClick={update}>Calculate solar calculations UVI</button>
-            </div> */}
             <br></br>
             <h1 className="App-header">Solar Position calculations</h1>
             <p className="item">{"currentSunElevation: "} {app.currentSunElevation}</p>

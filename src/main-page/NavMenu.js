@@ -6,7 +6,6 @@ import { ReactComponent as SolarPowerIcon } from '../images/sun-power.svg'
 import { ReactComponent as SunSetIcon } from '../images/sun-set.svg'
 import { ReactComponent as SolarPositionIcon } from '../images/sun-position.svg'
 import { ReactComponent as CalendarIcon } from '../images/calendar.svg'
-import { ReactComponent as TuneIcon } from '../images/tune.svg'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { ReactComponent as HelpIcon } from '../images/help.svg'
 import pdf from '../documents/Instructions.pdf';
@@ -46,7 +45,7 @@ const NavMenu = () => {
                         <NavItem onClick={() => openModal(<AppCalendar toggleModal={toggleModal} />, 500, '90%')}>
                             <CalendarIcon />
                             <label className="nav-title d-none d-lg-block">Calendar</label>
-                        </NavItem> 
+                        </NavItem>
                         <NavItem className="disabled">
                             <SolarPowerIcon />
                             <label className="nav-title d-none d-lg-block">SolarPower</label>

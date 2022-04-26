@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import React from 'react';
-import '../styles/style.css';
+// import '../styles/style.css';
 
 function InputLocation(props) {
   const [inputs, setInputs] = useState({
@@ -71,10 +71,12 @@ function InputLocation(props) {
 
   const [checked, setChecked] = React.useState(false);
 
-
+ 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+     <br></br>
+     <h1 className="App-header">Input location</h1>
+      <form style={{ width: "250px"}} onSubmit={handleSubmit}>
         <label className="item">Enter your latitude:
           <input
             type="number"
