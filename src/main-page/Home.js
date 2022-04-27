@@ -9,8 +9,13 @@ import { SolarResultsPower } from '../solar-results/SolarResultsPower';
 import { SolarResultsSunSet } from '../solar-results/SolarResultsSunSet';
 import { SolarResultsPosition } from '../solar-results/SolarResultsPosition';
 import useTimeZone from '../hooks/useTimeZones';
+import { Button } from 'semantic-ui-react';
+import {useContext} from "react";
+import MainContext from '../context/MainContext';
 
 function Home() {
+
+  const childToParent = useContext(MainContext);
 
   const [dateState, setDate] = useState(new Date());
 
@@ -58,7 +63,8 @@ function Home() {
 
   return (
     <Container fluid>
-      <Container className="row" style={{flexWrap: "nowrap"}}>
+
+      <Container className="row" style={{ flexWrap: "nowrap" }}>
         <Container className="col"><InputLocation longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} handleChange={changeLocation} /></Container>
         <Container className="col"><SolarResultsUVI longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc1={childFunc1} /></Container>
         <Container className="col"><SolarResultsPower longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc2={childFunc2} /></Container>

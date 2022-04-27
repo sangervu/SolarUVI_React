@@ -1,7 +1,7 @@
-import React, { useState , createContext } from 'react';
+import React, { useState, createContext } from 'react';
 import Home from './Home';
 import Layout from './Layout';
-import MainContext from '../main-page/MainContext';
+import MainContext from '../context/MainContext';
 
 const UserContext = createContext()
 
@@ -30,12 +30,19 @@ function MainLayout() {
         }
     }
 
+    //demoa varten
+    const [data, setData] = useState('');
+    const childToParent = (childdata) => {
+        setData(childdata);
+    }
+
+
+
     return (
-        <MainContext.Provider value={{
-            navState, setNavState, changeDate
-        }}>
+        <MainContext.Provider value={childToParent}>
             <Layout>
-                <Home />
+                {data}
+                <Home/>
             </Layout>
         </MainContext.Provider>
     );
