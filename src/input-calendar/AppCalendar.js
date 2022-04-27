@@ -15,10 +15,10 @@ function AppCalendar(props) {
   const dateNow = new Date();
 
   const [dateState, setDateState] = useState(dateNow)
-  
+
   function changeDate(e) {
     setDateState(e);
-    // props.handleSubmit(e);
+    props.handleSubmit(e);
   }
 
   function handleSubmit(event) {
