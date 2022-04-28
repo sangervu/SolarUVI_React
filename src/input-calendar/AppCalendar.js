@@ -18,14 +18,16 @@ function AppCalendar(props) {
 
   function changeDate(e) {
     setDateState(e);
-    props.handleSubmit(e);
+    // props.handleSubmit(e);
   }
 
   function handleSubmit(event) {
     changeDate(dateNow);
   }
 
-  const data = "This is data from AppCalendar Child Component to the Parent Component."
+  // const data = "This is data from AppCalendar Child Component to the Parent Component."
+
+  const isNow = true;
 
   return (
     <>
@@ -35,14 +37,15 @@ function AppCalendar(props) {
           value={dateState}
           onChange={changeDate}
         />
-        <p>Current selected date is <b>{moment(props.newDate).format('HH:mm - Do MMMM YYYY')}</b></p>
-        <p>Current selected date is <b>{moment(props.newDate).format()}</b></p>
+        {isNow ? <p>Current selected date is <b>{moment(dateState).format('HH:mm - Do MMMM YYYY')}</b></p> : <p>Current selected date is <b>{moment(dateState.setHours(12)).format('HH:mm - Do MMMM YYYY')}</b></p>}
+        {isNow ? <p>Current selected date is <b>{moment(dateState).format()}</b></p> : <p>Current selected date is <b>{moment(dateState.setHours(12)).format()}</b></p>}
+        
       </ModalBody>
       <ModalFooter>
         <Button onClick={handleSubmit}>Set current date</Button>
         <Button onClick={props.toggleModal}>Peruuta</Button>
         
-        <Button primary onClick={() => childToParent(data)}>Click Child</Button>
+        <Button primary onClick={() => childToParent(moment(dateState).format())}>Click Child</Button>
     
       </ModalFooter>
     </>
