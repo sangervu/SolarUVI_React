@@ -14,34 +14,16 @@ function MainLayout() {
         positionSelected: false,
     });
 
-    const [dateState, setDate] = useState(new Date());
+    const [dateState, setDate] = useState('');
 
-    function changeDate(newdate) {
-
-        const datenow = new Date();
-        newdate = new Date(newdate);
-
-        if (newdate.valueOf() === datenow.valueOf()) {
-            setDate(datenow);
-        }
-        else {
-            newdate = new Date(newdate.setHours(12));
-            setDate(newdate);
-        }
-    }
-
-    //demoa varten
-    const [data, setData] = useState('');
     const childToParent = (childdata) => {
-        setData(childdata);
+        setDate(childdata);
     }
-
-
 
     return (
         <MainContext.Provider value={childToParent}>
             <Layout>
-                {data}
+                {dateState}
                 <Home/>
             </Layout>
         </MainContext.Provider>
