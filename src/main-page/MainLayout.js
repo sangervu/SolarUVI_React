@@ -14,7 +14,7 @@ function MainLayout() {
         positionSelected: false,
     });
 
-    const [dateState, setDate] = useState('');
+    const [dateState, setDate] = useState(new Date());
 
     const childToParent = (childdata) => {
         setDate(childdata);
@@ -23,8 +23,8 @@ function MainLayout() {
     return (
         <MainContext.Provider value={childToParent}>
             <Layout>
-                {dateState}
-                <Home date="dateState"/>
+                {/* {dateState} */}
+                <Home date={dateState}/>
             </Layout>
         </MainContext.Provider>
     );

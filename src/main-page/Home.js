@@ -17,9 +17,9 @@ function Home(props) {
 
   const [dateState, setDate] = useState(new Date());
 
-  // useEffect(() => {
-  //   setDate(props)
-  // },[dateState] );
+  useEffect(() => {
+    setDate(new Date(props.date))
+  },[props.date] );
 
 
   const [locState, setLocation] = useState({

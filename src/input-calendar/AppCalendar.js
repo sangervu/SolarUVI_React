@@ -14,7 +14,6 @@ function AppCalendar(props) {
   const childToParent = useContext(MainContext);
 
   const [dateStateNow, setDateStateNow] = useState(new Date())
-
   const [dateStateCalendar, setDateState] = useState(new Date())
 
   function changeDate(e) {
