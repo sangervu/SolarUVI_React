@@ -12,9 +12,10 @@ import { Button, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 function AppCalendar(props) {
 
   const childToParent = useContext(MainContext);
-  const dateNow = new Date();
 
-  const [dateState, setDateState] = useState(dateNow)
+  const [dateStateNow, setDateStateNow] = useState(new Date())
+
+  const [dateStateCalendar, setDateState] = useState(new Date())
 
   function changeDate(e) {
     setDateState(e);
@@ -22,13 +23,13 @@ function AppCalendar(props) {
   }
 
   function handleSubmit(event) {
-    changeDate(dateNow);
+    changeDate(dateStateNow);
   }
 
   // const data = "This is data from AppCalendar Child Component to the Parent Component."
 
   const isNow = () => {
-    if (dateState.valueOf() === dateNow.valueOf()) {
+    if (dateStateNow.valueOf() === dateStateCalendar.valueOf()) {
       return true
     }
     else {
@@ -37,7 +38,7 @@ function AppCalendar(props) {
   };
 
   const isNowDate = (date) => {
-    if (date.valueOf() === dateNow.valueOf()) {
+    if (date.valueOf() === dateStateNow.valueOf()) {
       return date
     }
     else {
@@ -50,18 +51,18 @@ function AppCalendar(props) {
       <ModalHeader toggle={props.toggleModal}>Calendar</ModalHeader>
       <ModalBody>
         <Calendar
-          value={dateState}
+          value={dateStateCalendar}
           onChange={changeDate}
         />
-        {isNow() ? <p>Current selected date is <b>{moment(dateState).format('HH:mm - Do MMMM YYYY')}</b></p> : <p>Current selected date is <b>{moment(dateState.setHours(12)).format('HH:mm - Do MMMM YYYY')}</b></p>}
-        {isNow() ? <p>Current selected date is <b>{moment(dateState).format()}</b></p> : <p>Current selected date is <b>{moment(dateState.setHours(12)).format()}</b></p>}
+        {isNow() ? <p>Current selected date is <b>{moment(dateStateCalendar).format('HH:mm - Do MMMM YYYY')}</b></p> : <p>Current selected date is <b>{moment(dateStateCalendar.setHours(12)).format('HH:mm - Do MMMM YYYY')}</b></p>}
+        {isNow() ? <p>Current selected date is <b>{moment(dateStateCalendar).format()}</b></p> : <p>Current selected date is <b>{moment(dateStateCalendar.setHours(12)).format()}</b></p>}
 
       </ModalBody>
       <ModalFooter>
-        <Button onClick={handleSubmit}>Set current date</Button>
-        <Button onClick={props.toggleModal}>Peruuta</Button>
+        <Button onClick={handleSubmit}>Current date</Button>
+        <Button onClick={props.toggleModal}>Close</Button>
 
-        <Button primary onClick={() => childToParent(moment(isNowDate(dateState)).format())}>Click Child</Button>
+        <Button primary onClick={() => childToParent(moment(isNowDate(dateStateCalendar)).format())}>Use date selected</Button>
 
       </ModalFooter>
     </>
