@@ -10,28 +10,17 @@ import { SolarResultsSunSet } from '../solar-results/SolarResultsSunSet';
 import { SolarResultsPosition } from '../solar-results/SolarResultsPosition';
 import useTimeZone from '../hooks/useTimeZones';
 import { Button } from 'semantic-ui-react';
-import {useContext} from "react";
+import { useContext } from "react";
 import MainContext from '../context/MainContext';
 
-function Home() {
-
-  const childToParent = useContext(MainContext);
+function Home(props) {
 
   const [dateState, setDate] = useState(new Date());
 
-  function changeDate(newdate) {
+  // useEffect(() => {
+  //   setDate(props)
+  // },[dateState] );
 
-    const datenow = new Date();
-    newdate = new Date(newdate);
-
-    if (newdate.valueOf() === datenow.valueOf()) {
-      setDate(datenow);
-    }
-    else {
-      newdate = new Date(newdate.setHours(12));
-      setDate(newdate);
-    }
-  }
 
   const [locState, setLocation] = useState({
     lat: '60.20',
