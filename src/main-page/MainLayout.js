@@ -3,8 +3,6 @@ import Home from './Home';
 import Layout from './Layout';
 import MainContext from '../context/MainContext';
 
-const UserContext = createContext()
-
 function MainLayout() {
 
     const [navState, setNavState] = useState({
@@ -14,16 +12,16 @@ function MainLayout() {
         positionSelected: false,
     });
 
-    const [dateState, setDate] = useState(new Date());
+    const [date, setDate] = useState(new Date());
 
     const childToParent = (childdata) => {
-        setDate(childdata);
+        setDate(new Date(childdata));
     }
 
     return (
-        <MainContext.Provider value={childToParent} >
-            <Layout>
-                <Home date={dateState}/>
+        <MainContext.Provider value={{date}}>
+            <Layout ctp={childToParent}>
+                <Home />
             </Layout>
         </MainContext.Provider>
     );

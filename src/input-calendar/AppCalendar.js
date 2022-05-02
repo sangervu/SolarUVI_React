@@ -11,7 +11,7 @@ import { Button, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 function AppCalendar(props) {
 
-  const childToParent = useContext(MainContext);
+  const childToParent = props.childToParent; 
 
   const [dateStateNow, setDateStateNow] = useState(new Date())
   const [dateStateCalendar, setDateState] = useState(new Date())
@@ -24,8 +24,6 @@ function AppCalendar(props) {
   function handleSubmit(event) {
     changeDate(dateStateNow);
   }
-
-  // const data = "This is data from AppCalendar Child Component to the Parent Component."
 
   const isNow = () => {
     if (dateStateNow.valueOf() === dateStateCalendar.valueOf()) {
@@ -60,9 +58,7 @@ function AppCalendar(props) {
       <ModalFooter>
         <Button onClick={handleSubmit}>Current date</Button>
         <Button onClick={props.toggleModal}>Close</Button>
-
         <Button primary onClick={() => childToParent(moment(isNowDate(dateStateCalendar)).format())}>Use date selected</Button>
-
       </ModalFooter>
     </>
   )

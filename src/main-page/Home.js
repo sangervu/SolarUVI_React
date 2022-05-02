@@ -12,15 +12,15 @@ import useTimeZone from '../hooks/useTimeZones';
 import { useContext } from "react";
 import MainContext from '../context/MainContext';
 
-function Home(props) {
+function Home() {
 
-  // const childToParent = useContext(MainContext);
+  const date = useContext(MainContext).date;
 
   const [dateState, setDate] = useState(new Date());
 
   useEffect(() => {
-    setDate(new Date(props.date))
-  },[props.date] );
+    setDate(date)
+  },[date] );
 
 
   const [locState, setLocation] = useState({

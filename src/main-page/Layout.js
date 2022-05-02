@@ -8,7 +8,7 @@ const Layout = props => {
 
     return (
         <Fragment>
-            <NavMenu />
+            <NavMenu childToParent = {props.ctp}/>
 
             <div className="medi-container">
                 {props.children}
