@@ -14,13 +14,15 @@ import MainContext from '../context/MainContext';
 
 function Home() {
 
-  const date = useContext(MainContext).date;
+  const { date, navState } = useContext(MainContext);
+
+  const emptyContent = navState.powerSelected + navState.sunsetSelected + navState.positionSelected + navState.uviSelected === 0;
 
   const [dateState, setDate] = useState(new Date());
 
   useEffect(() => {
     setDate(date)
-  },[date] );
+  }, [date]);
 
 
   const [locState, setLocation] = useState({
@@ -52,21 +54,22 @@ function Home() {
   const childFunc4 = useRef(null);
 
   return (
-    <Container fluid>
-
-      <Container className="row" style={{ flexWrap: "nowrap" }}>
-        <Container className="col"><InputLocation longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} handleChange={changeLocation} /></Container>
-        <Container className="col"><SolarResultsUVI longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc1={childFunc1} /></Container>
-        <Container className="col"><SolarResultsPower longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc2={childFunc2} /></Container>
-        <Container className="col"><SolarResultsSunSet longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc3={childFunc3} /></Container>
-        <Container className="col"><SolarResultsPosition longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc4={childFunc4} /></Container>
-        <Container className="col"><MapMaker handleMap={changeLocation} /></Container></Container>
-      <Container className="row">
-        {/* <Container className="col"><AppCalendar handleSubmit={changeDate} newDate={dateState} /></Container> */}
-
-      </Container>
-      <hr />
-    </Container>
+    <div style={{ display: emptyContent ? 'none' : 'block' }} className='home-container'>
+      <div style={{ display: 'flex', flexDirection: 'row', height: '100%' }}>
+        <Container fluid>
+          <Container className="row" style={{ flexWrap: "nowrap" }}>
+            <Container className="col"><InputLocation longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} handleChange={changeLocation} /></Container>
+            <Container className="col"><SolarResultsUVI longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc1={childFunc1} /></Container>
+            <Container className="col"><SolarResultsPower longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc2={childFunc2} /></Container>
+            <Container className="col"><SolarResultsSunSet longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc3={childFunc3} /></Container>
+            <Container className="col"><SolarResultsPosition longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc4={childFunc4} /></Container>
+            <Container className="col"><MapMaker handleMap={changeLocation} /></Container></Container>
+          <Container className="row">
+          </Container>
+          <hr />
+        </Container>
+      </div>
+    </div>
   );
 }
 export default Home;
