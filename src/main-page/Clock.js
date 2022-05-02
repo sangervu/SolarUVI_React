@@ -27,7 +27,7 @@ const Clock = () => {
                     Laskelmissa käytetty aikavyöhyke, kellonaika ja pvm: 
                 </span>
                 <span style={{ marginLeft: '1rem' }}>
-                    {date.getTimezoneOffset()/60}
+                    {Intl.DateTimeFormat().resolvedOptions().timeZone}
                 </span>
                 <span style={{ marginLeft: '1rem' }}>
                     {date.toLocaleTimeString("fi-FI")}
