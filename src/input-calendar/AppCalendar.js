@@ -51,8 +51,8 @@ function AppCalendar(props) {
           value={dateStateCalendar}
           onChange={changeDate}
         />
-        {isNow() ? <p>Current selected date is <b>{moment(dateStateCalendar).format('HH:mm - Do MMMM YYYY')}</b></p> : <p>Current selected date is <b>{moment(dateStateCalendar.setHours(12)).format('HH:mm - Do MMMM YYYY')}</b></p>}
-        {isNow() ? <p>Current selected date is <b>{moment(dateStateCalendar).format()}</b></p> : <p>Current selected date is <b>{moment(dateStateCalendar.setHours(12)).format()}</b></p>}
+        {isNow() ? <p>Current selected date: is <b>{moment(dateStateCalendar).format('HH:mm - Do MMMM YYYY')}</b></p> : <p>Current selected date is <b>{moment(dateStateCalendar.setHours(12)).format('HH:mm - Do MMMM YYYY')}</b></p>}
+        {isNow() ? <p>Local Time Zone: <b>{dateStateCalendar.getTimezoneOffset()/60}</b></p> : <p>Selected Time Zone <b>{moment(dateStateCalendar.setHours(12)).format()}</b></p>}
 
       </ModalBody>
       <ModalFooter>

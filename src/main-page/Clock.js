@@ -24,7 +24,10 @@ const Clock = () => {
         <div className="row h-100 font-weight-bold" style={{ fontSize: '1.2rem' }}>
             <div className="col-sm-12 my-auto">
                 <span>
-                    Laskelmissa käytetty kellonaika ja pvm: 
+                    Laskelmissa käytetty aikavyöhyke, kellonaika ja pvm: 
+                </span>
+                <span style={{ marginLeft: '1rem' }}>
+                    {date.getTimezoneOffset()/60}
                 </span>
                 <span style={{ marginLeft: '1rem' }}>
                     {date.toLocaleTimeString("fi-FI")}
