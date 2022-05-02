@@ -36,7 +36,7 @@ html:not(input) {
 }
 
 .footer {
-    width: 100%;
+    width: 99%;
     background-color: #D8D8D8;
     height: 2.5rem;
 }

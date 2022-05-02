@@ -21,9 +21,8 @@ function MainLayout() {
     }
 
     return (
-        <MainContext.Provider value={childToParent}>
+        <MainContext.Provider value={childToParent} >
             <Layout>
-                {/* {dateState} */}
                 <Home date={dateState}/>
             </Layout>
         </MainContext.Provider>

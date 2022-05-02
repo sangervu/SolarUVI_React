@@ -9,11 +9,12 @@ import { SolarResultsPower } from '../solar-results/SolarResultsPower';
 import { SolarResultsSunSet } from '../solar-results/SolarResultsSunSet';
 import { SolarResultsPosition } from '../solar-results/SolarResultsPosition';
 import useTimeZone from '../hooks/useTimeZones';
-import { Button } from 'semantic-ui-react';
 import { useContext } from "react";
 import MainContext from '../context/MainContext';
 
 function Home(props) {
+
+  // const childToParent = useContext(MainContext);
 
   const [dateState, setDate] = useState(new Date());
 
