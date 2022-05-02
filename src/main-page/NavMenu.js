@@ -10,6 +10,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { ReactComponent as HelpIcon } from '../images/help.svg'
 import pdf from '../documents/Instructions.pdf';
 import AppCalendar from '../input-calendar/AppCalendar';
+import MainContext from '../context/MainContext';
 
 const NavMenu = (props) => {
     const [modalComponent, setModalComponent] = useState();
@@ -18,11 +19,29 @@ const NavMenu = (props) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [error, setError] = useState();
 
+    const { navState, setNavState } = useContext(MainContext);
+
     const openModal = (component, modalWidth, modalHeigth) => {
         setModalComponent(component);
         setModalWidth(modalWidth);
         setModalHeigth(modalHeigth)
         toggleModal();
+    }
+
+    const uviOnClick = () => {
+        setNavState(prevState => ({ ...prevState, uviSelected: !prevState.uviSelected }));
+    }
+    const getClassName = (selected) => {
+        let names = [];
+        if (navState.disableAll) {
+            names.push('disabled');
+        }
+
+        if (selected) {
+            names.push('active');
+        }
+
+        return names.join(' ');
     }
 
     const toggleModal = () => {
@@ -47,10 +66,15 @@ const NavMenu = (props) => {
                             <label className="nav-title d-none d-lg-block">Calendar</label>
                         </NavItem>
                         <li className="nav-divider"></li>
-                        <NavItem className="disabled">
+                        {/* <NavItem className="disabled">
+                            <UviIcon />
+                            <label className="nav-title d-none d-lg-block">UVI</label>
+                        </NavItem> */}
+                        <NavItem onClick={uviOnClick} className={getClassName(navState.uviSelected)}>
                             <UviIcon />
                             <label className="nav-title d-none d-lg-block">UVI</label>
                         </NavItem>
+
                         <NavItem className="disabled">
                             <SolarPowerIcon />
                             <label className="nav-title d-none d-lg-block">SolarPower</label>
