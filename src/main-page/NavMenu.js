@@ -12,7 +12,7 @@ import pdf from '../documents/Instructions.pdf';
 import AppCalendar from '../input-calendar/AppCalendar';
 import MainContext from '../context/MainContext';
 
-const NavMenu = (props) => {
+const NavMenu = () => {
     const [modalComponent, setModalComponent] = useState();
     const [modalWidth, setModalWidth] = useState();
     const [modalHeigth, setModalHeigth] = useState();
@@ -61,7 +61,7 @@ const NavMenu = (props) => {
             <header className="header">
                 <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
                     <Nav onSelect={(selectedKey) => alert(`selected ${selectedKey}`)} fill>
-                        <NavItem onClick={() => openModal(<AppCalendar toggleModal={toggleModal} childToParent={props.childToParent}/>, 500, '90%')}>
+                        <NavItem onClick={() => openModal(<AppCalendar toggleModal={toggleModal}/>, 500, '90%')}>
                             <CalendarIcon />
                             <label className="nav-title d-none d-lg-block">Calendar</label>
                         </NavItem>

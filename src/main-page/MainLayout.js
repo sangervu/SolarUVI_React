@@ -19,8 +19,8 @@ function MainLayout() {
     }
 
     return (
-        <MainContext.Provider value={{date,navState, setNavState}}>
-            <Layout ctp={childToParent}>
+        <MainContext.Provider value={{date,navState, setNavState, childToParent}}>
+            <Layout>
                 <Home />
             </Layout>
         </MainContext.Provider>

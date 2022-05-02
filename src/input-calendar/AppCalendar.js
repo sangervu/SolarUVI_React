@@ -11,7 +11,7 @@ import { Button, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 function AppCalendar(props) {
 
-  const childToParent = props.childToParent; 
+  const {childToParent} = useContext(MainContext); 
 
   const [dateStateNow, setDateStateNow] = useState(new Date())
   const [dateStateCalendar, setDateState] = useState(new Date())
