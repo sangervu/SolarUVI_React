@@ -31,6 +31,18 @@ const NavMenu = () => {
     const uviOnClick = () => {
         setNavState(prevState => ({ ...prevState, uviSelected: !prevState.uviSelected }));
     }
+    const powerOnClick = () => {
+        setNavState(prevState => ({ ...prevState, powerSelected: !prevState.powerSelected }));
+    }
+
+    const sunsetOnClick = () => {
+        setNavState(prevState => ({ ...prevState, sunsetSelected: !prevState.sunsetSelected }));
+    }
+
+    const positionOnClick = () => {
+        setNavState(prevState => ({ ...prevState, positionSelected: !prevState.positionSelected }));
+    }
+
     const getClassName = (selected) => {
         let names = [];
         if (navState.disableAll) {
@@ -74,17 +86,16 @@ const NavMenu = () => {
                             <UviIcon />
                             <label className="nav-title d-none d-lg-block">UVI</label>
                         </NavItem>
-
-                        <NavItem className="disabled">
+                        <NavItem onClick={powerOnClick} className={getClassName(navState.powerSelected)}>
                             <SolarPowerIcon />
                             <label className="nav-title d-none d-lg-block">SolarPower</label>
                         </NavItem>
                         <li className="nav-divider"></li>
-                        <NavItem className="disabled">
+                        <NavItem onClick={sunsetOnClick} className={getClassName(navState.sunsetSelected)}>
                             <SunSetIcon />
                             <label className="nav-title d-none d-lg-block">SunRizeSet</label>
                         </NavItem>
-                        <NavItem className="disabled">
+                        <NavItem onClick={positionOnClick} className={getClassName(navState.positionSelected)}>
                             <SolarPositionIcon />
                             <label className="nav-title d-none d-lg-block">SolarPosition</label>
                         </NavItem>
