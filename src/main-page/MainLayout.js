@@ -14,12 +14,26 @@ function MainLayout() {
 
     const [date, setDate] = useState(new Date());
 
-    const childToParent = (childdata) => {
+    const dateToParent = (childdata) => {
         setDate(new Date(childdata));
     }
 
+    const [location, setLocation] = useState({
+        lat: '60.20',
+        lon: '24.90',
+        timezone: '3'
+    });
+
+    const locToParent = (newlocation) => {
+        setLocation({
+            lat: newlocation.lat,
+            lon: newlocation.lon,
+            timezone: newlocation.timezone
+        });
+    }
+
     return (
-        <MainContext.Provider value={{date,navState, setNavState, childToParent}}>
+        <MainContext.Provider value={{ date, location, navState, setNavState, dateToParent, locToParent }}>
             <Layout>
                 <Home />
             </Layout>

@@ -63,7 +63,8 @@ function Home() {
             <Container className="col"><SolarResultsPower longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc2={childFunc2} /></Container>
             <Container className="col"><SolarResultsSunSet longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc3={childFunc3} /></Container>
             <Container className="col"><SolarResultsPosition longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc4={childFunc4} /></Container>
-            <Container className="col"><MapMaker handleMap={changeLocation} /></Container></Container>
+            <Container className="col"><MapMaker handleMap={changeLocation} /></Container>
+          </Container>
           <Container className="row">
           </Container>
           <hr />

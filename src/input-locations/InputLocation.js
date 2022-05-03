@@ -1,13 +1,18 @@
 import { useState, useEffect } from "react";
 import React from 'react';
-// import '../styles/style.css';
+import { useContext } from "react";
+import MainContext from '../context/MainContext';
 
 function InputLocation(props) {
+  
+  const {locToParent} = useContext(MainContext); 
+
   const [inputs, setInputs] = useState({
     lat: '60.20',
     lon: '24.90',
     timezone: '3'
   });
+
 
   // const [map, setMap] = useState({});
 
