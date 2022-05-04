@@ -58,7 +58,7 @@ function Home() {
       <div style={{ display: 'flex', flexDirection: 'row', height: '100%' }}>
         <Container fluid>
           <Container className="row" style={{ flexWrap: "nowrap" }}>
-            <Container className="col"><InputLocation /></Container>
+            {/* <Container className="col"><InputLocation /></Container> */}
 
             <div style={{ display: navState.uviSelected ? 'block' : 'none', flexBasis: `${uviPanelFlexBasis}%`  }}>
               <Container className="col">

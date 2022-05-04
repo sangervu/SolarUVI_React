@@ -11,6 +11,7 @@ import { ReactComponent as HelpIcon } from '../images/help.svg'
 import pdf from '../documents/Instructions.pdf';
 import AppCalendar from '../input-calendar/AppCalendar';
 import MainContext from '../context/MainContext';
+import InputLocation from '../input-locations/InputLocation';
 
 const NavMenu = () => {
     const [modalComponent, setModalComponent] = useState();
@@ -73,15 +74,15 @@ const NavMenu = () => {
             <header className="header">
                 <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
                     <Nav onSelect={(selectedKey) => alert(`selected ${selectedKey}`)} fill>
-                        <NavItem onClick={() => openModal(<AppCalendar toggleModal={toggleModal}/>, 500, '90%')}>
+                        <NavItem onClick={() => openModal(<AppCalendar toggleModal={toggleModal} />, 500, '90%')}>
                             <CalendarIcon />
                             <label className="nav-title d-none d-lg-block">Calendar</label>
                         </NavItem>
+                        <NavItem onClick={() => openModal(<InputLocation toggleModal={toggleModal} />, 500, '90%')}>
+                            <CalendarIcon />
+                            <label className="nav-title d-none d-lg-block">Location & TimeZone</label>
+                        </NavItem>
                         <li className="nav-divider"></li>
-                        {/* <NavItem className="disabled">
-                            <UviIcon />
-                            <label className="nav-title d-none d-lg-block">UVI</label>
-                        </NavItem> */}
                         <NavItem onClick={uviOnClick} className={getClassName(navState.uviSelected)}>
                             <UviIcon />
                             <label className="nav-title d-none d-lg-block">UVI</label>
