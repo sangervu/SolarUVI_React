@@ -33,13 +33,6 @@ function Home() {
     timezone: '3'
   });
 
-  function changeLocation(newlocation) {
-    setLocation({
-      lat: newlocation.lat,
-      lon: newlocation.lon,
-      timezone: newlocation.timezone
-    });
-  }
   // const timeZone = useTimeZone("https://maps.googleapis.com/maps/api/timezone/json?location=60.6034810%2C23.6822510&timestamp=1331161200&key=AIzaSyC9JoYNE1TRoIwzEp-QB7-l5-eqSILgHmY");
   // const rawOffset = timeZone.rawOffset/60/60;
 
@@ -60,12 +53,12 @@ function Home() {
       <div style={{ display: 'flex', flexDirection: 'row', height: '100%' }}>
         <Container fluid>
           <Container className="row" style={{ flexWrap: "nowrap" }}>
-            <Container className="col"><InputLocation longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} /></Container>
+            <Container className="col"><InputLocation/></Container>
             <Container className="col"><SolarResultsUVI longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc1={childFunc1} /></Container>
             <Container className="col"><SolarResultsPower longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc2={childFunc2} /></Container>
             <Container className="col"><SolarResultsSunSet longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc3={childFunc3} /></Container>
             <Container className="col"><SolarResultsPosition longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc4={childFunc4} /></Container>
-            <Container className="col"><MapMaker handleMap={changeLocation} /></Container>
+            <Container className="col"><MapMaker /></Container>
           </Container>
           <Container className="row">
           </Container>

@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import { useContext } from "react";
+import MainContext from '../context/MainContext';
 
 
 const containerStyle = {
@@ -9,12 +11,22 @@ const containerStyle = {
   top: '30px'
 };
 
-const center = {
-  lat: 60.20,
-  lng: 24.9
-};
 
-function MapMaker(props) {
+
+function MapMaker() {
+
+  const { mapCenter, mapToParent } = useContext(MainContext);
+
+  const [center, setCenter] = useState({
+    lat: 60.20,
+    lng: 24.90
+  });
+
+  useEffect(() => {
+    setCenter(mapCenter)
+  }, [mapCenter]);
+
+
   const [inputs, setInputs] = useState({
     lat: '60.20',
     lon: '24.90',
@@ -22,16 +34,15 @@ function MapMaker(props) {
   });
 
   function handleChange() {
-    props.handleMap(inputs);
+    mapToParent(inputs);
   }
 
   useEffect(() => {
     handleChange()
   }, [inputs])
 
-
   return (
-    
+
     <LoadScript googleMapsApiKey="AIzaSyA16d9FJFh__vK04jU1P64vnEpPc3jenec">
       <GoogleMap
         onClick={ev => {

@@ -3,9 +3,9 @@ import React from 'react';
 import { useContext } from "react";
 import MainContext from '../context/MainContext';
 
-function InputLocation(props) {
+function InputLocation() {
   
-  const {locToParent} = useContext(MainContext); 
+  const {location, locToParent} = useContext(MainContext); 
 
   const [inputs, setInputs] = useState({
     lat: '60.20',
@@ -18,11 +18,11 @@ function InputLocation(props) {
 
   useEffect(() => {
     setInputs({
-      lat: props.latitude,
-      lon: props.longitude,
-      timezone: props.timezone
+      lat: location.lat,
+      lon: location.lon,
+      timezone: location.timezone
     })
-  }, [props.latitude, props.longitude, props.timezone])
+  }, [location.lat, location.lon, location.timzone])
 
 
   // const handleChange = (event) => {

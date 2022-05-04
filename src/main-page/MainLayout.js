@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import Home from './Home';
 import Layout from './Layout';
 import MainContext from '../context/MainContext';
@@ -24,6 +24,11 @@ function MainLayout() {
         timezone: '3'
     });
 
+    const mapCenter = {
+        lat: Number(location.lat),
+        lng: Number(location.lon)
+    };
+
     const locToParent = (newlocation) => {
         setLocation({
             lat: newlocation.lat,
@@ -32,8 +37,16 @@ function MainLayout() {
         });
     }
 
+    function mapToParent(maplocation) {
+        setLocation({
+          lat: maplocation.lat,
+          lon: maplocation.lon,
+          timezone: maplocation.timezone
+        });
+      }
+
     return (
-        <MainContext.Provider value={{ date, location, navState, setNavState, dateToParent, locToParent }}>
+        <MainContext.Provider value={{ date, location, navState, mapCenter, setNavState, dateToParent, locToParent, mapToParent }}>
             <Layout>
                 <Home />
             </Layout>
