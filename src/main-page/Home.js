@@ -15,6 +15,11 @@ function Home() {
 
   const { date, location, navState } = useContext(MainContext);
 
+  const [uviPanelFlexBasis, setUviPanelFlexBasis] = useState('25');
+  const [powerPanelFlexBasis, setPowerPanelFlexBasis] = useState('25');
+  const [sunsetPanelFlexBasis, setSunsetPanelFlexBasis] = useState('25');
+  const [positionPanelFlexBasis, setPositionPanelFlexBasis] = useState('25');
+
   const emptyContent = navState.powerSelected + navState.sunsetSelected + navState.positionSelected + navState.uviSelected === 0;
 
   const [dateState, setDate] = useState(new Date());
@@ -53,19 +58,40 @@ function Home() {
       <div style={{ display: 'flex', flexDirection: 'row', height: '100%' }}>
         <Container fluid>
           <Container className="row" style={{ flexWrap: "nowrap" }}>
-            <Container className="col"><InputLocation/></Container>
-            <Container className="col"><SolarResultsUVI longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc1={childFunc1} /></Container>
-            <Container className="col"><SolarResultsPower longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc2={childFunc2} /></Container>
-            <Container className="col"><SolarResultsSunSet longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc3={childFunc3} /></Container>
-            <Container className="col"><SolarResultsPosition longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc4={childFunc4} /></Container>
+            <Container className="col"><InputLocation /></Container>
+
+            <div style={{ display: navState.uviSelected ? 'block' : 'none', flexBasis: `${uviPanelFlexBasis}%`  }}>
+              <Container className="col">
+                <SolarResultsUVI longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc1={childFunc1} />
+              </Container>
+            </div>
+
+            <div style={{ display: navState.powerSelected ? 'block' : 'none', flexBasis: `${powerPanelFlexBasis}%` }}>
+              <Container className="col">
+                <SolarResultsPower longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc2={childFunc2} />
+              </Container>
+            </div>
+
+            <div style={{ display: navState.sunsetSelected ? 'block' : 'none' , flexBasis: `${sunsetPanelFlexBasis}%`}}>
+              <Container className="col">
+                <SolarResultsSunSet longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc3={childFunc3} />
+              </Container>
+            </div>
+
+            <div style={{ display: navState.positionSelected ? 'block' : 'none', flexBasis: `${positionPanelFlexBasis}%` }}>
+              <Container className="col">
+                <SolarResultsPosition longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc4={childFunc4} />
+              </Container>
+            </div>
+
             <Container className="col"><MapMaker /></Container>
           </Container>
           <Container className="row">
           </Container>
           <hr />
-        </Container>
-      </div>
-    </div>
+        </Container >
+      </div >
+    </div >
   );
 }
 export default Home;

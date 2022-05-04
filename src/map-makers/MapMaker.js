@@ -4,14 +4,11 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import { useContext } from "react";
 import MainContext from '../context/MainContext';
 
-
 const containerStyle = {
   width: '400px',
   height: '400px',
   top: '30px'
 };
-
-
 
 function MapMaker() {
 
@@ -25,7 +22,6 @@ function MapMaker() {
   useEffect(() => {
     setCenter(mapCenter)
   }, [mapCenter]);
-
 
   const [inputs, setInputs] = useState({
     lat: '60.20',
@@ -84,7 +80,6 @@ function MapMaker() {
 
       </GoogleMap>
     </LoadScript>
-
   )
 }
 

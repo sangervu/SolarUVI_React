@@ -4,8 +4,8 @@ import { useContext } from "react";
 import MainContext from '../context/MainContext';
 
 function InputLocation() {
-  
-  const {location, locToParent} = useContext(MainContext); 
+
+  const { location, locToParent } = useContext(MainContext);
 
   const [inputs, setInputs] = useState({
     lat: '60.20',
@@ -23,13 +23,6 @@ function InputLocation() {
       timezone: location.timezone
     })
   }, [location.lat, location.lon, location.timzone])
-
-
-  // const handleChange = (event) => {
-  //   const name = event.target.name;
-  //   const value = event.target.value;
-  //   setInputs(values => ({ ...values, [name]: value }))
-  // }
 
   const handleCheckChange = () => {
     setChecked(!checked);
@@ -76,9 +69,9 @@ function InputLocation() {
 
   return (
     <>
-     <br></br>
-     <h1 className="App-header">Input location</h1>
-      <form style={{ width: "250px"}} onSubmit={handleSubmit}>
+      <br></br>
+      <h1 className="App-header">Input location</h1>
+      <form style={{ width: "250px" }} onSubmit={handleSubmit}>
         <label className="item">Enter your latitude:
           <input
             type="number"
