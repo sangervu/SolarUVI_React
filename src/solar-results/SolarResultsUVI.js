@@ -1,8 +1,8 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import React from 'react';
 import '../styles/style.css';
 import '../styles/App.css';
-import {myFunctions} from '../calculations/myFunctions';
+import { myFunctions } from '../calculations/myFunctions';
 
 function SolarResultsUVI(props) {
 
@@ -12,7 +12,7 @@ function SolarResultsUVI(props) {
 
     useEffect(() => {
         props.childFunc1.current = update
-      },)
+    })
 
     function update() {
         setApp(myFunctions(props))
@@ -28,8 +28,8 @@ function SolarResultsUVI(props) {
         fontFamily: "Sans-Serif",
         borderRadius: "8px",
         margin: "10px"
-      };
-      const myStyle2 = {
+    };
+    const myStyle2 = {
         color: color,
         backgroundColor: "#bcb3e3",
         padding: "10px",
@@ -38,7 +38,7 @@ function SolarResultsUVI(props) {
         font: "Bold",
         borderRadius: "8px",
         margin: "10px"
-      };
+    };
 
     return (
         <div>
@@ -58,4 +58,4 @@ function SolarResultsUVI(props) {
         </div>
     )
 }
-export {SolarResultsUVI};
+export { SolarResultsUVI };

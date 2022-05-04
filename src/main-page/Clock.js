@@ -5,7 +5,7 @@ import MainContext from '../context/MainContext';
 const Clock = () => {
     const [dateFooter, setDate] = useState(new Date());
 
-    const { date } = useContext(MainContext);
+    const { date, location } = useContext(MainContext);
 
     // useEffect(() => {
     //     const timer = setTimeout(() => {
@@ -24,7 +24,13 @@ const Clock = () => {
         <div className="row h-100 font-weight-bold" style={{ fontSize: '1.2rem' }}>
             <div className="col-sm-12 my-auto">
                 <span>
-                    Laskelmissa käytetty aikavyöhyke, kellonaika ja pvm: 
+                    Lokaatio:
+                </span>
+                <span style={{ marginLeft: '1rem', marginRight: '1rem' }}>
+                    {location.lat}{' '}{location.lon}
+                </span>
+                <span>
+                    Laskelmissa käytetty aikavyöhyke, kellonaika ja pvm:
                 </span>
                 <span style={{ marginLeft: '1rem' }}>
                     {Intl.DateTimeFormat().resolvedOptions().timeZone}

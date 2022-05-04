@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, useRef, useEffect } from 'react'
-import AppCalendar from '../input-calendar/AppCalendar';
 import MapMaker from '../map-makers/MapMaker';
 import Container from 'react-bootstrap/Container';
 import InputLocation from '../input-locations/InputLocation';
@@ -14,7 +13,7 @@ import MainContext from '../context/MainContext';
 
 function Home() {
 
-  const { date, navState } = useContext(MainContext);
+  const { date, location, navState } = useContext(MainContext);
 
   const emptyContent = navState.powerSelected + navState.sunsetSelected + navState.positionSelected + navState.uviSelected === 0;
 
@@ -24,6 +23,9 @@ function Home() {
     setDate(date)
   }, [date]);
 
+  useEffect(() => {
+    setLocation(location)
+  }, [location]);
 
   const [locState, setLocation] = useState({
     lat: '60.20',
@@ -58,7 +60,7 @@ function Home() {
       <div style={{ display: 'flex', flexDirection: 'row', height: '100%' }}>
         <Container fluid>
           <Container className="row" style={{ flexWrap: "nowrap" }}>
-            <Container className="col"><InputLocation longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} handleChange={changeLocation} /></Container>
+            <Container className="col"><InputLocation longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} /></Container>
             <Container className="col"><SolarResultsUVI longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc1={childFunc1} /></Container>
             <Container className="col"><SolarResultsPower longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc2={childFunc2} /></Container>
             <Container className="col"><SolarResultsSunSet longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc3={childFunc3} /></Container>

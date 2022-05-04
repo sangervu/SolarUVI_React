@@ -13,9 +13,7 @@ function InputLocation(props) {
     timezone: '3'
   });
 
-
   // const [map, setMap] = useState({});
-
   // const timeZone = useTimeZone("https://maps.googleapis.com/maps/api/timezone/json?location=39.6034810%2C-119.6822510&timestamp=1331161200&key=AIzaSyC9JoYNE1TRoIwzEp-QB7-l5-eqSILgHmY");
 
   useEffect(() => {
@@ -27,19 +25,18 @@ function InputLocation(props) {
   }, [props.latitude, props.longitude, props.timezone])
 
 
-  const handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setInputs(values => ({ ...values, [name]: value }))
-  }
+  // const handleChange = (event) => {
+  //   const name = event.target.name;
+  //   const value = event.target.value;
+  //   setInputs(values => ({ ...values, [name]: value }))
+  // }
 
   const handleCheckChange = () => {
     setChecked(!checked);
   };
 
-
   function handlePosition() {
-    props.handleChange(inputs);
+    locToParent(inputs);
     // e.preventDefault();
   }
 
@@ -60,6 +57,7 @@ function InputLocation(props) {
       alert("Geolocation is not supported by this browser.");
     }
   };
+
   const showPosition = position => {
     //const timeZone = useTimeZone("https://maps.googleapis.com/maps/api/timezone/json?location=39.6034810%2C-119.6822510&timestamp=1331161200&key=AIzaSyC9JoYNE1TRoIwzEp-QB7-l5-eqSILgHmY");
 
@@ -76,7 +74,6 @@ function InputLocation(props) {
 
   const [checked, setChecked] = React.useState(false);
 
- 
   return (
     <>
      <br></br>
@@ -87,7 +84,7 @@ function InputLocation(props) {
             type="number"
             name="lat"
             value={inputs.lat || ""}
-            onChange={handleChange}
+            onChange={locToParent}
           />
         </label>
         <br></br>
@@ -96,7 +93,7 @@ function InputLocation(props) {
             type="number"
             name="lon"
             value={inputs.lon || ""}
-            onChange={handleChange}
+            onChange={locToParent}
           />
         </label>
         <br></br>
@@ -106,7 +103,7 @@ function InputLocation(props) {
             type="number"
             name="timezone"
             value={inputs.timezone || ""}
-            onChange={handleChange}
+            onChange={locToParent}
           />
         </label>
         <br></br>
