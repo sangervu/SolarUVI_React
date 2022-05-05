@@ -7,7 +7,7 @@ import { Button, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 function InputLocation(props) {
 
-  const { location, locToParent } = useContext(MainContext);
+  const { location, locToParent, tzSelectToParent, timezoneState } = useContext(MainContext);
 
   const [inputs, setInputs] = useState({
     lat: '60.20',
@@ -25,10 +25,6 @@ function InputLocation(props) {
       timezone: location.timezone
     })
   }, [location.lat, location.lon, location.timzone])
-
-  const handleCheckChange = () => {
-    setChecked(!checked);
-  };
 
   function handlePosition() {
     locToParent(inputs);
@@ -71,50 +67,46 @@ function InputLocation(props) {
 
   return (
     <>
-    <ModalHeader toggle={props.toggleModal}>Input location & Timezone</ModalHeader>
-    <ModalBody>
-      <form style={{ width: "250px" }} onSubmit={handleSubmit}>
-        <label className="item">Enter your latitude:
-          <input
-            type="number"
-            name="lat"
-            value={inputs.lat || ""}
-            onChange={locToParent}
-          />
-        </label>
-        <br></br>
-        <label className="item">Enter your longitude:
-          <input
-            type="number"
-            name="lon"
-            value={inputs.lon || ""}
-            onChange={locToParent}
-          />
-        </label>
-        <br></br>
+      <ModalHeader toggle={props.toggleModal}>Input location & Timezone</ModalHeader>
+      <ModalBody>
+        <form style={{ width: "250px" }} onSubmit={handleSubmit}>
+          <label className="item">Enter latitude:
+            <input
+              type="number"
+              name="lat"
+              value={inputs.lat || ""}
+              onChange={locToParent}
+            />
+          </label>
+          <br></br>
+          <label className="item">Enter longitude:
+            <input
+              type="number"
+              name="lon"
+              value={inputs.lon || ""}
+              onChange={locToParent}
+            />
+          </label>
+          <br></br>
+          <label className="item">Enter timezone:
+            <input
+              type="number"
+              name="timezone"
+              value={inputs.timezone || ""}
+              onChange={locToParent}
+            />
+          </label>
+          <br></br>
+          <button onClick={handleSubmit}>Set local coordinate and timezone</button>
+          <hr />
 
-        <label className="item">Enter your timezone:
-          <input
-            type="number"
-            name="timezone"
-            value={inputs.timezone || ""}
-            onChange={locToParent}
-          />
-        </label>
-        <br></br>
-
-        <button onClick={handleSubmit}>Set local coordinate and timezone</button>
-        <hr />
-
-        <label>
           <input
             type="checkbox"
-            checked={checked}
-            onChange={handleCheckChange}
-          />
-          &nbsp;&nbsp;Get time zone (for solar sunset and position)
-        </label>
-      </form>
+            checked={timezoneState}
+            onChange={tzSelectToParent}
+          /> <label>Get time zone </label>
+
+        </form>
       </ModalBody>
       <ModalFooter>
         <Button onClick={props.toggleModal}>Close</Button>

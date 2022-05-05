@@ -14,7 +14,13 @@ function MainLayout() {
 
     const [date, setDate] = useState(new Date());
 
-    const timezoneState = true;
+    const [tzChecked, setChecked] = React.useState(true);
+
+    const tzSelectToParent = () => {
+        setChecked(!tzChecked);
+      };
+
+    const timezoneState = tzChecked;
 
     const dateToParent = (childdata) => {
         setDate(new Date(childdata));
@@ -48,7 +54,7 @@ function MainLayout() {
       }
 
     return (
-        <MainContext.Provider value={{ date, location, navState, mapCenter, timezoneState, setNavState, dateToParent, locToParent, mapToParent }}>
+        <MainContext.Provider value={{ date, location, navState, mapCenter, timezoneState, setNavState, dateToParent, locToParent, mapToParent, tzSelectToParent }}>
             <Layout>
                 <Home />
             </Layout>
