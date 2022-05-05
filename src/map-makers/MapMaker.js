@@ -5,9 +5,9 @@ import { useContext } from "react";
 import MainContext from '../context/MainContext';
 
 const containerStyle = {
-  width: '400px',
-  height: '400px',
-  top: '30px'
+  width: '100%',
+  height: '100%',
+  top: '5px'
 };
 
 function MapMaker() {

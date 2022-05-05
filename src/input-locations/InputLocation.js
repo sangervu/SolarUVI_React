@@ -3,7 +3,9 @@ import React from 'react';
 import { useContext } from "react";
 import MainContext from '../context/MainContext';
 
-function InputLocation() {
+import { Button, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
+function InputLocation(props) {
 
   const { location, locToParent } = useContext(MainContext);
 
@@ -69,8 +71,8 @@ function InputLocation() {
 
   return (
     <>
-      <br></br>
-      <h1 className="App-header">Input location</h1>
+    <ModalHeader toggle={props.toggleModal}>Input location & Timezone</ModalHeader>
+    <ModalBody>
       <form style={{ width: "250px" }} onSubmit={handleSubmit}>
         <label className="item">Enter your latitude:
           <input
@@ -113,6 +115,10 @@ function InputLocation() {
           &nbsp;&nbsp;Get time zone (for solar sunset and position)
         </label>
       </form>
+      </ModalBody>
+      <ModalFooter>
+        <Button onClick={props.toggleModal}>Close</Button>
+      </ModalFooter>
     </>
   )
 }

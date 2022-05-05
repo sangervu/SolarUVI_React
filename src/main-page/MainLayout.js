@@ -7,12 +7,14 @@ function MainLayout() {
 
     const [navState, setNavState] = useState({
         uviSelected: true,
-        powerSelected: false,
-        sunsetSelected: false,
-        positionSelected: false,
+        powerSelected: true,
+        sunsetSelected: true,
+        positionSelected: true,
     });
 
     const [date, setDate] = useState(new Date());
+
+    const timezoneState = true;
 
     const dateToParent = (childdata) => {
         setDate(new Date(childdata));
@@ -46,7 +48,7 @@ function MainLayout() {
       }
 
     return (
-        <MainContext.Provider value={{ date, location, navState, mapCenter, setNavState, dateToParent, locToParent, mapToParent }}>
+        <MainContext.Provider value={{ date, location, navState, mapCenter, timezoneState, setNavState, dateToParent, locToParent, mapToParent }}>
             <Layout>
                 <Home />
             </Layout>

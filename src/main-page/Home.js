@@ -19,8 +19,25 @@ function Home() {
   const [powerPanelFlexBasis, setPowerPanelFlexBasis] = useState('25');
   const [sunsetPanelFlexBasis, setSunsetPanelFlexBasis] = useState('25');
   const [positionPanelFlexBasis, setPositionPanelFlexBasis] = useState('25');
+  const gutterSize = 32;
+
+  const SplitterType = {
+    Uvi: 'uvi',
+    Power: 'power',
+    SunSet: 'sunset',
+    Position: 'position'
+  }
 
   const emptyContent = navState.powerSelected + navState.sunsetSelected + navState.positionSelected + navState.uviSelected === 0;
+
+  const getGutterVisiblity = (splitterType) => {
+    if (splitterType === SplitterType.Uvi) {
+      return 'block';
+    }
+    else {
+      return 'none';
+    }
+  }
 
   const [dateState, setDate] = useState(new Date());
 
@@ -56,42 +73,24 @@ function Home() {
   return (
     <div style={{ display: emptyContent ? 'none' : 'block' }} className='home-container'>
       <div style={{ display: 'flex', flexDirection: 'row', height: '100%' }}>
-        <Container fluid>
-          <Container className="row" style={{ flexWrap: "nowrap" }}>
-            {/* <Container className="col"><InputLocation /></Container> */}
-
-            <div style={{ display: navState.uviSelected ? 'block' : 'none', flexBasis: `${uviPanelFlexBasis}%`  }}>
-              <Container className="col">
-                <SolarResultsUVI longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc1={childFunc1} />
-              </Container>
-            </div>
-
-            <div style={{ display: navState.powerSelected ? 'block' : 'none', flexBasis: `${powerPanelFlexBasis}%` }}>
-              <Container className="col">
-                <SolarResultsPower longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc2={childFunc2} />
-              </Container>
-            </div>
-
-            <div style={{ display: navState.sunsetSelected ? 'block' : 'none' , flexBasis: `${sunsetPanelFlexBasis}%`}}>
-              <Container className="col">
-                <SolarResultsSunSet longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc3={childFunc3} />
-              </Container>
-            </div>
-
-            <div style={{ display: navState.positionSelected ? 'block' : 'none', flexBasis: `${positionPanelFlexBasis}%` }}>
-              <Container className="col">
-                <SolarResultsPosition longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc4={childFunc4} />
-              </Container>
-            </div>
-
-            <Container className="col"><MapMaker /></Container>
-          </Container>
-          <Container className="row">
-          </Container>
-          <hr />
-        </Container >
+        <div style={{ display: navState.uviSelected ? 'block' : 'none', flexBasis: `${uviPanelFlexBasis}%` }}>
+          <SolarResultsUVI longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc1={childFunc1} />
+        </div>
+        <div style={{ display: navState.powerSelected ? 'block' : 'none', flexBasis: `${powerPanelFlexBasis}%` }}>
+          <SolarResultsPower longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc2={childFunc2} />
+        </div>
+        <div style={{ display: navState.sunsetSelected ? 'block' : 'none', flexBasis: `${sunsetPanelFlexBasis}%` }}>
+          <SolarResultsSunSet longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc3={childFunc3} />
+        </div>
+        <div style={{ display: navState.positionSelected ? 'block' : 'none', flexBasis: `${positionPanelFlexBasis}%` }}>
+          <SolarResultsPosition longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc4={childFunc4} />
+        </div>
+        <div style={{ display: getGutterVisiblity(SplitterType.Uvi), flexBasis: gutterSize }} className='gutter gutter-horizontal'></div >
+          <div style={{ display: 'block'}} className='map_col'>
+            <MapMaker />
+          </div>
+        </div >
       </div >
-    </div >
-  );
+      );
 }
-export default Home;
+      export default Home;
