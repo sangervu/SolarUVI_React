@@ -88,11 +88,39 @@ const MathNew = {
 
     // degrees to seconds
     degToSeconds: (degree) => {
-
         var d = Math.floor(degree);
         var m = Math.floor((degree - d) * 60);
-        return (Math.round(degree - d - m / 60) * 3600);
-    }
+        return ('0' + Math.round(degree - d - m / 60) * 3600).slice(-2);
+    },
+
+    // degrees to latitude coordinate
+    degToLatCoordi: (degree) => {
+        var suunta = "";
+        if (degree >= 0) {
+            suunta = 'N';
+        } else {
+            suunta = 'S';
+        }
+        var d = Math.floor(degree);
+        var m = Math.floor((degree - d) * 60);
+        var s = (Math.round(degree - d - m / 60) * 3600);
+        return (d.toString()+'°'+m.toString()+'\''+s.toString()+'\'\''+suunta);
+    },
+
+        // degrees to longitude coordinate
+        degToLonCoordi: (degree) => {
+            var suunta = "";
+            if (degree >= 0) {
+                suunta = 'E';
+            } else {
+                suunta = 'W';
+            }
+            var d = Math.floor(degree);
+            var m = Math.floor((degree - d) * 60);
+            var s = (Math.round(degree - d - m / 60) * 3600);
+            return (d.toString()+'°'+m.toString()+'\''+s.toString()+'\'\''+suunta);
+        }
+
 }
 
 export { MathNew };
