@@ -27,12 +27,12 @@ function AppCalendar(props) {
 
   const isNow = () => {
     if (dateStateNow.valueOf() === dateStateCalendar.valueOf()) {
-      return true
+      return true;
     }
     else {
-      return false
+      return false;
     }
-  };
+  }
 
   const isNowDate = (date) => {
     if (date.valueOf() === dateStateNow.valueOf()) {

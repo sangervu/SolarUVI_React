@@ -42,9 +42,6 @@ function SolarResultsUVI(props) {
 
     return (
         <div>
-            {/* <div>
-                <button onClick={update}>Calculate solar calculations UVI</button>
-            </div> */}
             <br></br>
             <h1 className="App-header">Solar UVI calculations</h1>
             <p className="item">{"uvIndex: "} {app.uvIndex}</p>

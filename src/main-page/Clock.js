@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useContext } from "react";
 import MainContext from '../context/MainContext';
+import { MathNew } from '../common/utils';
 
 const Clock = () => {
-    const [dateFooter, setDate] = useState(new Date());
-
-    const [dateCalc, setDateCalc] = useState(new Date());
 
     const { date, location } = useContext(MainContext);
-
+    const [dateFooter, setDate] = useState(new Date());
+    const [dateCalc, setDateCalc] = useState(new Date());
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -20,18 +19,18 @@ const Clock = () => {
     });
 
     useEffect(() => {
-       setDateCalc(date)
-     });
+        setDateCalc(date)
+    },[date]);
 
     return (
         <div className="row h-100 font-weight-bold" style={{ fontSize: '1.2rem' }}>
             <div className="col-sm-12 my-auto">
-                <span style={{ marginLeft: '1rem', marginRight: '1rem', color:'blue'}}> 
+                <span style={{ marginLeft: '1rem', marginRight: '1rem', color: 'blue' }}>
                     {dateFooter.toLocaleDateString("fi-FI")}{' '}{dateFooter.toLocaleTimeString("fi-FI")}{'   -'}
                 </span>
                 <span>Lokaatio:</span>
                 <span style={{ marginLeft: '1rem', marginRight: '1rem' }}>
-                    {location.lat}{' ; '}{location.lon}
+                    {MathNew.degToDegINT(location.lat)}{' ; '}{location.lon}
                 </span>
                 <span>
                     Laskelmissa käytetty aikavyöhyke, kellonaika ja pvm:

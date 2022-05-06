@@ -20,9 +20,6 @@ function SolarResultsSunSet(props) {
 
     return (
         <div>
-            {/* <div>
-                <button onClick={update}>Calculate solar calculations</button>
-            </div> */}
             <br></br>
             <h1 className="App-header">Solar Sunset calculations</h1>
             <p className="item">{"timeRize: "} {app.timeRize}</p>

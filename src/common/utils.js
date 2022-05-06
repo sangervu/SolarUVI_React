@@ -73,6 +73,25 @@ const MathNew = {
         while (trueDeg < -90)
             trueDeg = 180 + trueDeg;
         return trueDeg;
+    },
+
+    // degrees to degrees INT
+    degToDegINT: (degree) => {
+        return Math.floor(degree);
+    },
+
+    // degrees to minutes
+    degToMinutes: (degree) => {
+        var d = Math.floor(degree);
+        return Math.floor((degree - d) * 60);
+    },
+
+    // degrees to seconds
+    degToSeconds: (degree) => {
+
+        var d = Math.floor(degree);
+        var m = Math.floor((degree - d) * 60);
+        return (Math.round(degree - d - m / 60) * 3600);
     }
 }
 
