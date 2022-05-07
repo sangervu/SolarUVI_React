@@ -74,24 +74,58 @@ const MathNew = {
             trueDeg = 180 + trueDeg;
         return trueDeg;
     },
+    // degrees to latitude coordinate
+    degToLat: (degree) => {
+        var suunta = "";
+        if (degree >= 0) {
+            suunta = 'N';
+        } else {
+            suunta = 'S';
+            degree = -degree;
+        }
+        var d = Math.floor(degree);
 
-    // degrees to degrees INT
-    degToDegINT: (degree) => {
-        return Math.floor(degree);
+        if ((degree - d) * 60 < 10) {
+            var m = '0' + Math.floor((degree - d) * 60).toString();
+        }
+        else {
+            var m = Math.floor((degree - d) * 60).toString();
+        }
+
+        if ((degree - d - m / 60) * 3600 < 10) {
+            var s = '0' + Math.floor((degree - d - m / 60) * 3600).toString();
+        }
+        else {
+            var s = Math.floor((degree - d - m / 60) * 3600).toString();
+        }
+        return (d + '°' + m + '\'' + s + '\'\'' + suunta);
     },
 
-    // degrees to minutes
-    degToMinutes: (degree) => {
+    // degrees to longitude coordinate
+    degToLon: (degree) => {
+        var suunta = "";
+        if (degree >= 0) {
+            suunta = 'E';
+        } else {
+            suunta = 'W';
+            degree = -degree;
+        }
         var d = Math.floor(degree);
-        return Math.floor((degree - d) * 60);
-    },
 
-    // degrees to seconds
-    degToSeconds: (degree) => {
+        if ((degree - d) * 60 < 10) {
+            var m = '0' + Math.floor((degree - d) * 60).toString();
+        }
+        else {
+            var m = Math.floor((degree - d) * 60).toString();
+        }
 
-        var d = Math.floor(degree);
-        var m = Math.floor((degree - d) * 60);
-        return (Math.round(degree - d - m / 60) * 3600);
+        if ((degree - d - m / 60) * 3600 < 10) {
+            var s = '0' + Math.floor((degree - d - m / 60) * 3600).toString();
+        }
+        else {
+            var s = Math.floor((degree - d - m / 60) * 3600).toString();
+        }
+        return (d + '°' + m + '\'' + s + '\'\'' + suunta);
     }
 }
 

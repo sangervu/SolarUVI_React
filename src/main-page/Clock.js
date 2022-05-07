@@ -30,7 +30,7 @@ const Clock = () => {
                 </span>
                 <span>Lokaatio:</span>
                 <span style={{ marginLeft: '1rem', marginRight: '1rem' }}>
-                    {MathNew.degToDegINT(location.lat)}{' ; '}{location.lon}
+                    {MathNew.degToLat(location.lat)}{' ; '}{MathNew.degToLon(location.lon)}
                 </span>
                 <span>
                     Laskelmissa käytetty aikavyöhyke, kellonaika ja pvm:
