@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import React from 'react';
 import { useContext } from "react";
 import MainContext from '../context/MainContext';
-
+import 'react-calendar/dist/Calendar.css';
 import { Button, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
 
 function InputLocation(props) {
 
@@ -15,21 +16,33 @@ function InputLocation(props) {
     timezone: '3'
   });
 
-  // const [map, setMap] = useState({});
-  // const timeZone = useTimeZone("https://maps.googleapis.com/maps/api/timezone/json?location=39.6034810%2C-119.6822510&timestamp=1331161200&key=AIzaSyC9JoYNE1TRoIwzEp-QB7-l5-eqSILgHmY");
-
-  useEffect(() => {
-    setInputs({
-      lat: location.lat,
-      lon: location.lon,
-      timezone: location.timezone
-    })
-  }, [location.lat, location.lon, location.timzone])
-
-  function handlePosition() {
-    locToParent(inputs);
-    // e.preventDefault();
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs(values => ({ ...values, [name]: value }))
   }
+
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  };
+
+  // const locationToParent = () => {
+
+  // }
+
+  const showPosition = position => {
+    //const timeZone = useTimeZone("https://maps.googleapis.com/maps/api/timezone/json?location=39.6034810%2C-119.6822510&timestamp=1331161200&key=AIzaSyC9JoYNE1TRoIwzEp-QB7-l5-eqSILgHmY");
+    setInputs({
+      lat: position.coords.latitude,
+      lon: position.coords.longitude,
+      timezone: 2
+    }
+    )
+  };
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -41,33 +54,9 @@ function InputLocation(props) {
     getLocation();
   }
 
-  const getLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      alert("Geolocation is not supported by this browser.");
-    }
-  };
-
-  const showPosition = position => {
-    //const timeZone = useTimeZone("https://maps.googleapis.com/maps/api/timezone/json?location=39.6034810%2C-119.6822510&timestamp=1331161200&key=AIzaSyC9JoYNE1TRoIwzEp-QB7-l5-eqSILgHmY");
-
-    setInputs({
-      lat: position.coords.latitude,
-      lon: position.coords.longitude,
-      timezone: position.coords.timezone
-    })
-  };
-
-  useEffect(() => {
-    handlePosition()
-  }, [inputs])
-
-  const [checked, setChecked] = React.useState(false);
-
   return (
     <>
-      <ModalHeader toggle={props.toggleModal}>Input location & Timezone</ModalHeader>
+      <ModalHeader>Input location & Timezone</ModalHeader>
       <ModalBody>
         <form style={{ width: "250px" }} onSubmit={handleSubmit}>
           <label className="item">Enter latitude:
@@ -75,7 +64,7 @@ function InputLocation(props) {
               type="number"
               name="lat"
               value={inputs.lat || ""}
-              onChange={locToParent}
+              onChange={handleChange}
             />
           </label>
           <br></br>
@@ -84,7 +73,7 @@ function InputLocation(props) {
               type="number"
               name="lon"
               value={inputs.lon || ""}
-              onChange={locToParent}
+              onChange={handleChange}
             />
           </label>
           <br></br>
@@ -93,25 +82,138 @@ function InputLocation(props) {
               type="number"
               name="timezone"
               value={inputs.timezone || ""}
-              onChange={locToParent}
+              onChange={handleChange}
             />
           </label>
           <br></br>
-          <button onClick={handleSubmit}>Set local coordinate and timezone</button>
-          <hr />
 
+          <hr />
           <input
             type="checkbox"
             checked={timezoneState}
             onChange={tzSelectToParent}
           /> <label>Get time zone </label>
-
         </form>
       </ModalBody>
       <ModalFooter>
+        <Button onClick={handleSubmit}>Current location</Button>
         <Button onClick={props.toggleModal}>Close</Button>
+        <Button primary onClick={() => locToParent(inputs)}>Use location selected</Button>
       </ModalFooter>
     </>
   )
 }
+
 export default InputLocation;
+
+
+// function InputLocation(props) {
+
+//   const { location, locToParent, tzSelectToParent, timezoneState } = useContext(MainContext);
+
+//   const [inputs, setInputs] = useState({
+//     lat: '60.20',
+//     lon: '24.90',
+//     timezone: '3'
+//   });
+
+//   // const [map, setMap] = useState({});
+//   // const timeZone = useTimeZone("https://maps.googleapis.com/maps/api/timezone/json?location=39.6034810%2C-119.6822510&timestamp=1331161200&key=AIzaSyC9JoYNE1TRoIwzEp-QB7-l5-eqSILgHmY");
+
+//   useEffect(() => {
+//     setInputs({
+//       lat: location.lat,
+//       lon: location.lon,
+//       timezone: location.timezone
+//     })
+//   }, [location.lat, location.lon, location.timzone])
+
+//   function handlePosition() {
+//     locToParent(inputs);
+//     // e.preventDefault();
+//   }
+
+//   function handleSubmit(event) {
+//     event.preventDefault();
+//     setInputs({
+//       lat: '60.20',
+//       lon: '24.90',
+//       timezone: '3'
+//     });
+//     getLocation();
+//   }
+
+//   const getLocation = () => {
+//     if (navigator.geolocation) {
+//       navigator.geolocation.getCurrentPosition(showPosition);
+//     } else {
+//       alert("Geolocation is not supported by this browser.");
+//     }
+//   };
+
+//   const showPosition = position => {
+//     //const timeZone = useTimeZone("https://maps.googleapis.com/maps/api/timezone/json?location=39.6034810%2C-119.6822510&timestamp=1331161200&key=AIzaSyC9JoYNE1TRoIwzEp-QB7-l5-eqSILgHmY");
+
+//     setInputs({
+//       lat: position.coords.latitude,
+//       lon: position.coords.longitude,
+//       timezone: position.coords.timezone
+//     })
+//   };
+
+//   useEffect(() => {
+//     handlePosition()
+//   }, [inputs])
+
+//   const [checked, setChecked] = React.useState(false);
+
+//   return (
+//     <>
+//       <ModalHeader toggle={props.toggleModal}>Input location & Timezone</ModalHeader>
+//       <ModalBody>
+//         <form style={{ width: "250px" }} onSubmit={handleSubmit}>
+//           <label className="item">Enter latitude:
+//             <input
+//               type="number"
+//               name="lat"
+//               value={inputs.lat || ""}
+//               onChange={locToParent}
+//             />
+//           </label>
+//           <br></br>
+//           <label className="item">Enter longitude:
+//             <input
+//               type="number"
+//               name="lon"
+//               value={inputs.lon || ""}
+//               onChange={locToParent}
+//             />
+//           </label>
+//           <br></br>
+//           <label className="item">Enter timezone:
+//             <input
+//               type="number"
+//               name="timezone"
+//               value={inputs.timezone || ""}
+//               onChange={locToParent}
+//             />
+//           </label>
+//           <br></br>
+//           <button onClick={handleSubmit}>Set local coordinate and timezone</button>
+//           <hr />
+
+//           <input
+//             type="checkbox"
+//             checked={timezoneState}
+//             onChange={tzSelectToParent}
+//           /> <label>Get time zone </label>
+
+//         </form>
+//       </ModalBody>
+//       <ModalFooter>
+//         <Button onClick={props.toggleModal}>Close</Button>
+//       </ModalFooter>
+//     </>
+//   )
+// }
+// export default InputLocation;
