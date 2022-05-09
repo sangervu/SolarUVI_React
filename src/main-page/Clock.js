@@ -5,7 +5,8 @@ import { MathNew } from '../common/utils';
 
 const Clock = () => {
 
-    const { date, location } = useContext(MainContext);
+    const { date, location, timeZoneData } = useContext(MainContext);
+
     const [dateFooter, setDate] = useState(new Date());
     const [dateCalc, setDateCalc] = useState(new Date());
 
@@ -36,16 +37,19 @@ const Clock = () => {
                     {MathNew.degToLat(location.lat)}{' ; '}{MathNew.degToLon(location.lon)}{', '}
                 </span>
                 <span>
-                    Laskelmissa käytetty aikavyöhyke:
+                    Käytetty aikavyöhyke:
                 </span>
                 <span style={{ marginLeft: '1rem' }}>
-                    {location.timezone}
+                    {/* {location.timezone} */}
+                    {timeZoneData.rawOffset/60/60 + timeZoneData.dstOffset/60/60}
+
                 </span>
                 <span style={{ marginLeft: '1rem', marginRight: '1rem' }}>
-                    {Intl.DateTimeFormat().resolvedOptions().timeZone}{', '}
+                    {/* {Intl.DateTimeFormat().resolvedOptions().timeZone}{', '} */}
+                    {timeZoneData.timeZoneId}{', '}
                 </span>
                 <span>
-                    Laskelmissa käytetty aika:
+                    Käytetty aika:
                 </span>
                 <span style={{ marginLeft: '1rem' }}>
                     {dateCalc.toLocaleTimeString("fi-FI")}

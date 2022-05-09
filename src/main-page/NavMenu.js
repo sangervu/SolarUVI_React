@@ -21,7 +21,7 @@ const NavMenu = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [error, setError] = useState();
 
-    const { timezoneState, navState, setNavState } = useContext(MainContext);
+    const { tzChecked, navState, setNavState } = useContext(MainContext);
 
     const openModal = (component, modalWidth, modalHeigth) => {
         setModalComponent(component);
@@ -94,9 +94,9 @@ const NavMenu = () => {
                         </NavItem>
                         <li className="nav-divider"></li>
                         <NavItem onClick={sunsetOnClick} className={getClassName(navState.sunsetSelected)}>
-                            <div className={timezoneState ? 'counterContainer highlight' : 'counterContainer'}>
+                            <div className={tzChecked ? 'counterContainer highlight' : 'counterContainer'}>
                                 <SunSetIcon />
-                                {timezoneState &&
+                                {tzChecked &&
                                     <div className="counter">
                                         <span>TZ</span>
                                     </div>
@@ -105,9 +105,9 @@ const NavMenu = () => {
                             </div>
                         </NavItem>
                         <NavItem onClick={positionOnClick} className={getClassName(navState.positionSelected)}>
-                            <div className={timezoneState ? 'counterContainer highlight' : 'counterContainer'}>
+                            <div className={tzChecked ? 'counterContainer highlight' : 'counterContainer'}>
                                 <SolarPositionIcon />
-                                {timezoneState &&
+                                {tzChecked &&
                                     <div className="counter">
                                         <span>TZ</span>
                                     </div>

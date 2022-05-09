@@ -10,7 +10,7 @@ const useTimeZone = (url) => {
       setTimeZone(tz);
     };
     fetchTimeZone();
-  }, []);
+  },[url]);
 
   return timeZone;
 };

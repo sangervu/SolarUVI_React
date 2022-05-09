@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import React from 'react';
 import { useContext } from "react";
 import MainContext from '../context/MainContext';
@@ -31,13 +31,11 @@ function InputLocation(props) {
   };
 
   const showPosition = position => {
-    //const timeZone = useTimeZone("https://maps.googleapis.com/maps/api/timezone/json?location=39.6034810%2C-119.6822510&timestamp=1331161200&key=AIzaSyC9JoYNE1TRoIwzEp-QB7-l5-eqSILgHmY");
     setInputs({
       lat: position.coords.latitude,
       lon: position.coords.longitude,
       timezone: 3
-    }
-    )
+    })
   };
 
   function handleSubmit(event) {
