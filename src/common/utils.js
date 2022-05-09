@@ -77,6 +77,8 @@ const MathNew = {
     // degrees to latitude coordinate
     degToLat: (degree) => {
         var suunta = "";
+        var m, s;
+        
         if (degree >= 0) {
             suunta = 'N';
         } else {
@@ -86,17 +88,17 @@ const MathNew = {
         var d = Math.floor(degree);
 
         if ((degree - d) * 60 < 10) {
-            var m = '0' + Math.floor((degree - d) * 60).toString();
+            m = '0' + Math.floor((degree - d) * 60).toString();
         }
         else {
-            var m = Math.floor((degree - d) * 60).toString();
+            m = Math.floor((degree - d) * 60).toString();
         }
 
         if ((degree - d - m / 60) * 3600 < 10) {
-            var s = '0' + Math.floor((degree - d - m / 60) * 3600).toString();
+            s = '0' + Math.floor((degree - d - m / 60) * 3600).toString();
         }
         else {
-            var s = Math.floor((degree - d - m / 60) * 3600).toString();
+            s = Math.floor((degree - d - m / 60) * 3600).toString();
         }
         return (d + '°' + m + '\'' + s + '\'\'' + suunta);
     },
@@ -104,6 +106,7 @@ const MathNew = {
     // degrees to longitude coordinate
     degToLon: (degree) => {
         var suunta = "";
+        var m, s;
         if (degree >= 0) {
             suunta = 'E';
         } else {
@@ -113,17 +116,17 @@ const MathNew = {
         var d = Math.floor(degree);
 
         if ((degree - d) * 60 < 10) {
-            var m = '0' + Math.floor((degree - d) * 60).toString();
+            m = '0' + Math.floor((degree - d) * 60).toString();
         }
         else {
-            var m = Math.floor((degree - d) * 60).toString();
+            m = Math.floor((degree - d) * 60).toString();
         }
 
         if ((degree - d - m / 60) * 3600 < 10) {
-            var s = '0' + Math.floor((degree - d - m / 60) * 3600).toString();
+            s = '0' + Math.floor((degree - d - m / 60) * 3600).toString();
         }
         else {
-            var s = Math.floor((degree - d - m / 60) * 3600).toString();
+            s = Math.floor((degree - d - m / 60) * 3600).toString();
         }
         return (d + '°' + m + '\'' + s + '\'\'' + suunta);
     }

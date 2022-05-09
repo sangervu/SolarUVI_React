@@ -5,7 +5,6 @@ import { SolarResultsUVI } from '../solar-results/SolarResultsUVI';
 import { SolarResultsPower } from '../solar-results/SolarResultsPower';
 import { SolarResultsSunSet } from '../solar-results/SolarResultsSunSet';
 import { SolarResultsPosition } from '../solar-results/SolarResultsPosition';
-import useTimeZone from '../hooks/useTimeZones';
 import { useContext } from "react";
 import MainContext from '../context/MainContext';
 
@@ -25,8 +24,8 @@ function Home() {
   const xDividerPos = useRef(null);
   const setWidthFunction = useRef(null);
   const currentLengthRef = useRef(null);
-  const nextLengthRef = useRef(null);
-  const setNextLengthRef = useRef(null);
+  // const nextLengthRef = useRef(null);
+  // const setNextLengthRef = useRef(null);
 
   const SplitterType = {
     Uvi: 'uvi',
@@ -46,7 +45,7 @@ function Home() {
     // setNextLengthRef.current = nextSplitterData.setFunction;
   }
 
-  const emptyContent = navState.powerSelected + navState.sunsetSelected + navState.positionSelected + navState.uviSelected === 0;
+  // const emptyContent = navState.powerSelected + navState.sunsetSelected + navState.positionSelected + navState.uviSelected === 0;
 
   const getGutterVisiblity = (splitterType) => {
     if (splitterType === SplitterType.Uvi) {

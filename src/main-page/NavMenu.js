@@ -12,7 +12,6 @@ import pdf from '../documents/Instructions.pdf';
 import AppCalendar from '../input-calendar/AppCalendar';
 import MainContext from '../context/MainContext';
 import InputLocation from '../input-locations/InputLocation';
-import useTimeZone from '../hooks/useTimeZones';
 
 const NavMenu = () => {
     const [modalComponent, setModalComponent] = useState();

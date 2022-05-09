@@ -8,7 +8,7 @@ import { Button, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 function InputLocation(props) {
 
-  const { location, locToParent, tzSelectToParent, timezoneState } = useContext(MainContext);
+  const { locToParent, tzSelectToParent, timezoneState } = useContext(MainContext);
 
   const [inputs, setInputs] = useState({
     lat: '60.20',
