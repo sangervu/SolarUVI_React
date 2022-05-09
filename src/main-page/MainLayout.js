@@ -18,8 +18,8 @@ function MainLayout() {
     const [date, setDate] = useState(new Date());
 
     const [tzChecked, setChecked] = useState(true);
-    const tzSelectToParent = () => {
 
+    const tzSelectToParent = () => {
         setChecked(!tzChecked);
     };
 

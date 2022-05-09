@@ -92,6 +92,10 @@ const NavMenu = () => {
                             <label className="nav-title d-none d-lg-block">SolarPower</label>
                         </NavItem>
                         <li className="nav-divider"></li>
+                        <NavItem onClick={positionOnClick} className={getClassName(navState.positionSelected)}>
+                            <SolarPositionIcon />
+                            <label className="nav-title d-none d-lg-block">SolarPosition</label>
+                        </NavItem>
                         <NavItem onClick={sunsetOnClick} className={getClassName(navState.sunsetSelected)}>
                             <div className={tzChecked ? 'counterContainer highlight' : 'counterContainer'}>
                                 <SunSetIcon />
@@ -101,17 +105,6 @@ const NavMenu = () => {
                                     </div>
                                 }
                                 <label className="nav-title d-none d-lg-block">SunRizeSet</label>
-                            </div>
-                        </NavItem>
-                        <NavItem onClick={positionOnClick} className={getClassName(navState.positionSelected)}>
-                            <div className={tzChecked ? 'counterContainer highlight' : 'counterContainer'}>
-                                <SolarPositionIcon />
-                                {tzChecked &&
-                                    <div className="counter">
-                                        <span>TZ</span>
-                                    </div>
-                                }
-                                <label className="nav-title d-none d-lg-block">SolarPosition</label>
                             </div>
                         </NavItem>
                         <li className="nav-divider"></li>
