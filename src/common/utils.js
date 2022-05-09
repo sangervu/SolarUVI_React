@@ -74,53 +74,59 @@ const MathNew = {
             trueDeg = 180 + trueDeg;
         return trueDeg;
     },
-
-    // degrees to degrees INT
-    degToDegINT: (degree) => {
-        return Math.floor(degree);
-    },
-
-    // degrees to minutes
-    degToMinutes: (degree) => {
-        var d = Math.floor(degree);
-        return Math.floor((degree - d) * 60);
-    },
-
-    // degrees to seconds
-    degToSeconds: (degree) => {
-        var d = Math.floor(degree);
-        var m = Math.floor((degree - d) * 60);
-        return ('0' + Math.round(degree - d - m / 60) * 3600).slice(-2);
-    },
-
     // degrees to latitude coordinate
-    degToLatCoordi: (degree) => {
+    degToLat: (degree) => {
         var suunta = "";
         if (degree >= 0) {
             suunta = 'N';
         } else {
             suunta = 'S';
+            degree = -degree;
         }
         var d = Math.floor(degree);
-        var m = Math.floor((degree - d) * 60);
-        var s = (Math.round(degree - d - m / 60) * 3600);
-        return (d.toString()+'°'+m.toString()+'\''+s.toString()+'\'\''+suunta);
-    },
 
-        // degrees to longitude coordinate
-        degToLonCoordi: (degree) => {
-            var suunta = "";
-            if (degree >= 0) {
-                suunta = 'E';
-            } else {
-                suunta = 'W';
-            }
-            var d = Math.floor(degree);
-            var m = Math.floor((degree - d) * 60);
-            var s = (Math.round(degree - d - m / 60) * 3600);
-            return (d.toString()+'°'+m.toString()+'\''+s.toString()+'\'\''+suunta);
+        if ((degree - d) * 60 < 10) {
+            var m = '0' + Math.floor((degree - d) * 60).toString();
+        }
+        else {
+            var m = Math.floor((degree - d) * 60).toString();
         }
 
+        if ((degree - d - m / 60) * 3600 < 10) {
+            var s = '0' + Math.floor((degree - d - m / 60) * 3600).toString();
+        }
+        else {
+            var s = Math.floor((degree - d - m / 60) * 3600).toString();
+        }
+        return (d + '°' + m + '\'' + s + '\'\'' + suunta);
+    },
+
+    // degrees to longitude coordinate
+    degToLon: (degree) => {
+        var suunta = "";
+        if (degree >= 0) {
+            suunta = 'E';
+        } else {
+            suunta = 'W';
+            degree = -degree;
+        }
+        var d = Math.floor(degree);
+        
+        if ((degree - d) * 60 < 10) {
+            var m = '0' + Math.floor((degree - d) * 60).toString();
+        }
+        else {
+            var m = Math.floor((degree - d) * 60).toString();
+        }
+
+        if ((degree - d - m / 60) * 3600 < 10) {
+            var s = '0' + Math.floor((degree - d - m / 60) * 3600).toString();
+        }
+        else {
+            var s = Math.floor((degree - d - m / 60) * 3600).toString();
+        }
+        return (d + '°' + m + '\'' + s + '\'\'' + suunta);
+    }
 }
 
 export { MathNew };
