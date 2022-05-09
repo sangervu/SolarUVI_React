@@ -21,6 +21,7 @@ function MainLayout() {
       };
 
     const timezoneState = tzChecked;
+ 
 
     const dateToParent = (childdata) => {
         setDate(new Date(childdata));
@@ -36,13 +37,16 @@ function MainLayout() {
         lat: Number(location.lat),
         lng: Number(location.lon)
     };
+    
+    const [mapZoom, setMapZoom] = useState(10);
 
     const locToParent = (newlocation) => {
         setLocation({
             lat: newlocation.lat,
             lon: newlocation.lon,
             timezone: newlocation.timezone
-        });
+        })
+        setMapZoom(10);
     }
 
     function mapToParent(maplocation) {
@@ -50,11 +54,13 @@ function MainLayout() {
           lat: maplocation.lat,
           lon: maplocation.lon,
           timezone: maplocation.timezone
-        });
+        })
+        setMapZoom(10);
+        ;
       }
 
     return (
-        <MainContext.Provider value={{ date, location, navState, mapCenter, timezoneState, setNavState, dateToParent, locToParent, mapToParent, tzSelectToParent }}>
+        <MainContext.Provider value={{ date, location, navState, mapCenter, timezoneState, mapZoom, setNavState, dateToParent, locToParent, mapToParent, tzSelectToParent }}>
             <Layout>
                 <Home />
             </Layout>

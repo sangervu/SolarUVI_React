@@ -20,23 +20,32 @@ const Clock = () => {
 
     useEffect(() => {
         setDateCalc(date)
-    },[date]);
+    }, [date]);
 
     return (
         <div className="row h-100 font-weight-bold" style={{ fontSize: '1.2rem' }}>
             <div className="col-sm-12 my-auto">
+                <span style={{ marginLeft: '1rem', color: 'blue' }}>
+                    Aika nyt:
+                </span>
                 <span style={{ marginLeft: '1rem', marginRight: '1rem', color: 'blue' }}>
-                    {dateFooter.toLocaleDateString("fi-FI")}{' '}{dateFooter.toLocaleTimeString("fi-FI")}{'   -'}
+                    {dateFooter.toLocaleDateString("fi-FI")}{' '}{dateFooter.toLocaleTimeString("fi-FI")}
                 </span>
                 <span>Lokaatio:</span>
-                <span style={{ marginLeft: '1rem', marginRight: '1rem' }}>
-                    {MathNew.degToLat(location.lat)}{' ; '}{MathNew.degToLon(location.lon)}
+                <span style={{ marginLeft: '1rem', marginRight: '1rem' , fontWeight: 'bold'}}>
+                    {MathNew.degToLat(location.lat)}{' ; '}{MathNew.degToLon(location.lon)}{', '}
                 </span>
                 <span>
-                    Laskelmissa käytetty aikavyöhyke, kellonaika ja pvm:
+                    Laskelmissa käytetty aikavyöhyke:
                 </span>
                 <span style={{ marginLeft: '1rem' }}>
-                    {Intl.DateTimeFormat().resolvedOptions().timeZone}
+                    {location.timezone}
+                </span>
+                <span style={{ marginLeft: '1rem', marginRight: '1rem' }}>
+                    {Intl.DateTimeFormat().resolvedOptions().timeZone}{', '}
+                </span>
+                <span>
+                    Laskelmissa käytetty aika:
                 </span>
                 <span style={{ marginLeft: '1rem' }}>
                     {dateCalc.toLocaleTimeString("fi-FI")}
