@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { useContext } from "react";
 import MainContext from '../context/MainContext';
 
@@ -12,7 +12,7 @@ const containerStyle = {
 
 function MapMaker() {
 
-  const { mapCenter, mapToParent } = useContext(MainContext);
+  const { mapCenter, mapZoom, mapToParent, location } = useContext(MainContext);
 
   const [center, setCenter] = useState({
     lat: 60.20,
@@ -51,32 +51,13 @@ function MapMaker() {
         }
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={10}
+        zoom={mapZoom}
       >
-        { }
-        {
-          // locations.map(item => {
-          //   return (
-          //     <Marker key={item.name}
-          //       position={item.location}
-          //       onClick={() => onSelect(item)}
-          //     />
-          //   )
-          // })
-        }
+        {true && <Marker position={{ lat: location.lat, lng: location.lon }} />}
 
-        {
-          // selected.location &&
-          // (
-          //   <InfoWindow
-          //     position={selected.location}
-          //     clickable={true}
-          //     onCloseClick={() => setSelected({})}
-          //   >
-          //     <p>{selected.name}</p>
-          //   </InfoWindow>
-          // )
-        }
+        {}
+
+        {}
 
       </GoogleMap>
     </LoadScript>
