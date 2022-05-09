@@ -11,7 +11,9 @@ import MainContext from '../context/MainContext';
 
 function Home() {
 
-  const { date, location, navState } = useContext(MainContext);
+  const { date, location, navState, timeZoneData } = useContext(MainContext);
+
+  const timeZone = timeZoneData.rawOffset/60/60 + timeZoneData.dstOffset/60/60;
 
   const [uviPanelFlexBasis, setUviPanelFlexBasis] = useState('20');
   const [powerPanelFlexBasis, setPowerPanelFlexBasis] = useState('20');
@@ -103,16 +105,16 @@ function Home() {
     // <div style={{ display: emptyContent ? 'none' : 'block' }} className='home-container'>
     <div style={{ display: 'flex', flexDirection: 'row', height: '100%' }}>
       <div style={{ display: navState.uviSelected ? 'block' : 'none', flexBasis: `${uviPanelFlexBasis}%` }}>
-        <SolarResultsUVI longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc1={childFunc1} />
+        <SolarResultsUVI longitude={locState.lon} latitude={locState.lat} timezone={timeZone} date={dateState} childFunc1={childFunc1} />
       </div>
       <div style={{ display: navState.powerSelected ? 'block' : 'none', flexBasis: `${powerPanelFlexBasis}%` }}>
-        <SolarResultsPower longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc2={childFunc2} />
+        <SolarResultsPower longitude={locState.lon} latitude={locState.lat} timezone={timeZone} date={dateState} childFunc2={childFunc2} />
       </div>
       <div style={{ display: navState.sunsetSelected ? 'block' : 'none', flexBasis: `${sunsetPanelFlexBasis}%` }}>
-        <SolarResultsSunSet longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc3={childFunc3} />
+        <SolarResultsSunSet longitude={locState.lon} latitude={locState.lat} timezone={timeZone} date={dateState} childFunc3={childFunc3} />
       </div>
       <div style={{ display: navState.positionSelected ? 'block' : 'none', flexBasis: `${positionPanelFlexBasis}%` }}>
-        <SolarResultsPosition longitude={locState.lon} latitude={locState.lat} timezone={locState.timezone} date={dateState} childFunc4={childFunc4} />
+        <SolarResultsPosition longitude={locState.lon} latitude={locState.lat} timezone={timeZone} date={dateState} childFunc4={childFunc4} />
       </div>
       <div style={{ display: getGutterVisiblity(SplitterType.Uvi), flexBasis: gutterSize }} className='gutter gutter-horizontal' onMouseDown={(e) => onMouseDown(e, SplitterType.Map)}></div >
       <div style={{ display: 'block' }} className='map_col'>
