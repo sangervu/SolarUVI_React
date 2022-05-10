@@ -8,7 +8,7 @@ import { Button, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 function InputLocation(props) {
 
-  const { locToParent, tzSelectToParent, timezoneState } = useContext(MainContext);
+  const { locToParent, tzSelectToParent, tzChecked } = useContext(MainContext);
 
   const [inputs, setInputs] = useState({
     lat: '60.20',
@@ -84,9 +84,9 @@ function InputLocation(props) {
           <hr />
           <input
             type="checkbox"
-            checked={timezoneState}
+            checked={tzChecked}
             onChange={tzSelectToParent}
-          /> <label>Get time zone </label>
+          /> <label>Get timezone from map </label>
         </form>
       </ModalBody>
       <ModalFooter>
