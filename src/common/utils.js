@@ -78,7 +78,7 @@ const MathNew = {
     degToLat: (degree) => {
         var suunta = "";
         var m, s;
-        
+
         if (degree >= 0) {
             suunta = 'N';
         } else {
@@ -114,7 +114,7 @@ const MathNew = {
             degree = -degree;
         }
         var d = Math.floor(degree);
-        
+
         if ((degree - d) * 60 < 10) {
             m = '0' + Math.floor((degree - d) * 60).toString();
         }
@@ -136,38 +136,29 @@ const MathNew = {
             h = "--";
             m = "--";
         } else {
-            
-        var h, m;
-
-        h = Math.floor(desi);
-
-        if (h < 10) {
-            h = '0' + h;
+            var h, m;
+            h = Math.floor(desi);
+            if (h < 10) {
+                h = '0' + h;
+            }
+            if ((desi - h) * 60 < 10) {
+                m = '0' + Math.floor((desi - h) * 60).toString();
+            }
+            else {
+                m = Math.floor((desi - h) * 60).toString();
+            }
         }
-
-        if ((desi - h) * 60 < 10) {
-            m = '0' + Math.floor((desi - h) * 60).toString();
-        }
-        else {
-            m = Math.floor((desi - h) * 60).toString();
-        }
-    }
-
         return (h + ':' + m);
-        
     },
 
     nanCheck: (intcheck) => {
         var nonumber;
-
         if (isNaN(intcheck)) {
             nonumber = "N/A";
         } else {
             nonumber = intcheck;
         }
-
         return (nonumber);
-        
     }
 }
 
