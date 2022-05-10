@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useContext } from "react";
 import MainContext from '../context/MainContext';
 import { MathNew } from '../common/utils';
-import Slider from './Slider'
 
 const Clock = () => {
 

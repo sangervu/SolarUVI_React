@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import moment from 'moment'
+import Slider from '../main-page/Slider';
 
 import { useContext } from "react";
 import MainContext from '../context/MainContext';
@@ -11,7 +12,7 @@ import { Button, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 function AppCalendar(props) {
 
-  const {dateToParent} = useContext(MainContext); 
+  const { dateToParent } = useContext(MainContext);
 
   const [dateStateNow, setDateStateNow] = useState(new Date())
   const [dateStateCalendar, setDateState] = useState(new Date())
@@ -52,10 +53,12 @@ function AppCalendar(props) {
           onChange={changeDate}
         />
         {isNow() ? <p>Current selected date: is <b>{moment(dateStateCalendar).format('HH:mm - Do MMMM YYYY')}</b></p> : <p>Current selected date is <b>{moment(dateStateCalendar.setHours(12)).format('HH:mm - Do MMMM YYYY')}</b></p>}
-        {isNow() ? <p>Local Time Zone: <b>{'['}{dateStateCalendar.getTimezoneOffset()/60}{']'}{' '}{Intl.DateTimeFormat().resolvedOptions().timeZone}</b></p> : <p>Selected Time Zone <b>{moment(dateStateCalendar.setHours(12)).format()}</b></p>}
+        <Slider />
+        {isNow() ? <p>Local Time Zone: <b>{'['}{dateStateCalendar.getTimezoneOffset() / 60}{']'}{' '}{Intl.DateTimeFormat().resolvedOptions().timeZone}</b></p> : <p>Selected Time Zone <b>{moment(dateStateCalendar.setHours(12)).format()}</b></p>}
 
       </ModalBody>
       <ModalFooter>
+
         <Button onClick={handleSubmit}>Current date</Button>
         <Button onClick={props.toggleModal}>Close</Button>
         <Button primary onClick={() => dateToParent(moment(isNowDate(dateStateCalendar)).format())}>Use date selected</Button>
