@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import React from 'react';
 import { useContext } from "react";
 import MainContext from '../context/MainContext';
@@ -8,7 +8,7 @@ import { Button, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 function InputLocation(props) {
 
-  const { location, locToParent, tzSelectToParent, timezoneState } = useContext(MainContext);
+  const { locToParent, tzSelectToParent, tzChecked } = useContext(MainContext);
 
   const [inputs, setInputs] = useState({
     lat: '60.20',
@@ -31,13 +31,11 @@ function InputLocation(props) {
   };
 
   const showPosition = position => {
-    //const timeZone = useTimeZone("https://maps.googleapis.com/maps/api/timezone/json?location=39.6034810%2C-119.6822510&timestamp=1331161200&key=AIzaSyC9JoYNE1TRoIwzEp-QB7-l5-eqSILgHmY");
     setInputs({
       lat: position.coords.latitude,
       lon: position.coords.longitude,
       timezone: 3
-    }
-    )
+    })
   };
 
   function handleSubmit(event) {
@@ -86,9 +84,9 @@ function InputLocation(props) {
           <hr />
           <input
             type="checkbox"
-            checked={timezoneState}
+            checked={tzChecked}
             onChange={tzSelectToParent}
-          /> <label>Get time zone </label>
+          /> <label>Get timezone from map </label>
         </form>
       </ModalBody>
       <ModalFooter>

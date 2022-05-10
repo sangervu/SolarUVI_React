@@ -12,7 +12,6 @@ import pdf from '../documents/Instructions.pdf';
 import AppCalendar from '../input-calendar/AppCalendar';
 import MainContext from '../context/MainContext';
 import InputLocation from '../input-locations/InputLocation';
-import useTimeZone from '../hooks/useTimeZones';
 
 const NavMenu = () => {
     const [modalComponent, setModalComponent] = useState();
@@ -21,7 +20,7 @@ const NavMenu = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [error, setError] = useState();
 
-    const { timezoneState, navState, setNavState } = useContext(MainContext);
+    const { tzChecked, navState, setNavState } = useContext(MainContext);
 
     const openModal = (component, modalWidth, modalHeigth) => {
         setModalComponent(component);
@@ -93,26 +92,19 @@ const NavMenu = () => {
                             <label className="nav-title d-none d-lg-block">SolarPower</label>
                         </NavItem>
                         <li className="nav-divider"></li>
+                        <NavItem onClick={positionOnClick} className={getClassName(navState.positionSelected)}>
+                            <SolarPositionIcon />
+                            <label className="nav-title d-none d-lg-block">SolarPosition</label>
+                        </NavItem>
                         <NavItem onClick={sunsetOnClick} className={getClassName(navState.sunsetSelected)}>
-                            <div className={timezoneState ? 'counterContainer highlight' : 'counterContainer'}>
+                            <div className={tzChecked ? 'counterContainer highlight' : 'counterContainer'}>
                                 <SunSetIcon />
-                                {timezoneState &&
+                                {tzChecked &&
                                     <div className="counter">
                                         <span>TZ</span>
                                     </div>
                                 }
                                 <label className="nav-title d-none d-lg-block">SunRizeSet</label>
-                            </div>
-                        </NavItem>
-                        <NavItem onClick={positionOnClick} className={getClassName(navState.positionSelected)}>
-                            <div className={timezoneState ? 'counterContainer highlight' : 'counterContainer'}>
-                                <SolarPositionIcon />
-                                {timezoneState &&
-                                    <div className="counter">
-                                        <span>TZ</span>
-                                    </div>
-                                }
-                                <label className="nav-title d-none d-lg-block">SolarPosition</label>
                             </div>
                         </NavItem>
                         <li className="nav-divider"></li>

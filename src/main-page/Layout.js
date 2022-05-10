@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import { Col, Row } from 'reactstrap';
 import NavMenu from './NavMenu';
 import Clock from './Clock.js';
-import { useState } from 'react'
 
 const Layout = props => {
 

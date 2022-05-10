@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Home from './Home';
 import Layout from './Layout';
 import MainContext from '../context/MainContext';
+import useTimeZone from '../hooks/useTimeZones';
 
 function MainLayout() {
 
@@ -12,16 +13,15 @@ function MainLayout() {
         positionSelected: true,
     });
 
+    const [timeZoneData, setTimeZoneData] = useState({});
+
     const [date, setDate] = useState(new Date());
 
-    const [tzChecked, setChecked] = React.useState(true);
+    const [tzChecked, setChecked] = useState(true);
 
     const tzSelectToParent = () => {
         setChecked(!tzChecked);
-      };
-
-    const timezoneState = tzChecked;
- 
+    };
 
     const dateToParent = (childdata) => {
         setDate(new Date(childdata));
@@ -33,11 +33,26 @@ function MainLayout() {
         timezone: '3'
     });
 
+    const latitude = Number(location.lat).toFixed(7);
+    const longitude = Number(location.lon).toFixed(7);
+    const key = "AIzaSyC9JoYNE1TRoIwzEp-QB7-l5-eqSILgHmY";
+
+    //Time Zone request API: https://developers.google.com/maps/documentation/timezone/requests-timezone?hl=en#requests
+    // "https://maps.googleapis.com/maps/api/timezone/json?location=39.6034810%2C-119.6822510&timestamp=1331161200&key=AIzaSyC9JoYNE1TRoIwzEp-QB7-l5-eqSILgHmY"
+
+    const urlString = "https://maps.googleapis.com/maps/api/timezone/json?location=" + latitude + "%2C" + longitude + "&timestamp=" + Math.floor(date.valueOf() / 1000) + "&key=" + key;
+    const tzData = useTimeZone(urlString);
+
+    useEffect(() => {
+        tzChecked && setTimeZoneData(tzData)
+    }, );
+
+
     const mapCenter = {
         lat: Number(location.lat),
         lng: Number(location.lon)
     };
-    
+
     const [mapZoom, setMapZoom] = useState(10);
 
     const locToParent = (newlocation) => {
@@ -51,16 +66,16 @@ function MainLayout() {
 
     function mapToParent(maplocation) {
         setLocation({
-          lat: maplocation.lat,
-          lon: maplocation.lon,
-          timezone: maplocation.timezone
+            lat: maplocation.lat,
+            lon: maplocation.lon,
+            timezone: maplocation.timezone
         })
         setMapZoom(10);
         ;
-      }
+    }
 
     return (
-        <MainContext.Provider value={{ date, location, navState, mapCenter, timezoneState, mapZoom, setNavState, dateToParent, locToParent, mapToParent, tzSelectToParent }}>
+        <MainContext.Provider value={{ date, location, navState, mapCenter, tzChecked, mapZoom, timeZoneData, setNavState, dateToParent, locToParent, mapToParent, tzSelectToParent }}>
             <Layout>
                 <Home />
             </Layout>
