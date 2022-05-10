@@ -41,8 +41,7 @@ const Clock = () => {
                 </span>
                 <span style={{ marginLeft: '1rem' }}>
                     {/* {location.timezone} */}
-                    {timeZoneData.rawOffset/60/60 + timeZoneData.dstOffset/60/60}
-
+                    {MathNew.nanCheck(timeZoneData.rawOffset/60/60 + timeZoneData.dstOffset/60/60)}
                 </span>
                 <span style={{ marginLeft: '1rem', marginRight: '1rem' }}>
                     {/* {Intl.DateTimeFormat().resolvedOptions().timeZone}{', '} */}
