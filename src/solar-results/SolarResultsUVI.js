@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import React from 'react';
 import '../styles/style.css';
 import '../styles/App.css';
-import { myFunctions } from '../calculations/myFunctions';
+import { myFunctions } from '../calculations/myFunctions'; 
+import { MathNew } from '../common/utils';
 
 function SolarResultsUVI(props) {
 
@@ -45,7 +46,7 @@ function SolarResultsUVI(props) {
             <br></br>
             <h1 className="App-header">Solar UVI calculations</h1>
             <p className="item">{"uvIndex: "} {app.uvIndex}</p>
-            <p className="item">{"uvIndexEnd: "} {app.uvIndexEnd}</p>
+            <p className="item">{"uvIndexEnd: "} {MathNew.desimalToTime(app.uvIndexEnd)}</p>
             <p className="item">{"uvIndexMax: "} {app.uvIndexMax}</p>
             <p className="item">{"uvIndexMaxAnnual: "} {app.uvIndexMaxAnnual}</p>
             <p className="item">{"uvIndexOverThree: "} {app.uvIndexOverThree}</p>

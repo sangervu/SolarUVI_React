@@ -114,7 +114,7 @@ const MathNew = {
             degree = -degree;
         }
         var d = Math.floor(degree);
-
+        
         if ((degree - d) * 60 < 10) {
             m = '0' + Math.floor((degree - d) * 60).toString();
         }
@@ -129,6 +129,45 @@ const MathNew = {
             s = Math.floor((degree - d - m / 60) * 3600).toString();
         }
         return (d + '°' + m + '\'' + s + '\'\'' + suunta);
+    },
+
+    desimalToTime: (desi) => {
+        if (isNaN(desi)) {
+            h = "--";
+            m = "--";
+        } else {
+            
+        var h, m;
+
+        h = Math.floor(desi);
+
+        if (h < 10) {
+            h = '0' + h;
+        }
+
+        if ((desi - h) * 60 < 10) {
+            m = '0' + Math.floor((desi - h) * 60).toString();
+        }
+        else {
+            m = Math.floor((desi - h) * 60).toString();
+        }
+    }
+
+        return (h + ':' + m);
+        
+    },
+
+    nanCheck: (intcheck) => {
+        var nonumber;
+
+        if (isNaN(intcheck)) {
+            nonumber = "N/A";
+        } else {
+            nonumber = intcheck;
+        }
+
+        return (nonumber);
+        
     }
 }
 
