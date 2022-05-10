@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useContext } from "react";
 import MainContext from '../context/MainContext';
 import { MathNew } from '../common/utils';
+import Slider from './Slider'
 
 const Clock = () => {
 
@@ -33,7 +34,7 @@ const Clock = () => {
                     {dateFooter.toLocaleDateString("fi-FI")}{' '}{dateFooter.toLocaleTimeString("fi-FI")}
                 </span>
                 <span>Lokaatio:</span>
-                <span style={{ marginLeft: '1rem', marginRight: '1rem' , fontWeight: 'bold'}}>
+                <span style={{ marginLeft: '1rem', marginRight: '1rem', fontWeight: 'bold' }}>
                     {MathNew.degToLat(location.lat)}{' ; '}{MathNew.degToLon(location.lon)}{', '}
                 </span>
                 <span>
@@ -41,8 +42,7 @@ const Clock = () => {
                 </span>
                 <span style={{ marginLeft: '1rem' }}>
                     {/* {location.timezone} */}
-                    {timeZoneData.rawOffset/60/60 + timeZoneData.dstOffset/60/60}
-
+                    {timeZoneData.rawOffset / 60 / 60 + timeZoneData.dstOffset / 60 / 60}
                 </span>
                 <span style={{ marginLeft: '1rem', marginRight: '1rem' }}>
                     {/* {Intl.DateTimeFormat().resolvedOptions().timeZone}{', '} */}
