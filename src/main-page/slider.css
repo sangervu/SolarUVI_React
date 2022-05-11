@@ -7,7 +7,7 @@
   .example-thumb {
     cursor: pointer;
     position: absolute;
-    z-index: 100;
+    z-index: 24;
     background: #ffffff;
     border: 5px solid #3774ff;
     border-radius: 100%;
