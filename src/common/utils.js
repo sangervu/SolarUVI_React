@@ -132,11 +132,11 @@ const MathNew = {
     },
 
     desimalToTime: (desi) => {
+        var h,m;
         if (isNaN(desi)) {
             h = "--";
             m = "--";
         } else {
-            var h, m;
             h = Math.floor(desi);
             if (h < 10) {
                 h = '0' + h;
